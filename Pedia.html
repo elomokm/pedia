@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Pédia — Carnet de santé pédiatrique augmenté</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root{
+    /* Parent palette */
+    --mint:#A8D5BA;
+    --mint-deep:#6FB58A;
+    --mint-bg:#E8F3EC;
+    --cream:#F5EFE6;
+    --cream-deep:#EADFCB;
+    --coral:#F4A28C;
+    --coral-deep:#E07A5F;
+    --warm-ink:#2D3B36;
+    --warm-ink-soft:#5A6B63;
+
+    /* Medical palette */
+    --med-bg:#F7F9FC;
+    --med-card:#FFFFFF;
+    --med-ink:#0F172A;
+    --med-ink-soft:#475569;
+    --med-ink-faint:#94A3B8;
+    --med-border:#E2E8F0;
+    --med-blue:#1E3A8A;
+    --med-blue-soft:#DBE5F7;
+    --med-accent:#3B82F6;
+
+    /* Shared */
+    --ivory:#FBF8F3;
+  }
+  html,body{background:var(--ivory); color:#171717; font-family:'Inter',system-ui,sans-serif;}
+  .font-display{font-family:'Fraunces',serif; font-optical-sizing:auto; letter-spacing:-0.015em;}
+  .font-mono{font-family:'JetBrains Mono',monospace;}
+  .screen{display:none;}
+  .screen.active{display:block;}
+
+  /* Parent bg */
+  .parent-stage{
+    background:
+      radial-gradient(1200px 600px at 15% 0%, #EADFCB33 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, #A8D5BA33 0%, transparent 55%),
+      linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 100%);
+  }
+  /* Medical bg */
+  .med-stage{background:var(--med-bg);}
+
+  /* Phone frame */
+  .phone{
+    width: 390px; height: 820px;
+    border-radius: 52px;
+    background:#0b0b0b;
+    padding: 12px;
+    box-shadow:
+      0 50px 80px -30px rgba(45,59,54,.35),
+      0 20px 30px -15px rgba(45,59,54,.25),
+      inset 0 0 0 2px #1a1a1a;
+    position: relative;
+  }
+  .phone::before{
+    content:""; position:absolute; top:22px; left:50%; transform:translateX(-50%);
+    width:110px; height:30px; border-radius:999px; background:#000; z-index:30;
+  }
+  .phone-screen{
+    width:100%; height:100%; border-radius:42px; overflow:hidden; position:relative;
+    background:#FBF8F3;
+  }
+  .phone-scroll{height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch;}
+  .phone-scroll::-webkit-scrollbar{display:none;}
+
+  /* Waveform animation */
+  @keyframes waveform {
+    0%,100% { transform: scaleY(0.2); }
+    50%     { transform: scaleY(1); }
+  }
+  .wave-bar{
+    display:inline-block; width:4px; margin:0 2px; border-radius:3px;
+    background: linear-gradient(180deg, var(--coral-deep), var(--coral));
+    transform-origin: center;
+    animation: waveform 1.1s ease-in-out infinite;
+  }
+
+  /* Pulse ring for mic */
+  @keyframes pulseRing{
+    0%{ transform:scale(1); opacity:.55;}
+    100%{ transform:scale(2.2); opacity:0;}
+  }
+  .pulse-ring{ animation: pulseRing 2.4s ease-out infinite;}
+  .pulse-ring.delay{ animation-delay: 1.2s;}
+
+  /* Typewriter blinking cursor */
+  @keyframes blink { 50%{opacity:0;} }
+  .caret{ display:inline-block; width:2px; height:1.05em; background:#2D3B36; vertical-align:-3px; margin-left:2px; animation: blink 1s steps(1) infinite;}
+
+  /* Number counter animation */
+  @keyframes rise {
+    from { transform: translateY(14px); opacity:0;}
+    to   { transform: translateY(0); opacity:1;}
+  }
+  .rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both;}
+
+  /* Side nav */
+  .side-nav{
+    position:fixed; left:0; top:0; bottom:0; width:280px;
+    background:#ffffffEE; backdrop-filter: blur(12px);
+    border-right:1px solid #e7e1d5; z-index:50;
+    transform:translateX(-100%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+  }
+  .side-nav.open{transform:translateX(0);}
+  .nav-scrim{
+    position:fixed; inset:0; background:#0c0c0c55; z-index:40; opacity:0; pointer-events:none;
+    transition: opacity .3s;
+  }
+  .nav-scrim.open{opacity:1; pointer-events:auto;}
+
+  /* Subtle grid background for placeholders */
+  .stripe-placeholder{
+    background-image: repeating-linear-gradient(135deg, #00000008 0 8px, transparent 8px 16px);
+  }
+
+  /* Med table rows */
+  .med-row:hover{ background:#F1F5FB;}
+
+  /* Sparkline */
+  .sparkline-path{ stroke-dasharray: 320; stroke-dashoffset: 320; animation: draw 2s ease-out forwards .3s;}
+  @keyframes draw { to { stroke-dashoffset: 0;}}
+
+  /* Timeline dot pop */
+  @keyframes dotPop{ from{transform:scale(0); opacity:0;} to{transform:scale(1); opacity:1;}}
+  .tl-dot{ animation: dotPop .5s cubic-bezier(.2,.7,.2,1) both; }
+
+  /* Chip */
+  .chip{
+    display:inline-flex; align-items:center; gap:6px; padding:6px 11px;
+    border-radius:999px; font-size:12px; font-weight:500;
+    background:#ffffff; border:1px solid #e7e1d5; color:#2D3B36;
+  }
+
+  /* Bottom nav */
+  .screen-controls{
+    position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+    z-index:55; display:flex; align-items:center; gap:10px;
+    background:#0F172AEE; color:#fff; padding:8px 10px; border-radius:999px;
+    box-shadow: 0 20px 40px -15px rgba(15,23,42,.5);
+  }
+  .screen-controls button{
+    background:transparent; color:#fff; border:0; padding:8px 12px; border-radius:999px;
+    font-size:13px; display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+  }
+  .screen-controls button:hover{ background:#ffffff15;}
+  .screen-controls .count{
+    font-family:'JetBrains Mono', monospace; font-size:11px; padding:0 10px; opacity:.85;
+    border-left:1px solid #ffffff22; border-right:1px solid #ffffff22;
+  }
+
+  /* Accent gradient for landing */
+  .hero-blob{
+    background: radial-gradient(closest-side, #F4A28C55, transparent 70%);
+    filter: blur(2px);
+  }
+
+  /* Card lift */
+  .lift{ transition: transform .25s ease, box-shadow .25s ease;}
+  .lift:hover{ transform: translateY(-3px); box-shadow: 0 20px 40px -25px rgba(15,23,42,.25);}
+
+  /* Dotted divider */
+  .dotted{
+    background-image: radial-gradient(#0f172a33 1px, transparent 1.2px);
+    background-size: 6px 6px; background-repeat: repeat-x; background-position: 0 50%;
+    height: 2px;
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ============== SIDE NAV ============== -->
+<div class="nav-scrim" id="navScrim" onclick="toggleNav(false)"></div>
+<aside class="side-nav" id="sideNav">
+  <div class="px-6 pt-7 pb-5 border-b border-[#e7e1d5] flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10"/><path d="M12 11v6"/><path d="M9 14h6"/></svg>
+      </div>
+      <div class="font-display text-xl font-semibold">Pédia</div>
+    </div>
+    <button onclick="toggleNav(false)" class="w-8 h-8 rounded-full hover:bg-[#f5efe6] flex items-center justify-center">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="p-4 flex flex-col gap-1" id="sideNavItems">
+    <!-- populated by JS -->
+  </nav>
+  <div class="absolute bottom-0 left-0 right-0 p-5 border-t border-[#e7e1d5] text-[11px] text-[#5A6B63] font-mono">
+    Démo hackathon — avril 2026<br/>
+    Cas patient : Louis M., 2 ans
+  </div>
+</aside>
+
+<!-- ============== SCREEN 1 — LANDING ============== -->
+<section class="screen active" id="screen-1">
+  <div class="parent-stage min-h-screen relative overflow-hidden">
+    <!-- decorative blobs -->
+    <div class="hero-blob absolute -top-20 -left-24 w-[520px] h-[520px]"></div>
+    <div class="hero-blob absolute bottom-0 right-0 w-[520px] h-[520px]" style="background: radial-gradient(closest-side, #A8D5BA66, transparent 70%);"></div>
+
+    <!-- top bar -->
+    <header class="relative z-10 flex items-center justify-between px-10 py-7 max-w-[1400px] mx-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center shadow-lg shadow-[#6FB58A33]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10"/><path d="M12 11v6"/><path d="M9 14h6"/></svg>
+        </div>
+        <div>
+          <div class="font-display text-2xl font-semibold text-[#2D3B36]">Pédia</div>
+          <div class="text-[11px] font-mono text-[#5A6B63] -mt-0.5">carnet pédiatrique augmenté</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-[#2D3B36]">
+        <a class="hover:text-[#E07A5F]">Le produit</a>
+        <a class="hover:text-[#E07A5F]">Pour les pédiatres</a>
+        <a class="hover:text-[#E07A5F]">Sécurité & données</a>
+        <a class="hover:text-[#E07A5F]">À propos</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button class="text-sm text-[#2D3B36] hover:text-[#E07A5F]">Se connecter</button>
+        <button onclick="goTo(2)" class="bg-[#2D3B36] text-white text-sm px-4 py-2.5 rounded-full hover:bg-[#1a2621] transition">Essayer</button>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <main class="relative z-10 max-w-[1400px] mx-auto px-10 pt-10 pb-24 grid grid-cols-12 gap-10 items-center">
+      <div class="col-span-12 lg:col-span-7">
+        <div class="chip mb-6" style="background:#ffffffAA;">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#E07A5F]"></span>
+          Bêta fermée · cabinets pilotes en France
+        </div>
+        <h1 class="font-display text-[72px] leading-[1.02] font-medium text-[#2D3B36] tracking-tight">
+          Pour que plus rien<br/>ne se perde<br/>
+          <span class="italic text-[#6FB58A]">entre deux consultations.</span>
+        </h1>
+        <p class="mt-7 text-lg text-[#5A6B63] max-w-xl leading-relaxed">
+          Les parents capturent au quotidien — la voix, le texte, une photo. Pédia structure ces observations en langage clinique. Le pédiatre reçoit, avant la consultation, une synthèse exploitable en <span class="text-[#2D3B36] font-medium">2 minutes</span>.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <button onclick="goTo(2)" class="group bg-[#E07A5F] hover:bg-[#c96447] text-white rounded-full px-6 py-3.5 text-[15px] font-medium flex items-center gap-2 shadow-lg shadow-[#E07A5F44] transition">
+            Voir la démo
+            <svg class="transition group-hover:translate-x-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <button class="border border-[#2D3B36]/15 bg-white/60 hover:bg-white text-[#2D3B36] rounded-full px-6 py-3.5 text-[15px] font-medium flex items-center gap-2 transition">
+            Parler à l'équipe
+          </button>
+          <div class="text-xs font-mono text-[#5A6B63] ml-2">· hébergé HDS · RGPD · chiffré bout-en-bout</div>
+        </div>
+
+        <!-- micro logos -->
+        <div class="mt-12">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63] mb-3">Soutenus par</div>
+          <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-[#2D3B36]/50 font-display text-lg italic">
+            <span>Hôpital Necker</span>
+            <span class="text-xs">◆</span>
+            <span>La Pédiatrie Libérale</span>
+            <span class="text-xs">◆</span>
+            <span>CHU Lyon Sud</span>
+            <span class="text-xs">◆</span>
+            <span>Réseau Dyspra</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- mock preview -->
+      <div class="col-span-12 lg:col-span-5">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-[#A8D5BA33] to-[#F4A28C33] rounded-[40px] blur-xl"></div>
+          <div class="relative bg-white rounded-[32px] p-6 shadow-2xl shadow-[#2D3B3622] border border-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#FCD5B5] to-[#F4A28C] flex items-center justify-center text-white font-display text-sm font-semibold">L</div>
+                <div>
+                  <div class="text-[13px] font-semibold text-[#2D3B36]">Louis, 2 ans</div>
+                  <div class="text-[10px] font-mono text-[#5A6B63]">journal · 4 mois</div>
+                </div>
+              </div>
+              <div class="text-[10px] font-mono text-[#5A6B63] flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A] animate-pulse"></span>synchronisé
+              </div>
+            </div>
+            <div class="rounded-2xl bg-[#F5EFE6] p-4 flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#E07A5F] to-[#F4A28C] flex items-center justify-center text-white">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="text-[12px] font-medium text-[#2D3B36]">Ajouter une observation vocale</div>
+                <div class="text-[10px] text-[#5A6B63]">tenez pour parler · 30s max</div>
+              </div>
+              <div class="flex items-end gap-0.5 h-6">
+                <span class="wave-bar h-full" style="animation-delay:-.1s"></span>
+                <span class="wave-bar h-full" style="animation-delay:-.3s"></span>
+                <span class="wave-bar h-full" style="animation-delay:-.5s"></span>
+                <span class="wave-bar h-full" style="animation-delay:-.2s"></span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#f0eadd]">
+                <div class="w-8 h-8 rounded-lg bg-[#E8F3EC] flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-[11px] font-mono text-[#5A6B63]">Hier soir</div>
+                  <div class="text-[12px] text-[#2D3B36] line-clamp-1">Louis a encore eu des difficultés à s'endormir…</div>
+                </div>
+              </div>
+              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#f0eadd]">
+                <div class="w-8 h-8 rounded-lg bg-[#FCE8E0] flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E07A5F" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-[11px] font-mono text-[#5A6B63]">Il y a 2 jours</div>
+                  <div class="text-[12px] text-[#2D3B36] line-clamp-1">Aucun mot nouveau cette semaine…</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- two-column value -->
+    <section class="relative z-10 max-w-[1400px] mx-auto px-10 pb-20 grid md:grid-cols-2 gap-6">
+      <!-- parents -->
+      <div class="bg-white/80 backdrop-blur rounded-[28px] p-8 border border-white shadow-sm">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-[#E8F3EC] flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="font-display text-2xl text-[#2D3B36] font-medium">Pour les parents</div>
+            <div class="text-xs font-mono text-[#5A6B63]">capturer, sans charge mentale</div>
+          </div>
+        </div>
+        <ul class="space-y-4 text-[#2D3B36]">
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">30 secondes de voix</b> suffisent. Pédia transcrit et structure pour vous.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">Un journal vivant</b> entre deux rendez-vous — plus besoin de tout se rappeler le jour J.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">Partagé en un clic</b> avec votre pédiatre, jamais avec des tiers.</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- pediatres -->
+      <div class="bg-white/80 backdrop-blur rounded-[28px] p-8 border border-white shadow-sm">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-[#DBE5F7] flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M12 14v4"/><path d="M10 16h4"/></svg>
+          </div>
+          <div>
+            <div class="font-display text-2xl text-[#2D3B36] font-medium">Pour les pédiatres</div>
+            <div class="text-xs font-mono text-[#5A6B63]">une anamnèse prête, avant la consultation</div>
+          </div>
+        </div>
+        <ul class="space-y-4 text-[#2D3B36]">
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#1E3A8A] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">Synthèse clinique</b> en langage médical : anamnèse, fréquences, tendances.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#1E3A8A] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">Signaux faibles</b> mis en lumière — sans jamais poser de diagnostic à votre place.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-[#1E3A8A] flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b class="font-medium">Export PDF</b> prêt à intégrer au dossier patient, en 2 minutes de lecture.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="relative z-10 max-w-[1400px] mx-auto px-10 pb-10 flex items-center justify-between text-[11px] font-mono text-[#5A6B63]">
+      <div>© 2026 Pédia · 42 rue Daubenton, Paris 5e</div>
+      <div class="flex items-center gap-5">
+        <a class="hover:text-[#E07A5F]">Mentions légales</a>
+        <a class="hover:text-[#E07A5F]">RGPD</a>
+        <a class="hover:text-[#E07A5F]">Contact</a>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- ============== SCREEN 2 — PARENT HOME ============== -->
+<section class="screen" id="screen-2">
+  <div class="parent-stage min-h-screen py-14 px-10 grid place-items-center">
+    <div class="grid grid-cols-12 gap-10 max-w-[1400px] w-full items-center">
+      <!-- context copy -->
+      <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
+        <div class="chip mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A]"></span>
+          Écran 02 · vue parent · mobile
+        </div>
+        <h2 class="font-display text-5xl text-[#2D3B36] leading-tight">Le journal de Louis,<br/><span class="italic text-[#6FB58A]">tenu ensemble.</span></h2>
+        <p class="mt-5 text-[#5A6B63] leading-relaxed">
+          À l'accueil, un seul geste compte : <b class="text-[#2D3B36]">parler</b>. Le reste — transcription, structuration, horodatage — est pris en charge par Pédia.
+        </p>
+        <div class="mt-8 space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">01</div>
+            <div class="text-sm text-[#2D3B36]"><b>Un bouton vocal dominant</b> — capture rapide, même à 3h du matin.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">02</div>
+            <div class="text-sm text-[#2D3B36]"><b>Un fil chronologique</b> mixant voix, texte, photo — pour se relire sans effort.</div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">03</div>
+            <div class="text-sm text-[#2D3B36]"><b>Un rappel de consultation</b> toujours visible, en bas de pile.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- phone -->
+      <div class="col-span-12 lg:col-span-5 order-1 lg:order-2 flex justify-center">
+        <div class="phone">
+          <div class="phone-screen">
+            <!-- status bar -->
+            <div class="absolute top-0 inset-x-0 px-8 pt-3 flex items-center justify-between text-[12px] font-semibold text-[#2D3B36] z-20">
+              <span>9:41</span>
+              <span class="flex items-center gap-1.5">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="6" width="2" height="4" rx="0.5"/><rect x="4" y="4" width="2" height="6" rx="0.5"/><rect x="8" y="2" width="2" height="8" rx="0.5"/><rect x="12" y="0" width="2" height="10" rx="0.5"/></svg>
+                <svg width="14" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></svg>
+                <svg width="24" height="11" viewBox="0 0 24 11" fill="none"><rect x="1" y="1" width="20" height="9" rx="2" stroke="currentColor" stroke-width="1"/><rect x="22" y="4" width="1.5" height="3" rx="0.5" fill="currentColor"/><rect x="2.5" y="2.5" width="15" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+
+            <div class="phone-scroll pt-14 pb-6 px-5">
+              <!-- header -->
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex items-center gap-3">
+                  <div class="relative w-14 h-14">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#FCD5B5] to-[#F4A28C] flex items-center justify-center text-white font-display text-xl font-semibold shadow-md shadow-[#F4A28C44]">L</div>
+                    <div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#6FB58A] border-2 border-white flex items-center justify-center"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  </div>
+                  <div>
+                    <div class="font-display text-xl font-semibold text-[#2D3B36]">Louis, 2 ans</div>
+                    <div class="text-[11px] font-mono text-[#5A6B63]">né le 12 avril 2024 · 14,2 kg</div>
+                  </div>
+                </div>
+                <button class="w-10 h-10 rounded-full bg-white border border-[#f0eadd] flex items-center justify-center">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+              </div>
+
+              <!-- greeting -->
+              <div class="mt-5 text-[15px] text-[#5A6B63]">
+                Bonjour Camille,<br/>
+                <span class="text-[#2D3B36]">comment s'est passée la soirée de Louis ?</span>
+              </div>
+
+              <!-- PRIMARY CTA -->
+              <button class="mt-5 w-full rounded-[28px] p-5 text-left relative overflow-hidden" style="background: linear-gradient(135deg, #E07A5F 0%, #F4A28C 100%);">
+                <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/10"></div>
+                <div class="absolute -right-1 -top-6 w-20 h-20 rounded-full bg-white/10"></div>
+                <div class="relative flex items-center gap-4">
+                  <div class="w-16 h-16 rounded-full bg-white/25 flex items-center justify-center backdrop-blur">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-display text-[22px] text-white font-semibold leading-tight">Ajouter une observation vocale</div>
+                    <div class="text-[12px] text-white/90 mt-0.5">Tenez pour parler · 30s max</div>
+                  </div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+              </button>
+
+              <!-- secondary CTA row -->
+              <div class="mt-3 grid grid-cols-2 gap-3">
+                <button class="rounded-2xl bg-white border border-[#f0eadd] p-4 text-left">
+                  <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center mb-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+                  </div>
+                  <div class="text-[13px] font-semibold text-[#2D3B36]">Ajouter en texte</div>
+                  <div class="text-[11px] text-[#5A6B63]">quand on ne peut pas parler</div>
+                </button>
+                <button class="rounded-2xl bg-white border border-[#f0eadd] p-4 text-left">
+                  <div class="w-9 h-9 rounded-xl bg-[#FCE8E0] flex items-center justify-center mb-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E07A5F" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                  </div>
+                  <div class="text-[13px] font-semibold text-[#2D3B36]">Ajouter une photo</div>
+                  <div class="text-[11px] text-[#5A6B63]">éruption, posture, geste</div>
+                </button>
+              </div>
+
+              <!-- journal header -->
+              <div class="flex items-center justify-between mt-7 mb-3">
+                <div class="font-display text-lg font-semibold text-[#2D3B36]">Cette semaine</div>
+                <div class="text-[11px] font-mono text-[#5A6B63]">12 entrées</div>
+              </div>
+
+              <!-- journal entries -->
+              <div class="space-y-2.5">
+                <!-- entry -->
+                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#FCE8E0] flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A5F" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between">
+                        <div class="text-[11px] font-mono text-[#5A6B63]">Hier soir · 22:14 · 47s</div>
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#E07A5F] bg-[#FCE8E0] px-1.5 py-0.5 rounded">urgent</span>
+                      </div>
+                      <div class="text-[13px] text-[#2D3B36] mt-1 leading-relaxed">« Louis a encore eu des difficultés à s'endormir, il s'est tapé la tête contre le lit pendant un bon quart d'heure… »</div>
+                      <div class="flex gap-1.5 mt-2">
+                        <span class="text-[10px] font-mono text-[#6FB58A] bg-[#E8F3EC] px-2 py-0.5 rounded-full">coucher</span>
+                        <span class="text-[10px] font-mono text-[#6FB58A] bg-[#E8F3EC] px-2 py-0.5 rounded-full">crise</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[11px] font-mono text-[#5A6B63]">Il y a 2 jours · 18:02</div>
+                      <div class="text-[13px] text-[#2D3B36] mt-1 leading-relaxed">Aucun mot nouveau cette semaine. « Papa » et « ba » toujours, plus de « lo » pour l'eau depuis lundi.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#FCE8E0] flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A5F" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[11px] font-mono text-[#5A6B63]">Il y a 3 jours · 09:20</div>
+                      <div class="text-[13px] text-[#2D3B36] mt-1 leading-relaxed">Photo — posture en pointe sur le canapé, main droite qui bat l'air, ~20 secondes.</div>
+                      <div class="mt-2 h-20 rounded-lg stripe-placeholder bg-[#FBF5EE] flex items-center justify-center text-[10px] font-mono text-[#5A6B63]">IMG_0384.HEIC · 4.2 Mo</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#FCE8E0] flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A5F" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[11px] font-mono text-[#5A6B63]">Dimanche · 19:48 · 1m 12s</div>
+                      <div class="text-[13px] text-[#2D3B36] mt-1 leading-relaxed">« Il a ri tout seul trois fois pendant le dîner, sans que rien ne se passe autour. C'est un rire un peu mécanique… »</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                  <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[11px] font-mono text-[#5A6B63]">Samedi · 15:30</div>
+                      <div class="text-[13px] text-[#2D3B36] mt-1 leading-relaxed">Crèche — Nadia dit qu'il ne joue toujours pas avec les autres, il aligne les petites voitures.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- consultation card -->
+              <div class="mt-5 rounded-2xl p-4 border border-[#d8cbb6]" style="background: linear-gradient(135deg, #F5EFE6 0%, #EADFCB 100%);">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-2xl bg-white flex flex-col items-center justify-center shadow-sm">
+                    <div class="text-[9px] font-mono text-[#E07A5F] font-semibold">AVR</div>
+                    <div class="text-[18px] font-display font-semibold text-[#2D3B36] leading-none">15</div>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-[11px] font-mono text-[#5A6B63]">Prochaine consultation · dans 3 jours</div>
+                    <div class="text-[13px] font-semibold text-[#2D3B36]">Dr. Claire Lemoine</div>
+                    <div class="text-[11px] text-[#5A6B63]">Cabinet Daubenton · 14h30</div>
+                  </div>
+                  <button class="text-[11px] font-mono text-[#E07A5F] bg-white px-3 py-1.5 rounded-full border border-[#e7d9c0]">Préparer</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- tab bar -->
+            <div class="absolute bottom-0 inset-x-0 h-20 bg-white/85 backdrop-blur border-t border-[#f0eadd] flex items-center justify-around px-4 pb-4 pt-2">
+              <button class="flex flex-col items-center gap-0.5 text-[#2D3B36]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a1 1 0 0 1-1-1v-6h-4v6a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V9z"/></svg><span class="text-[9px] font-mono">journal</span></button>
+              <button class="flex flex-col items-center gap-0.5 text-[#5A6B63]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg><span class="text-[9px] font-mono">suivi</span></button>
+              <div class="w-14 h-14 -mt-8 rounded-full bg-[#2D3B36] flex items-center justify-center shadow-lg shadow-[#2D3B3633] border-4 border-white"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 5v14"/><path d="M5 12h14"/></svg></div>
+              <button class="flex flex-col items-center gap-0.5 text-[#5A6B63]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg><span class="text-[9px] font-mono">agenda</span></button>
+              <button class="flex flex-col items-center gap-0.5 text-[#5A6B63]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 22v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg><span class="text-[9px] font-mono">Louis</span></button>
+            </div>
+
+            <!-- home indicator -->
+            <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 rounded-full bg-[#2D3B36]/60"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stats column -->
+      <div class="col-span-12 lg:col-span-3 order-3">
+        <div class="bg-white/80 backdrop-blur rounded-2xl border border-white p-5 mb-4">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63] mb-1">Activité de Camille</div>
+          <div class="flex items-baseline gap-2">
+            <div class="font-display text-5xl font-medium text-[#2D3B36]">47</div>
+            <div class="text-sm text-[#5A6B63]">entrées en 4 mois</div>
+          </div>
+          <div class="dotted my-4"></div>
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div>
+              <div class="font-display text-xl text-[#2D3B36]">63%</div>
+              <div class="text-[10px] font-mono text-[#5A6B63]">voix</div>
+            </div>
+            <div>
+              <div class="font-display text-xl text-[#2D3B36]">27%</div>
+              <div class="text-[10px] font-mono text-[#5A6B63]">texte</div>
+            </div>
+            <div>
+              <div class="font-display text-xl text-[#2D3B36]">10%</div>
+              <div class="text-[10px] font-mono text-[#5A6B63]">photo</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#2D3B36] rounded-2xl p-5 text-white">
+          <div class="font-display text-lg leading-snug">« En 4 mois, je n'ai plus jamais perdu une observation au moment crucial. »</div>
+          <div class="mt-4 flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-[#F4A28C] flex items-center justify-center text-[10px] font-display">C</div>
+            <div class="text-[11px] font-mono text-white/70">Camille, maman de Louis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SCREEN 3 — VOICE CAPTURE ============== -->
+<section class="screen" id="screen-3">
+  <div class="parent-stage min-h-screen py-14 px-10 grid place-items-center">
+    <div class="grid grid-cols-12 gap-10 max-w-[1400px] w-full items-center">
+      <!-- context -->
+      <div class="col-span-12 lg:col-span-4">
+        <div class="chip mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#E07A5F]"></span>
+          Écran 03 · saisie vocale en cours
+        </div>
+        <h2 class="font-display text-5xl text-[#2D3B36] leading-tight">La magie opère<br/><span class="italic text-[#E07A5F]">en coulisses.</span></h2>
+        <p class="mt-5 text-[#5A6B63] leading-relaxed">
+          Pendant que Camille parle, Pédia écoute, transcrit, et extrait les entités cliniques pertinentes. Rien n'est stocké avant confirmation.
+        </p>
+
+        <div class="mt-8 space-y-3">
+          <div class="bg-white/80 rounded-2xl p-4 border border-white">
+            <div class="flex items-center justify-between mb-2">
+              <div class="text-xs font-mono text-[#5A6B63] uppercase tracking-wider">Traitement en temps réel</div>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A] animate-pulse"></span>
+            </div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#2D3B36]"><span class="w-5 h-5 rounded-full bg-[#E8F3EC] flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>transcription Whisper FR</div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#2D3B36] mt-1.5"><span class="w-5 h-5 rounded-full bg-[#E8F3EC] flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>extraction d'entités cliniques (NER)</div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-[#e7e1d5] flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-[#E07A5F] animate-pulse"></span></span>structuration vers terminologie HPO</div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-dashed border-[#e7e1d5]"></span>anonymisation & chiffrement</div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-[11px] font-mono text-[#5A6B63]">
+          latence médiane : 420 ms · modèle : pedia-ner-fr v0.8
+        </div>
+      </div>
+
+      <!-- phone -->
+      <div class="col-span-12 lg:col-span-5 flex justify-center">
+        <div class="phone">
+          <div class="phone-screen" style="background: linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 100%);">
+            <!-- status bar -->
+            <div class="absolute top-0 inset-x-0 px-8 pt-3 flex items-center justify-between text-[12px] font-semibold text-[#2D3B36] z-20">
+              <span>22:14</span>
+              <span class="flex items-center gap-1.5">
+                <span class="flex items-center gap-0.5 text-[10px] font-mono text-[#E07A5F]"><span class="w-1.5 h-1.5 rounded-full bg-[#E07A5F] animate-pulse"></span>REC</span>
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="6" width="2" height="4" rx="0.5"/><rect x="4" y="4" width="2" height="6" rx="0.5"/><rect x="8" y="2" width="2" height="8" rx="0.5"/><rect x="12" y="0" width="2" height="10" rx="0.5"/></svg>
+                <svg width="24" height="11" viewBox="0 0 24 11" fill="none"><rect x="1" y="1" width="20" height="9" rx="2" stroke="currentColor" stroke-width="1"/><rect x="22" y="4" width="1.5" height="3" rx="0.5" fill="currentColor"/><rect x="2.5" y="2.5" width="12" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+
+            <div class="phone-scroll pt-12 pb-6 px-5">
+              <!-- top bar -->
+              <div class="flex items-center justify-between">
+                <button class="w-10 h-10 rounded-full bg-white border border-[#f0eadd] flex items-center justify-center">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="text-center">
+                  <div class="font-display text-lg text-[#2D3B36] font-semibold">Observation · Louis</div>
+                  <div class="text-[10px] font-mono text-[#E07A5F]">enregistrement en cours</div>
+                </div>
+                <div class="w-10"></div>
+              </div>
+
+              <!-- mic visual -->
+              <div class="mt-6 flex flex-col items-center relative">
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div class="w-44 h-44 rounded-full bg-[#F4A28C44] pulse-ring absolute"></div>
+                  <div class="w-44 h-44 rounded-full bg-[#F4A28C44] pulse-ring delay absolute"></div>
+                </div>
+                <div class="w-28 h-28 rounded-full bg-gradient-to-br from-[#E07A5F] to-[#F4A28C] shadow-2xl shadow-[#E07A5F55] flex items-center justify-center relative">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+                </div>
+                <!-- waveform -->
+                <div class="mt-6 flex items-end h-14 gap-[2px]">
+                  <span class="wave-bar" style="height:40%; animation-delay:-.05s"></span>
+                  <span class="wave-bar" style="height:70%; animation-delay:-.25s"></span>
+                  <span class="wave-bar" style="height:95%; animation-delay:-.45s"></span>
+                  <span class="wave-bar" style="height:55%; animation-delay:-.15s"></span>
+                  <span class="wave-bar" style="height:80%; animation-delay:-.35s"></span>
+                  <span class="wave-bar" style="height:30%; animation-delay:-.55s"></span>
+                  <span class="wave-bar" style="height:60%; animation-delay:-.10s"></span>
+                  <span class="wave-bar" style="height:90%; animation-delay:-.40s"></span>
+                  <span class="wave-bar" style="height:50%; animation-delay:-.20s"></span>
+                  <span class="wave-bar" style="height:75%; animation-delay:-.30s"></span>
+                  <span class="wave-bar" style="height:35%; animation-delay:-.60s"></span>
+                  <span class="wave-bar" style="height:65%; animation-delay:-.15s"></span>
+                  <span class="wave-bar" style="height:85%; animation-delay:-.45s"></span>
+                  <span class="wave-bar" style="height:45%; animation-delay:-.25s"></span>
+                  <span class="wave-bar" style="height:70%; animation-delay:-.05s"></span>
+                  <span class="wave-bar" style="height:55%; animation-delay:-.35s"></span>
+                  <span class="wave-bar" style="height:90%; animation-delay:-.50s"></span>
+                  <span class="wave-bar" style="height:40%; animation-delay:-.10s"></span>
+                  <span class="wave-bar" style="height:60%; animation-delay:-.40s"></span>
+                  <span class="wave-bar" style="height:80%; animation-delay:-.20s"></span>
+                </div>
+                <div class="mt-2 font-mono text-[13px] text-[#2D3B36]" id="recTimer">00:47</div>
+              </div>
+
+              <!-- live transcript -->
+              <div class="mt-6 bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">Transcription en direct</div>
+                  <span class="text-[9px] font-mono text-[#6FB58A] bg-[#E8F3EC] px-1.5 py-0.5 rounded">FR · 98%</span>
+                </div>
+                <p class="text-[13px] text-[#2D3B36] leading-relaxed">
+                  « Louis a fait une crise ce soir au coucher, la <span class="bg-[#FCE8E0] rounded px-1">troisième cette semaine</span>. Il se <span class="bg-[#FCE8E0] rounded px-1">tape la tête contre le lit</span>, ça dure environ <span class="bg-[#FCE8E0] rounded px-1">15 minutes</span>, impossible à consoler. Après il finit par s'endormir d'un coup. Je ne sais plus quoi faire...<span class="caret"></span> »
+                </p>
+              </div>
+
+              <!-- Pedia detected -->
+              <div class="mt-4 rounded-2xl p-4 relative overflow-hidden" style="background: linear-gradient(135deg, #E8F3EC 0%, #F5EFE6 100%); border:1px solid #cde4d3;">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M9.5 2A6.5 6.5 0 1 1 3 8.5"/><path d="M14 8l-6 6"/><path d="m10 10 4 4"/><circle cx="12" cy="12" r="1.5" fill="#fff"/></svg>
+                    </div>
+                    <div class="font-display text-[15px] text-[#2D3B36] font-semibold">Pédia a détecté</div>
+                  </div>
+                  <span class="text-[9px] font-mono text-[#5A6B63]">auto · modifiable</span>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white rounded-full px-3 py-1.5 text-[11px] text-[#2D3B36] border border-[#cde4d3] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A]"></span>crise au coucher</span>
+                  <span class="bg-white rounded-full px-3 py-1.5 text-[11px] text-[#2D3B36] border border-[#cde4d3] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A]"></span>fréquence : 3<sup>ème</sup>/semaine</span>
+                  <span class="bg-white rounded-full px-3 py-1.5 text-[11px] text-[#2D3B36] border border-[#cde4d3] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#E07A5F]"></span>comportement auto-agressif</span>
+                  <span class="bg-white rounded-full px-3 py-1.5 text-[11px] text-[#2D3B36] border border-[#cde4d3] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A]"></span>durée : ~15 min</span>
+                  <span class="bg-white rounded-full px-3 py-1.5 text-[11px] text-[#2D3B36] border border-[#cde4d3] flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A]"></span>endormissement brutal</span>
+                </div>
+                <div class="mt-3 text-[10px] font-mono text-[#5A6B63] border-t border-[#cde4d3] pt-2">
+                  Codifié : <span class="text-[#2D3B36]">HP:0031353</span> (self-injurious behavior) · <span class="text-[#2D3B36]">HP:0002360</span> (sleep disturbance)
+                </div>
+              </div>
+
+              <!-- action bar -->
+              <div class="mt-5 grid grid-cols-2 gap-3">
+                <button class="rounded-2xl border-2 border-[#2D3B36]/15 bg-white py-3.5 text-[14px] font-semibold text-[#2D3B36] flex items-center justify-center gap-2">
+                  <span class="w-3 h-3 bg-[#2D3B36] rounded-sm"></span> Stopper
+                </button>
+                <button class="rounded-2xl bg-[#2D3B36] py-3.5 text-[14px] font-semibold text-white flex items-center justify-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  Enregistrer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right side insights -->
+      <div class="col-span-12 lg:col-span-3 space-y-3">
+        <div class="bg-white/80 rounded-2xl border border-white p-5">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63] mb-2">Extraction en direct</div>
+          <div class="space-y-2 text-sm text-[#2D3B36]">
+            <div class="flex items-center justify-between"><span>Entités détectées</span><b class="font-mono">5</b></div>
+            <div class="flex items-center justify-between"><span>Codes HPO</span><b class="font-mono">2</b></div>
+            <div class="flex items-center justify-between"><span>Confiance globale</span><b class="font-mono text-[#6FB58A]">92%</b></div>
+          </div>
+        </div>
+
+        <div class="bg-[#2D3B36] rounded-2xl p-5 text-white">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-white/60 mb-2">Promesse produit</div>
+          <div class="font-display text-lg leading-snug">Parler à Pédia comme on parlerait à un·e proche. Sortir une anamnèse médicale.</div>
+        </div>
+
+        <div class="bg-white/80 rounded-2xl border border-white p-5">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63] mb-2">Confidentialité</div>
+          <div class="text-[12px] text-[#2D3B36] leading-relaxed">
+            L'audio est supprimé après transcription. Les données sont chiffrées côté appareil et stockées en France (HDS).
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SCREEN 4 — DOCTOR SYNTHESIS ============== -->
+<section class="screen" id="screen-4">
+  <div class="med-stage min-h-screen">
+    <!-- top bar -->
+    <header class="bg-white border-b border-[#E2E8F0]">
+      <div class="max-w-[1600px] mx-auto px-8 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10"/></svg>
+            </div>
+            <div class="font-display text-lg font-semibold text-[#0F172A]">Pédia <span class="font-mono text-[10px] font-normal text-[#94A3B8] ml-1">pro</span></div>
+          </div>
+          <nav class="flex items-center gap-1 text-[13px] text-[#475569]">
+            <a class="px-3 py-1.5 rounded-md bg-[#DBE5F7] text-[#1E3A8A] font-semibold">Patients</a>
+            <a class="px-3 py-1.5 rounded-md hover:bg-[#F1F5FB]">Agenda</a>
+            <a class="px-3 py-1.5 rounded-md hover:bg-[#F1F5FB]">Correspondance</a>
+            <a class="px-3 py-1.5 rounded-md hover:bg-[#F1F5FB]">Paramètres</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <input class="w-72 bg-[#F7F9FC] border border-[#E2E8F0] rounded-md text-[13px] pl-9 pr-3 py-2 focus:outline-none focus:border-[#3B82F6]" placeholder="Rechercher un patient, un symptôme…">
+            <svg class="absolute left-2.5 top-2.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-semibold">CL</div>
+            <div class="text-[12px] leading-tight">
+              <div class="font-semibold text-[#0F172A]">Dr. Claire Lemoine</div>
+              <div class="text-[10px] font-mono text-[#94A3B8]">pédiatre · RPPS 10003418927</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- breadcrumb -->
+      <div class="max-w-[1600px] mx-auto px-8 py-3 flex items-center justify-between border-t border-[#F1F5FB]">
+        <div class="flex items-center gap-2 text-[12px] text-[#475569]">
+          <a class="hover:text-[#1E3A8A]">Patients</a>
+          <span class="text-[#CBD5E1]">/</span>
+          <a class="hover:text-[#1E3A8A]">Louis M.</a>
+          <span class="text-[#CBD5E1]">/</span>
+          <span class="text-[#0F172A] font-semibold">Synthèse pré-consultation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="text-[12px] px-3 py-1.5 rounded-md border border-[#E2E8F0] hover:bg-[#F7F9FC] flex items-center gap-1.5 text-[#475569]">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9"/><path d="M16 8h5V3"/><path d="m21 3-8 8"/></svg>
+            Historique complet
+          </button>
+          <button class="text-[12px] px-3 py-1.5 rounded-md border border-[#E2E8F0] hover:bg-[#F7F9FC] flex items-center gap-1.5 text-[#475569]">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><path d="M12 2v13"/></svg>
+            Partager au CAMSP
+          </button>
+          <button class="text-[12px] px-3 py-1.5 rounded-md bg-[#1E3A8A] hover:bg-[#162b66] text-white flex items-center gap-1.5 font-medium">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+            Exporter en PDF
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-[1600px] mx-auto px-8 py-6">
+      <!-- Patient banner -->
+      <div class="bg-white rounded-xl border border-[#E2E8F0] p-5 flex items-center gap-5">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FCD5B5] to-[#F4A28C] flex items-center justify-center text-white font-display text-2xl font-semibold">L</div>
+        <div class="flex-1">
+          <div class="flex items-center gap-3">
+            <h1 class="font-display text-2xl font-semibold text-[#0F172A]">Louis M.</h1>
+            <span class="text-[11px] font-mono text-[#475569] bg-[#F1F5FB] px-2 py-0.5 rounded">♂ 2 ans · né le 12/04/2024</span>
+            <span class="text-[11px] font-mono text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded border border-[#FDE68A]">suivi : 24 mois</span>
+          </div>
+          <div class="text-[13px] text-[#475569] mt-1">Consultation prévue · <b class="text-[#0F172A]">15 avril 2026 · 14h30</b> · motif rapporté : « crises de coucher répétées, retard de langage »</div>
+        </div>
+        <div class="flex items-stretch gap-6 text-center border-l border-[#F1F5FB] pl-6">
+          <div>
+            <div class="text-[10px] font-mono uppercase text-[#94A3B8]">observations</div>
+            <div class="font-display text-3xl text-[#0F172A]">47</div>
+            <div class="text-[10px] font-mono text-[#475569]">4 mois</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-mono uppercase text-[#94A3B8]">signaux</div>
+            <div class="font-display text-3xl text-[#B45309]">5</div>
+            <div class="text-[10px] font-mono text-[#475569]">à explorer</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-mono uppercase text-[#94A3B8]">lecture</div>
+            <div class="font-display text-3xl text-[#1E3A8A]">2 min</div>
+            <div class="text-[10px] font-mono text-[#475569]">estimée</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main grid -->
+      <div class="grid grid-cols-12 gap-5 mt-5">
+        <!-- BLOCK 1: narrative summary -->
+        <section class="col-span-12 lg:col-span-7 bg-white rounded-xl border border-[#E2E8F0]">
+          <div class="px-5 py-3.5 border-b border-[#F1F5FB] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded bg-[#DBE5F7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg></div>
+              <h2 class="font-semibold text-[14px] text-[#0F172A]">Résumé narratif · anamnèse parentale</h2>
+            </div>
+            <div class="flex items-center gap-2 text-[10px] font-mono text-[#94A3B8]">
+              <span>généré le 14/04 · 18:02</span>
+              <span class="text-[#E2E8F0]">·</span>
+              <button class="text-[#1E3A8A] hover:underline">réviser</button>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 text-[14px] leading-[1.75] text-[#0F172A]">
+            <p>
+              <b>Sur le plan langagier</b> — depuis la dernière consultation (novembre 2025), la mère rapporte un <span class="bg-[#FEF3C7] px-0.5">ralentissement du développement</span> : aucun mot nouveau acquis en 4 mois. Le stock lexical reste limité à « papa », « ba », occasionnellement « lo » (eau). Absence de pointage proto-déclaratif rapportée à plusieurs reprises. Pas de phrases à deux mots.
+            </p>
+            <p>
+              <b>Sur le plan moteur</b> — acquisition de la marche à 17 mois (limite basse). <span class="bg-[#FEF3C7] px-0.5">Stéréotypies manuelles</span> quotidiennes (battements d'air en extension), décrites depuis au moins 6 semaines. Posture en pointe observée à plusieurs reprises, durée brève. Pas de chute ni de régression motrice rapportée.
+            </p>
+            <p>
+              <b>Sur le plan comportemental et relationnel</b> — la mère décrit des <span class="bg-[#FEF3C7] px-0.5">rires spontanés non contextualisés</span> plusieurs fois par jour. Intérêt marqué pour les alignements d'objets (petites voitures). Faible engagement social en collectivité (crèche, rapport éducatrice). Pas de jeu symbolique observé. Bonne recherche du contact avec les parents en un-à-un.
+            </p>
+            <p>
+              <b>Sommeil et endormissement</b> — dégradation progressive depuis 6 semaines. <span class="bg-[#FEF3C7] px-0.5">Crises au coucher</span> 3 à 4 fois par semaine, avec comportement auto-agressif (coups de tête contre le lit) d'une durée moyenne de 15 minutes, résolution brutale par endormissement. Absence de facteurs déclenchants identifiables par la mère. Pas d'accident diurne, pas de parasomnie typique.
+            </p>
+          </div>
+          <div class="px-5 py-3 border-t border-[#F1F5FB] bg-[#F7F9FC] rounded-b-xl flex items-center gap-4 text-[11px] font-mono text-[#475569]">
+            <span><b class="text-[#0F172A]">Sources :</b> 47 entrées parent · 31 vocales · 4 mois</span>
+            <span class="text-[#E2E8F0]">·</span>
+            <span>Confiance NER : <b class="text-[#0F172A]">92%</b></span>
+            <span class="text-[#E2E8F0]">·</span>
+            <span>3 incohérences signalées à relire</span>
+          </div>
+        </section>
+
+        <!-- BLOCK 2: timeline -->
+        <section class="col-span-12 lg:col-span-5 bg-white rounded-xl border border-[#E2E8F0]">
+          <div class="px-5 py-3.5 border-b border-[#F1F5FB] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded bg-[#DBE5F7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2"><path d="M3 12h18"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg></div>
+              <h2 class="font-semibold text-[14px] text-[#0F172A]">Timeline · 4 derniers mois</h2>
+            </div>
+            <div class="flex items-center gap-1 text-[10px] font-mono">
+              <span class="px-1.5 py-0.5 rounded bg-[#F1F5FB] text-[#475569]">4M</span>
+              <span class="px-1.5 py-0.5 rounded text-[#475569]">6M</span>
+              <span class="px-1.5 py-0.5 rounded text-[#475569]">12M</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <!-- axis -->
+            <div class="relative h-[220px]">
+              <!-- 3 lanes -->
+              <div class="absolute inset-x-0 top-8 flex items-center">
+                <div class="text-[9px] font-mono text-[#94A3B8] w-20 shrink-0 text-right pr-2">observations</div>
+                <div class="flex-1 h-[1px] bg-[#E2E8F0] relative">
+                  <!-- density gradient -->
+                  <div class="absolute inset-0 -top-2 -bottom-2 bg-gradient-to-r from-[#DBE5F733] via-[#DBE5F7] to-[#A3B8E6]"></div>
+                </div>
+              </div>
+              <div class="absolute inset-x-0 top-20 flex items-center">
+                <div class="text-[9px] font-mono text-[#94A3B8] w-20 shrink-0 text-right pr-2">épisodes</div>
+                <div class="flex-1 relative h-6">
+                  <div class="absolute top-1/2 -translate-y-1/2 w-full h-[1px] bg-[#F1F5FB]"></div>
+                  <!-- episode dots -->
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#F4A28C] border-2 border-white" style="left:8%; animation-delay:.1s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#F4A28C] border-2 border-white" style="left:22%; animation-delay:.2s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#E07A5F] border-2 border-white" style="left:38%; animation-delay:.3s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#F4A28C] border-2 border-white" style="left:52%; animation-delay:.4s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#E07A5F] border-2 border-white" style="left:65%; animation-delay:.5s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#E07A5F] border-2 border-white" style="left:78%; animation-delay:.6s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#E07A5F] border-2 border-white" style="left:86%; animation-delay:.7s"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#B91C1C] border-2 border-white ring-2 ring-[#FEE2E2]" style="left:96%; animation-delay:.8s"></div>
+                </div>
+              </div>
+              <div class="absolute inset-x-0 top-32 flex items-center">
+                <div class="text-[9px] font-mono text-[#94A3B8] w-20 shrink-0 text-right pr-2">consultations</div>
+                <div class="flex-1 relative h-6">
+                  <div class="absolute top-1/2 -translate-y-1/2 w-full h-[1px] bg-[#F1F5FB]"></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#1E3A8A] border-2 border-white flex items-center justify-center" style="left:2%"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <div class="tl-dot absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-[#1E3A8A]" style="left:99%"></div>
+                </div>
+              </div>
+
+              <!-- month labels -->
+              <div class="absolute inset-x-0 top-44 pl-20 flex justify-between text-[10px] font-mono text-[#94A3B8]">
+                <span>Déc. 25</span><span>Janv. 26</span><span>Févr.</span><span>Mars</span><span>Avril</span>
+              </div>
+
+              <!-- callout -->
+              <div class="absolute top-[168px] right-0 text-[9px] font-mono text-[#B91C1C] text-right">
+                <span class="inline-block bg-[#FEE2E2] px-1.5 py-0.5 rounded border border-[#FECACA]">↑ escalade sur 6 sem.</span>
+              </div>
+            </div>
+            <!-- legend -->
+            <div class="mt-3 grid grid-cols-2 gap-x-3 gap-y-2 text-[11px] text-[#475569] border-t border-[#F1F5FB] pt-3">
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#F4A28C]"></span>épisode modéré (&lt; 10 min)</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#E07A5F]"></span>épisode prolongé</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#B91C1C]"></span>épisode intense · &gt; 15 min</div>
+              <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#1E3A8A]"></span>consultation pédiatrique</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOCK 3: recurring symptoms table -->
+        <section class="col-span-12 lg:col-span-7 bg-white rounded-xl border border-[#E2E8F0]">
+          <div class="px-5 py-3.5 border-b border-[#F1F5FB] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded bg-[#DBE5F7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg></div>
+              <h2 class="font-semibold text-[14px] text-[#0F172A]">Symptômes récurrents</h2>
+            </div>
+            <div class="text-[10px] font-mono text-[#94A3B8]">5 regroupements · sur 47 observations</div>
+          </div>
+
+          <table class="w-full text-[13px]">
+            <thead>
+              <tr class="text-left text-[10px] font-mono uppercase text-[#94A3B8] border-b border-[#F1F5FB]">
+                <th class="px-5 py-2 font-normal">Symptôme</th>
+                <th class="px-3 py-2 font-normal">Code</th>
+                <th class="px-3 py-2 font-normal">Fréquence</th>
+                <th class="px-3 py-2 font-normal">Tendance 6 sem.</th>
+                <th class="px-3 py-2 font-normal">Dernière obs.</th>
+                <th class="px-3 py-2 font-normal"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#F1F5FB]">
+              <tr class="med-row">
+                <td class="px-5 py-3">
+                  <div class="font-medium text-[#0F172A]">Crises au coucher</div>
+                  <div class="text-[11px] text-[#475569]">auto-agression, durée ~15 min</div>
+                </td>
+                <td class="px-3 py-3 font-mono text-[11px] text-[#475569]">HP:0031353</td>
+                <td class="px-3 py-3">3–4 <span class="text-[11px] text-[#475569]">/ sem.</span></td>
+                <td class="px-3 py-3">
+                  <div class="flex items-center gap-2">
+                    <svg width="68" height="22" viewBox="0 0 68 22" fill="none"><path d="M2 16 L14 14 L26 12 L38 10 L50 6 L66 3" stroke="#B91C1C" stroke-width="1.6" class="sparkline-path"/></svg>
+                    <span class="text-[11px] font-mono text-[#B91C1C] font-semibold">↑ 68%</span>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-[11px] font-mono text-[#475569]">hier · 22:14</td>
+                <td class="px-3 py-3 text-right text-[#94A3B8] text-[11px]"><a class="hover:text-[#1E3A8A]">voir 14 obs ›</a></td>
+              </tr>
+              <tr class="med-row">
+                <td class="px-5 py-3">
+                  <div class="font-medium text-[#0F172A]">Stéréotypies manuelles</div>
+                  <div class="text-[11px] text-[#475569]">battements d'air, main en extension</div>
+                </td>
+                <td class="px-3 py-3 font-mono text-[11px] text-[#475569]">HP:0000733</td>
+                <td class="px-3 py-3">quotidien</td>
+                <td class="px-3 py-3">
+                  <div class="flex items-center gap-2">
+                    <svg width="68" height="22" viewBox="0 0 68 22" fill="none"><path d="M2 11 L14 10 L26 11 L38 10 L50 11 L66 10" stroke="#475569" stroke-width="1.6" class="sparkline-path"/></svg>
+                    <span class="text-[11px] font-mono text-[#475569]">→ stable</span>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-[11px] font-mono text-[#475569]">samedi · 15:30</td>
+                <td class="px-3 py-3 text-right text-[#94A3B8] text-[11px]"><a class="hover:text-[#1E3A8A]">voir 41 obs ›</a></td>
+              </tr>
+              <tr class="med-row">
+                <td class="px-5 py-3">
+                  <div class="font-medium text-[#0F172A]">Absence de mots nouveaux</div>
+                  <div class="text-[11px] text-[#475569]">stock lexical stagne à 2–3 mots</div>
+                </td>
+                <td class="px-3 py-3 font-mono text-[11px] text-[#475569]">HP:0002471</td>
+                <td class="px-3 py-3">4 mois</td>
+                <td class="px-3 py-3">
+                  <div class="flex items-center gap-2">
+                    <svg width="68" height="22" viewBox="0 0 68 22" fill="none"><path d="M2 10 L14 10 L26 11 L38 11 L50 11 L66 11" stroke="#475569" stroke-width="1.6" class="sparkline-path"/></svg>
+                    <span class="text-[11px] font-mono text-[#475569]">→ plateau</span>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-[11px] font-mono text-[#475569]">avant-hier</td>
+                <td class="px-3 py-3 text-right text-[#94A3B8] text-[11px]"><a class="hover:text-[#1E3A8A]">voir 8 obs ›</a></td>
+              </tr>
+              <tr class="med-row">
+                <td class="px-5 py-3">
+                  <div class="font-medium text-[#0F172A]">Rires spontanés non contextualisés</div>
+                  <div class="text-[11px] text-[#475569]">description « mécanique » par la mère</div>
+                </td>
+                <td class="px-3 py-3 font-mono text-[11px] text-[#475569]">HP:0000749</td>
+                <td class="px-3 py-3">plusieurs fois / j.</td>
+                <td class="px-3 py-3">
+                  <div class="flex items-center gap-2">
+                    <svg width="68" height="22" viewBox="0 0 68 22" fill="none"><path d="M2 14 L14 13 L26 11 L38 9 L50 8 L66 6" stroke="#B45309" stroke-width="1.6" class="sparkline-path"/></svg>
+                    <span class="text-[11px] font-mono text-[#B45309] font-semibold">↑ 42%</span>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-[11px] font-mono text-[#475569]">dim. · 19:48</td>
+                <td class="px-3 py-3 text-right text-[#94A3B8] text-[11px]"><a class="hover:text-[#1E3A8A]">voir 19 obs ›</a></td>
+              </tr>
+              <tr class="med-row">
+                <td class="px-5 py-3">
+                  <div class="font-medium text-[#0F172A]">Troubles du sommeil</div>
+                  <div class="text-[11px] text-[#475569]">endormissement &gt; 45 min, réveils</div>
+                </td>
+                <td class="px-3 py-3 font-mono text-[11px] text-[#475569]">HP:0002360</td>
+                <td class="px-3 py-3">5 nuits / 7</td>
+                <td class="px-3 py-3">
+                  <div class="flex items-center gap-2">
+                    <svg width="68" height="22" viewBox="0 0 68 22" fill="none"><path d="M2 14 L14 12 L26 11 L38 8 L50 6 L66 4" stroke="#B91C1C" stroke-width="1.6" class="sparkline-path"/></svg>
+                    <span class="text-[11px] font-mono text-[#B91C1C] font-semibold">↑ 51%</span>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-[11px] font-mono text-[#475569]">cette nuit</td>
+                <td class="px-3 py-3 text-right text-[#94A3B8] text-[11px]"><a class="hover:text-[#1E3A8A]">voir 22 obs ›</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- BLOCK 4: Pistes à explorer -->
+        <section class="col-span-12 lg:col-span-5 bg-white rounded-xl border border-[#E2E8F0]">
+          <div class="px-5 py-3.5 border-b border-[#F1F5FB] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded bg-[#FEF3C7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B45309" stroke-width="2"><path d="M9.5 2A6.5 6.5 0 1 1 3 8.5"/><path d="m10 10 4 4"/></svg></div>
+              <h2 class="font-semibold text-[14px] text-[#0F172A]">Pistes à explorer</h2>
+            </div>
+            <div class="text-[10px] font-mono text-[#94A3B8]">suggestions · non diagnostiques</div>
+          </div>
+          <div class="p-5 space-y-3">
+            <div class="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-md bg-[#B45309] text-white flex items-center justify-center text-[11px] font-semibold shrink-0">1</div>
+                <div class="flex-1">
+                  <div class="font-semibold text-[13px] text-[#78350F]">Profil évocateur d'un trouble neurodéveloppemental</div>
+                  <div class="text-[12px] text-[#78350F]/90 mt-1 leading-relaxed">Orientation vers un <b>CAMSP</b> (centre d'action médico-sociale précoce) ou un <b>neuropédiatre</b> à envisager — délai moyen région IdF : 4–6 mois.</div>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-md bg-[#B45309] text-white flex items-center justify-center text-[11px] font-semibold shrink-0">2</div>
+                <div class="flex-1">
+                  <div class="font-semibold text-[13px] text-[#78350F]">Triade rires inappropriés + stéréotypies + retard de langage</div>
+                  <div class="text-[12px] text-[#78350F]/90 mt-1 leading-relaxed">Combinaison à documenter plus finement en séance. Peut être pertinente pour une évaluation par l'échelle <b>ADOS-2 Module Toddler</b>.</div>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-[#FDE68A] bg-[#FFFBEB] p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-md bg-[#B45309] text-white flex items-center justify-center text-[11px] font-semibold shrink-0">3</div>
+                <div class="flex-1">
+                  <div class="font-semibold text-[13px] text-[#78350F]">Bilan somatique avant orientation spécialisée</div>
+                  <div class="text-[12px] text-[#78350F]/90 mt-1 leading-relaxed">Audiométrie et bilan ferritine/plombémie recommandés — écarter causes organiques du retard langagier et des troubles du sommeil.</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <a class="text-[11px] text-[#1E3A8A] hover:underline flex items-center gap-1">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.71"/></svg>
+                Voir les ressources HPO / filières maladies rares
+              </a>
+              <span class="text-[10px] font-mono text-[#94A3B8]">v0.8 · pedia-suggest</span>
+            </div>
+            <div class="mt-2 text-[10px] text-[#94A3B8] leading-relaxed border-t border-[#F1F5FB] pt-3">
+              ⓘ Suggestions générées par IA à partir des observations parent. <b>Ne remplacent pas l'avis médical.</b> Aucun diagnostic n'est posé — la décision clinique reste celle du praticien.
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOCK 5: Weak signals -->
+        <section class="col-span-12 bg-white rounded-xl border border-[#E2E8F0]">
+          <div class="px-5 py-3.5 border-b border-[#F1F5FB] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded bg-[#DBE5F7] flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2"><path d="m3 17 6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+              <h2 class="font-semibold text-[14px] text-[#0F172A]">Signaux faibles détectés</h2>
+            </div>
+            <div class="text-[10px] font-mono text-[#94A3B8]">corrélations · pattern matching sur 47 entrées</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 divide-x divide-[#F1F5FB]">
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-mono bg-[#FEE2E2] text-[#B91C1C] px-1.5 py-0.5 rounded">corrélation forte</span>
+                <span class="text-[10px] font-mono text-[#94A3B8]">r = 0.71</span>
+              </div>
+              <div class="font-semibold text-[14px] text-[#0F172A] leading-snug">Crises au coucher ↔ journées en crèche</div>
+              <div class="text-[12px] text-[#475569] mt-1.5 leading-relaxed">Sur 14 épisodes documentés, 11 suivent une journée en collectivité. À mettre en regard d'un éventuel surseuil sensoriel.</div>
+              <div class="mt-3 flex items-end gap-1 h-16">
+                <!-- mini bar chart -->
+                <div class="flex-1 flex items-end gap-1">
+                  <div class="flex-1 bg-[#DBE5F7] rounded-t" style="height:20%"></div>
+                  <div class="flex-1 bg-[#E07A5F] rounded-t" style="height:85%"></div>
+                  <div class="flex-1 bg-[#DBE5F7] rounded-t" style="height:15%"></div>
+                  <div class="flex-1 bg-[#E07A5F] rounded-t" style="height:72%"></div>
+                  <div class="flex-1 bg-[#E07A5F] rounded-t" style="height:90%"></div>
+                  <div class="flex-1 bg-[#DBE5F7] rounded-t" style="height:25%"></div>
+                  <div class="flex-1 bg-[#DBE5F7] rounded-t" style="height:10%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-[9px] font-mono text-[#94A3B8] mt-1"><span>lun.</span><span>mar.</span><span>mer.</span><span>jeu.</span><span>ven.</span><span>sam.</span><span>dim.</span></div>
+              <div class="mt-2 text-[10px] font-mono text-[#475569]">■ jours crèche · ■ jours domicile</div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-mono bg-[#FEF3C7] text-[#B45309] px-1.5 py-0.5 rounded">aggravation</span>
+                <span class="text-[10px] font-mono text-[#94A3B8]">6 semaines</span>
+              </div>
+              <div class="font-semibold text-[14px] text-[#0F172A] leading-snug">Sommeil — dégradation progressive</div>
+              <div class="text-[12px] text-[#475569] mt-1.5 leading-relaxed">Durée moyenne d'endormissement passée de 22 min à 58 min. Tendance linéaire, sans point de rupture événementiel identifié.</div>
+              <svg class="mt-3 w-full h-16" viewBox="0 0 200 60" fill="none">
+                <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#B45309" stop-opacity=".3"/><stop offset="1" stop-color="#B45309" stop-opacity="0"/></linearGradient></defs>
+                <path d="M2 45 L30 42 L60 38 L90 30 L120 24 L150 18 L180 12 L198 8 L198 60 L2 60 Z" fill="url(#g2)"/>
+                <path d="M2 45 L30 42 L60 38 L90 30 L120 24 L150 18 L180 12 L198 8" stroke="#B45309" stroke-width="1.8" class="sparkline-path"/>
+              </svg>
+              <div class="flex justify-between text-[9px] font-mono text-[#94A3B8] mt-1"><span>S-6</span><span>S-5</span><span>S-4</span><span>S-3</span><span>S-2</span><span>S-1</span><span>auj.</span></div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-mono bg-[#DBE5F7] text-[#1E3A8A] px-1.5 py-0.5 rounded">motif récurrent</span>
+                <span class="text-[10px] font-mono text-[#94A3B8]">12 mentions</span>
+              </div>
+              <div class="font-semibold text-[14px] text-[#0F172A] leading-snug">Alignements d'objets en jeu libre</div>
+              <div class="text-[12px] text-[#475569] mt-1.5 leading-relaxed">Mentionné par la mère (8×) et par l'éducatrice de crèche (4×). Petites voitures, cubes, objets du quotidien. Absence de mise en scène symbolique.</div>
+              <div class="mt-3 grid grid-cols-12 gap-1">
+                <div class="col-span-1 h-4 rounded-sm bg-[#F1F5FB]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#DBE5F7]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#DBE5F7]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#F1F5FB]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#A3B8E6]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#DBE5F7]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#F1F5FB]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#A3B8E6]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#DBE5F7]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#A3B8E6]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#1E3A8A]"></div>
+                <div class="col-span-1 h-4 rounded-sm bg-[#DBE5F7]"></div>
+              </div>
+              <div class="flex justify-between text-[9px] font-mono text-[#94A3B8] mt-1.5"><span>Déc.</span><span>Janv.</span><span>Févr.</span><span>Mars</span><span>Avril</span></div>
+              <div class="mt-2 text-[10px] font-mono text-[#475569]">intensité par semaine · ■ 0 &nbsp; ■ 1–2 &nbsp; ■ 3+</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- footer band -->
+        <div class="col-span-12 flex items-center justify-between text-[11px] font-mono text-[#94A3B8] px-1">
+          <div>Pédia pro · v2026.04 · généré en 1.8s sur 47 observations (31 vocales, 13 texte, 3 photo)</div>
+          <div>Confidentialité : hébergement HDS · chiffrement AES-256 · anonymisation différentielle</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ============== SCREEN 5 — PRODUCT RECAP ============== -->
+<section class="screen" id="screen-5">
+  <div class="min-h-screen" style="background:
+      linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 40%, #F7F9FC 100%);">
+
+    <div class="max-w-[1400px] mx-auto px-10 py-14">
+      <!-- header -->
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <div class="chip mb-4"><span class="w-1.5 h-1.5 rounded-full bg-[#2D3B36]"></span>Écran 05 · synthèse</div>
+          <h2 class="font-display text-6xl text-[#2D3B36] leading-[1.02] tracking-tight">Ce que <span class="italic">Pédia</span> change,<br/>entre le parent et le médecin.</h2>
+        </div>
+        <div class="text-right hidden md:block">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63]">Pitch hackathon</div>
+          <div class="font-display text-lg text-[#2D3B36]">Paris · avril 2026</div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <section class="bg-white rounded-[28px] border border-[#f0eadd] p-8">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="font-display text-2xl text-[#2D3B36] font-medium">De la voix à la décision clinique — en 4 étapes.</h3>
+          <div class="text-[11px] font-mono text-[#5A6B63]">temps médian bout-en-bout · 3.4 s / obs.</div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-0 relative">
+          <!-- connecting line -->
+          <div class="absolute left-[12.5%] right-[12.5%] top-10 h-[2px] bg-[#e7e1d5] z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#6FB58A] via-[#F4A28C] to-[#1E3A8A]"></div>
+          </div>
+
+          <!-- step 1 -->
+          <div class="relative z-10 pr-5">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#F4A28C] to-[#E07A5F] flex items-center justify-center shadow-lg shadow-[#E07A5F33]">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
+            </div>
+            <div class="mt-5 font-mono text-[11px] text-[#5A6B63] uppercase tracking-widest">01 · parent</div>
+            <h4 class="font-display text-xl text-[#2D3B36] font-medium mt-1">Capture</h4>
+            <p class="text-[13px] text-[#5A6B63] mt-1 leading-relaxed">Voix, texte, photo. Zéro friction : 30 secondes suffisent, même à 3h du matin.</p>
+          </div>
+
+          <!-- step 2 -->
+          <div class="relative z-10 pr-5">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center shadow-lg shadow-[#6FB58A33]">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/><path d="m5.6 5.6 1.4 1.4"/><path d="m17 17 1.4 1.4"/><path d="m5.6 18.4 1.4-1.4"/><path d="m17 7 1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <div class="mt-5 font-mono text-[11px] text-[#5A6B63] uppercase tracking-widest">02 · IA</div>
+            <h4 class="font-display text-xl text-[#2D3B36] font-medium mt-1">Structuration</h4>
+            <p class="text-[13px] text-[#5A6B63] mt-1 leading-relaxed">Transcription, NER clinique, codification HPO. Une entrée parent → un fragment d'anamnèse.</p>
+          </div>
+
+          <!-- step 3 -->
+          <div class="relative z-10 pr-5">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EADFCB] to-[#D4C3A3] flex items-center justify-center shadow-lg shadow-[#EADFCB55]">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 12 4-4 4 4 6-6"/></svg>
+            </div>
+            <div class="mt-5 font-mono text-[11px] text-[#5A6B63] uppercase tracking-widest">03 · système</div>
+            <h4 class="font-display text-xl text-[#2D3B36] font-medium mt-1">Analyse</h4>
+            <p class="text-[13px] text-[#5A6B63] mt-1 leading-relaxed">Agrégation sur N semaines, tendances, corrélations, signaux faibles. Rien n'est diagnostiqué.</p>
+          </div>
+
+          <!-- step 4 -->
+          <div class="relative z-10">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] flex items-center justify-center shadow-lg shadow-[#1E3A8A33]">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 14h4"/></svg>
+            </div>
+            <div class="mt-5 font-mono text-[11px] text-[#5A6B63] uppercase tracking-widest">04 · pédiatre</div>
+            <h4 class="font-display text-xl text-[#2D3B36] font-medium mt-1">Restitution</h4>
+            <p class="text-[13px] text-[#5A6B63] mt-1 leading-relaxed">Anamnèse, timeline, pistes à explorer. Exportable en PDF, lisible en 2 minutes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- big numbers -->
+      <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-[28px] p-8 text-[#2D3B36] relative overflow-hidden" style="background: linear-gradient(135deg, #E8F3EC, #A8D5BA);">
+          <div class="text-[11px] font-mono uppercase tracking-widest opacity-70">avant chaque consult.</div>
+          <div class="font-display text-[96px] leading-none font-medium rise mt-2">2<span class="text-[36px] font-mono align-top ml-1">min</span></div>
+          <div class="text-[14px] mt-3 leading-relaxed max-w-xs">de lecture pour le pédiatre — contre 15 à 20 minutes d'anamnèse orale aujourd'hui.</div>
+        </div>
+        <div class="rounded-[28px] p-8 text-[#2D3B36] relative overflow-hidden" style="background: linear-gradient(135deg, #F5EFE6, #EADFCB);">
+          <div class="text-[11px] font-mono uppercase tracking-widest opacity-70">agrégées côté patient</div>
+          <div class="font-display text-[96px] leading-none font-medium rise mt-2" style="animation-delay:.1s">6<span class="text-[36px] font-mono align-top ml-1">mois</span></div>
+          <div class="text-[14px] mt-3 leading-relaxed max-w-xs">d'observations parent, à la granularité de la minute, sans perte ni reconstruction a posteriori.</div>
+        </div>
+        <div class="rounded-[28px] p-8 text-white relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A, #1E3A8A);">
+          <div class="text-[11px] font-mono uppercase tracking-widest text-white/60">principe fondateur</div>
+          <div class="font-display text-[96px] leading-none font-medium rise mt-2" style="animation-delay:.2s">0</div>
+          <div class="text-[14px] mt-3 leading-relaxed max-w-xs text-white/90">diagnostic posé par l'IA. La décision clinique reste, toujours, celle du médecin.</div>
+        </div>
+      </section>
+
+      <!-- Differentiator matrix -->
+      <section class="mt-6 bg-white rounded-[28px] border border-[#f0eadd] p-8">
+        <div class="flex items-end justify-between mb-6">
+          <div>
+            <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63]">Différenciateur</div>
+            <h3 class="font-display text-3xl text-[#2D3B36] font-medium mt-1">Pédia occupe une case vide du marché.</h3>
+          </div>
+          <div class="text-[11px] font-mono text-[#5A6B63] max-w-xs text-right">Matrice : capture quotidienne × usage médical professionnel. L'essentiel de l'offre couvre un axe à la fois.</div>
+        </div>
+
+        <!-- 2x2 matrix -->
+        <div class="relative max-w-3xl mx-auto">
+          <div class="grid grid-cols-2 grid-rows-2 aspect-[1.3/1] border border-[#e7e1d5] rounded-2xl overflow-hidden">
+            <!-- top-left: lifestyle apps -->
+            <div class="bg-[#F5EFE6] p-6 border-r border-b border-[#e7e1d5] flex flex-col justify-between">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">capture quotidienne</div>
+                <div class="text-[10px] font-mono text-[#5A6B63]">+ usage grand public</div>
+              </div>
+              <div>
+                <div class="font-display text-xl text-[#2D3B36] font-medium">Apps lifestyle</div>
+                <div class="text-[12px] text-[#5A6B63] mt-1">Baby trackers, journaux de sommeil.<br/>→ aucune valeur clinique.</div>
+              </div>
+            </div>
+            <!-- top-right: PÉDIA -->
+            <div class="p-6 border-b border-[#e7e1d5] flex flex-col justify-between relative" style="background: linear-gradient(135deg, #E8F3EC 0%, #DBE5F7 100%);">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-widest text-[#0F172A]">capture quotidienne</div>
+                <div class="text-[10px] font-mono text-[#0F172A]">+ usage clinique pro</div>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10"/></svg>
+                  </div>
+                  <div class="font-display text-2xl text-[#0F172A] font-semibold">Pédia</div>
+                </div>
+                <div class="text-[12px] text-[#0F172A]/80 mt-1">La seule passerelle parent ↔ pédiatre qui produit une anamnèse structurée.</div>
+              </div>
+              <div class="absolute top-3 right-3 text-[9px] font-mono bg-[#0F172A] text-white px-1.5 py-0.5 rounded">vous êtes ici</div>
+            </div>
+            <!-- bottom-left: paper log -->
+            <div class="bg-[#FBF8F3] p-6 border-r border-[#e7e1d5] flex flex-col justify-between">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">capture épisodique</div>
+                <div class="text-[10px] font-mono text-[#5A6B63]">+ usage grand public</div>
+              </div>
+              <div>
+                <div class="font-display text-xl text-[#2D3B36] font-medium">Carnet papier</div>
+                <div class="text-[12px] text-[#5A6B63] mt-1">Remplissage anecdotique.<br/>→ oubli, perte, non partageable.</div>
+              </div>
+            </div>
+            <!-- bottom-right: pro tools -->
+            <div class="bg-[#F7F9FC] p-6 flex flex-col justify-between">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-widest text-[#475569]">capture épisodique</div>
+                <div class="text-[10px] font-mono text-[#475569]">+ usage clinique pro</div>
+              </div>
+              <div>
+                <div class="font-display text-xl text-[#0F172A] font-medium">Outils pros</div>
+                <div class="text-[12px] text-[#475569] mt-1">DPI, logiciels cabinet.<br/>→ vides entre les consultations.</div>
+              </div>
+            </div>
+          </div>
+          <!-- axes -->
+          <div class="absolute -left-3 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[10px] font-mono text-[#5A6B63] whitespace-nowrap">grand public · professionnel →</div>
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-mono text-[#5A6B63] whitespace-nowrap">épisodique · quotidien →</div>
+        </div>
+      </section>
+
+      <!-- closing -->
+      <section class="mt-14 grid grid-cols-12 gap-6 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <div class="font-display text-4xl text-[#2D3B36] leading-tight">« Un carnet de santé devrait capter la vie de l'enfant — pas seulement les rendez-vous. »</div>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] flex items-center justify-center text-white font-display text-sm">CL</div>
+            <div class="text-[13px] text-[#5A6B63]">Dr. Claire Lemoine, pédiatre pilote · 18 mois de suivi avec Pédia</div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-4 flex md:justify-end">
+          <button onclick="goTo(1)" class="bg-[#2D3B36] hover:bg-[#1a2621] text-white rounded-full px-6 py-3.5 text-[15px] font-medium flex items-center gap-2 shadow-lg">
+            Revoir le parcours
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <footer class="mt-14 flex items-center justify-between text-[11px] font-mono text-[#5A6B63] border-t border-[#e7e1d5] pt-5">
+        <div>Pédia · carnet de santé pédiatrique augmenté · fait à Paris, avec soin.</div>
+        <div>pedia.health · contact@pedia.health · pour questions investisseurs : ir@pedia.health</div>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom controls -->
+<div class="screen-controls">
+  <button onclick="toggleNav(true)" title="Menu">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+  </button>
+  <button onclick="prevScreen()" title="Précédent">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+    <span>Préc.</span>
+  </button>
+  <span class="count" id="counter">01 / 05</span>
+  <button onclick="nextScreen()" title="Suivant">
+    <span>Suivant</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+</div>
+
+<script>
+  const screens = [
+    {id:1, label:"Landing / intro produit", sub:"plein écran — accueil"},
+    {id:2, label:"Journal parent — accueil", sub:"cadre mobile · vue parent"},
+    {id:3, label:"Saisie vocale en cours", sub:"cadre mobile · vue parent"},
+    {id:4, label:"Synthèse pré-consultation", sub:"plein écran · vue médecin"},
+    {id:5, label:"Synthèse produit / récap", sub:"plein écran — pitch"},
+  ];
+  let current = parseInt(localStorage.getItem('pedia_screen')||'1',10);
+  if (!(current>=1 && current<=5)) current = 1;
+
+  const navItemsEl = document.getElementById('sideNavItems');
+  navItemsEl.innerHTML = screens.map((s,i)=>`
+    <button onclick="goTo(${s.id})" data-nav="${s.id}" class="nav-item text-left group w-full flex items-start gap-3 p-3 rounded-xl hover:bg-[#f5efe6] transition">
+      <div class="w-9 h-9 rounded-xl bg-[#f5efe6] text-[#2D3B36] flex items-center justify-center font-mono text-xs group-hover:bg-white shrink-0 shadow-sm">0${s.id}</div>
+      <div class="min-w-0">
+        <div class="text-[13px] font-semibold text-[#2D3B36] truncate" data-screen-label="0${s.id} ${s.label}">${s.label}</div>
+        <div class="text-[11px] text-[#5A6B63] truncate">${s.sub}</div>
+      </div>
+    </button>
+  `).join('');
+
+  function render(){
+    document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));
+    document.getElementById('screen-'+current).classList.add('active');
+    document.getElementById('counter').textContent = String(current).padStart(2,'0') + ' / 05';
+    document.querySelectorAll('[data-nav]').forEach(el=>{
+      const on = +el.dataset.nav===current;
+      el.classList.toggle('bg-[#f5efe6]', on);
+      el.classList.toggle('ring-1', on);
+      el.classList.toggle('ring-[#E07A5F44]', on);
+    });
+    window.scrollTo({top:0, behavior:'instant'});
+    try{ localStorage.setItem('pedia_screen', String(current)); }catch(e){}
+  }
+  function goTo(n){ if(n<1||n>5)return; current=n; toggleNav(false); render(); }
+  function nextScreen(){ goTo(Math.min(5, current+1)); }
+  function prevScreen(){ goTo(Math.max(1, current-1)); }
+  function toggleNav(open){
+    document.getElementById('sideNav').classList.toggle('open', open);
+    document.getElementById('navScrim').classList.toggle('open', open);
+  }
+  document.addEventListener('keydown', (e)=>{
+    if(e.key==='ArrowRight') nextScreen();
+    if(e.key==='ArrowLeft') prevScreen();
+    if(e.key==='Escape') toggleNav(false);
+    if(/^[1-5]$/.test(e.key)) goTo(parseInt(e.key,10));
+  });
+
+  // rec timer animation
+  let recSecs = 47;
+  setInterval(()=>{
+    recSecs = (recSecs+1) % 600;
+    const m = String(Math.floor(recSecs/60)).padStart(2,'0');
+    const s = String(recSecs%60).padStart(2,'0');
+    const el = document.getElementById('recTimer');
+    if(el) el.textContent = m+':'+s;
+  }, 1000);
+
+  render();
+</script>
+</body>
+</html>
