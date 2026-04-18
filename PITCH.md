@@ -4,7 +4,7 @@
 > **Track** — Track 2 · AI in Pediatrics
 > **Format** — 3 min pitch + 2 min Q&A · slides only · no live demo
 > **Language** — English (MIT judges)
-> **Voice** — seed / demo-day pitch discipline. Primary anchors: Kevin Hale's *How to pitch your startup* (YC), Michael Seibel's *Demo day pitch* (YC), Paul Graham's *How to convince investors*. Series A deck guides are referenced for structure only — our stage is pre-traction, our format is 3 min, not 30. Numbers over adjectives. Show don't tell. No fluff. One claim per slide.
+> **Voice** — flowing prose, the cadence of our 90-second archived pitch (`archive/practice-pitch-1/myontologynote-pitch-90s.html`): principle opener · enumeration rhythm ("voice, text, photo") · declarative triads ("prescribed by the physician, paid by the medical structure. Parents always free") · cascading close ("a pediatrician pays two euros a day. Parents pay zero. Children gain years"). Seed / demo-day pitch discipline under the prose — Kevin Hale (YC), Michael Seibel (YC), Paul Graham. Series A deck guides referenced for structure only — our stage is pre-traction, our format is 3 min, not 30. Numbers over adjectives. Show don't tell. No fluff.
 > **Demo** — still images (screenshots of `Pedia.html`), no interactive product.
 > **Goal** — win Track 2.
 
@@ -46,8 +46,10 @@ Third beat (final reveal):
 
 **Script (Ayda or Anouar, slow cadence)** :
 
-> "In pediatrics, symptoms don't speak. Parents do.
-> One hundred and eighty days lost between visits. Four years to diagnose a pediatric rare disease.
+> "In pediatrics, everything relies on observation. A child doesn't describe their symptoms — their parents live them, every day.
+>
+> Ideally, a child is seen every three to six months. But between two consultations, one hundred and eighty days of observations escape the medical system. The result: a pediatric rare disease takes four years to be diagnosed.
+>
 > We are Pedia."
 
 *Source displayed small, bottom of slide: `[MIT]` for the 4-year figure.*
@@ -95,7 +97,7 @@ Clean white, clinical typography, 15 structured rows from `ANAMNESIS_REPORT.md`.
 
 > "Same child. Same appointment. On the left: what the pediatrician can scribble during the visit. On the right: what Pedia assembled from forty-seven parental observations over four months.
 >
-> Every observation becomes a standardized clinical indicator — frequency, intensity, duration, triggers — through the HPO ontology. Seventeen thousand internationally standardized phenotypes.
+> Our AI turns each observation into a standardized clinical indicator — frequency, intensity, duration, triggers — powered by the HPO ontology, seventeen thousand internationally standardized phenotypes.
 >
 > What the visit missed, Pedia rebuilt. That is the difference between an early CAMSP referral at two, and a diagnosis at seven."
 
@@ -117,13 +119,11 @@ All three in the same moment, showing the loop : parent speaks → Pedia structu
 
 **Script (Fanette)** :
 
-> "Here is the product.
+> "Pedia is a multimodal, multilingual pediatric journal, prescribed by the physician. Parents can log every day — voice, text, photo — in their mother tongue.
 >
-> Left: the parent presses one button. Thirty seconds of voice, text, or a photo. Native multilingual — they speak their language, the doctor reads French.
+> Behind the scenes: transcription, clinical extraction, structuring into HPO. Hosted HDS, RGPD-compliant, nothing leaves the EU.
 >
-> Middle: our pipeline. Whisper transcribes. Clinical NER extracts. HPO maps to seventeen thousand standardized phenotypes. Hosted HDS, RGPD-compliant, nothing leaves the EU.
->
-> Right: the doctor's view before the appointment. A one-page narrative anamnesis. A four-month timeline. Weak signals — object-lining mentioned twelve times, sleep degradation over six weeks, crises correlated with daycare days at r equals 0.71. Suggested pathways — never diagnoses. The clinical decision stays with the physician."
+> Before each appointment, the pediatrician receives a one-page structured report in medical language, with four-month evolution curves and the weak signals detected across all observations. If a concerning pattern appears, the physician is alerted first — never a diagnosis, only a pathway to explore. The clinical decision stays with the physician."
 
 ---
 
@@ -165,17 +165,21 @@ CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo**
 
 **Script (Raoul)** :
 
-> "Market. Thirty-one million euros addressable in France. Nine million serviceable. Europe next on the HPO interoperability rail.
+> "Prescribed by the physician, paid by the medical structure. Parents always free.
 >
-> Pricing. Parents always free. Independent pediatrician, forty-nine euros a month — they recover eleven hours of clinical time. ROI times twenty-one. Hospital service, twelve thousand a year — payback under six months. On every tier, **price stays below ROI**.
+> An independent pediatrician pays forty-nine euros a month and recovers eleven hours of clinical time. ROI times twenty-one. A hospital service pays twelve thousand euros a year — payback under six months. On every tier, **price stays below the client's ROI**.
 >
-> Economics. CAC under three hundred. LTV over eighteen hundred. LTV over CAC greater than six. Churn under two percent. Gross margin above eighty-five.
+> TAM France: thirty-one million euros. Europe is the natural next step, on the HPO interoperability rail.
 >
-> Today we have a validated prototype. Next step: a fifty-pediatrician chronometered pilot — the one number that matters is whether we save at least two minutes per consultation.
+> Today we have a validated prototype. The one number that decides the company is whether a fifty-pediatrician chronometered pilot saves at least two minutes per consultation. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts.
 >
-> Team. Six founders. Two physicians — Ayda and Anouar. Four engineers. The pairing is the moat.
+> Two physicians. Four engineers. The pairing is the moat."
 >
-> We are raising four hundred thousand pre-seed for three deliverables: the pilot, CE marking class one, and two hospital contracts. Thank you."
+> *(beat)*
+>
+> "A pediatrician pays two euros a day, recovers eleven hours a month. Parents pay zero. Children gain years of avoided diagnostic wandering.
+>
+> Thank you."
 
 ---
 
