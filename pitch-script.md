@@ -13,7 +13,8 @@
 | 1. Hook (problem) | **Ayda** |
 | 2. Anamnesis comparison (solution) | **Fanette** |
 | 3. Product (solution) | **Fanette** |
-| 4. Business + team + ask + close | **Fanette** *or* **Ayda** (decide at rehearsal) |
+| 4. Business + ask | **Fanette** *or* **Ayda** (decide at rehearsal) |
+| 5. Team faces + cascade close + thank you | same speaker as block 4 |
 
 ---
 
@@ -53,7 +54,7 @@ If a concerning pattern appears, the physician is alerted first - never a diagno
 
 ---
 
-## 🎙️ 2:00 – 3:00 · Business + team + close
+## 🎙️ 2:00 – 2:45 · Business + ask
 
 **Fanette or Ayda** (pick the stronger voice at rehearsal - business story works for either).
 
@@ -65,9 +66,15 @@ TAM France: thirty-one million euros. Europe is the natural next step, on the HP
 
 Today we have a validated prototype. Our north-star KPI: at least two minutes saved per consultation, measured in a fifty-pediatrician chronometered pilot. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts.
 
+---
+
+## 🎙️ 2:45 – 3:00 · Team · cascade close · thank you
+
+**Same speaker. Six faces appear on the slide (Fanette, Elom, Raoul, Raphaël, Ayda, Anouar - name + role under each).**
+
 Two physicians. Four engineers. The pairing is the moat.
 
-*(beat)*
+*(beat, direct eye contact)*
 
 A pediatrician pays two euros a day, recovers eleven hours a month. Parents pay zero. Children gain years of avoided diagnostic wandering.
 

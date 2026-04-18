@@ -17,7 +17,8 @@
 | 0:00–0:20 | **1** | Hook - problem | **Ayda** (medical credibility) |
 | 0:20–1:20 | **2** | Anamnesis comparison - solution | **Fanette** |
 | 1:20–2:00 | **3** | Product / POC - solution | **Fanette** (continuing) |
-| 2:00–3:00 | **4** | Business · market, pricing, ask · close | **Fanette** *or* **Ayda** (decide at rehearsal) |
+| 2:00–2:45 | **4** | Business · market, pricing, ask | **Fanette** *or* **Ayda** (decide at rehearsal) |
+| 2:45–3:00 | **5** | Team · cascade close · thank you | same speaker as slide 4 |
 
 ---
 
@@ -127,7 +128,7 @@ All three in the same moment, showing the loop : parent speaks → Pedia structu
 
 ---
 
-## Slide 4 - Business (2:00–3:00) · **seed one-pager layout**
+## Slide 4 - Business (2:00–2:45) · **seed one-pager layout**
 
 Single slide, five blocks, scannable in 10 seconds.
 
@@ -172,15 +173,38 @@ CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo**
 >
 > TAM France: thirty-one million euros. Europe is the natural next step, on the HPO interoperability rail.
 >
-> Today we have a validated prototype. Our north-star KPI: at least two minutes saved per consultation, measured in a fifty-pediatrician chronometered pilot. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts.
+> Today we have a validated prototype. Our north-star KPI: at least two minutes saved per consultation, measured in a fifty-pediatrician chronometered pilot. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts."
+
+---
+
+## Slide 5 - Team · cascade close · thank you (2:45–3:00) · **six faces, clean grid**
+
+**Layout** : six square portraits in a single row (or 3×2 on narrow aspect ratios). Green accent `#6FB58A` for the strip under each photo. No extra text beyond name + role.
+
+```
+┌────────┬────────┬────────┬────────┬────────┬────────┐
+│ Fanette│  Elom  │ Raoul  │Raphaël │  Ayda  │ Anouar │
+│  dev   │  dev   │  dev + │  dev + │   MD   │   MD   │
+│        │        │business│business│        │        │
+└────────┴────────┴────────┴────────┴────────┴────────┘
+```
+
+Optional top-of-slide line: **"Two physicians. Four engineers. The pairing is the moat."**
+
+**Script (same speaker as slide 4, faces appear on screen)** :
+
+> "Two physicians. Four engineers. The pairing is the moat."
 >
-> Two physicians. Four engineers. The pairing is the moat."
->
-> *(beat)*
+> *(beat, look at the jury)*
 >
 > "A pediatrician pays two euros a day, recovers eleven hours a month. Parents pay zero. Children gain years of avoided diagnostic wandering.
 >
 > Thank you."
+
+**Rehearsal notes**:
+- Slide 5 transitions in as the speaker says *"Two physicians. Four engineers."* - their own face is on the slide, direct eye contact with the jury.
+- The cascade ("two euros a day... parents pay zero... children gain years") lands over the team grid still visible - the faces amplify the human-scale close.
+- Hold the slide through the silence, then "Thank you."
 
 ---
 
@@ -197,6 +221,21 @@ All at 1440 × 900, PNG, full-bleed:
 
 **Patient consistency** : `Pedia.html` already shows **Louis M., 2 yrs**. No rename needed unless the team picks a different demo identity.
 
+## Team portraits for Slide 5
+
+Six square head-and-shoulders photos, same framing, neutral background, green accent strip:
+
+| Who | Role | Filename (suggested) |
+|---|---|---|
+| Fanette | dev | `team/fanette.jpg` |
+| Elom | dev | `team/elom.jpg` |
+| Raoul | dev + business | `team/raoul.jpg` |
+| Raphaël | dev + business | `team/raphael.jpg` |
+| Ayda | MD | `team/ayda.jpg` |
+| Anouar | MD | `team/anouar.jpg` |
+
+Shoot in the hackathon space Saturday afternoon if photos aren't already on hand. Crop square, ~600×600 minimum for Google Slides HD export. Consistent lighting across the six.
+
 ---
 
 ## Pitch best-practice checklist (to cross before D-day)
@@ -207,10 +246,11 @@ All at 1440 × 900, PNG, full-bleed:
 - [ ] Slide 2 **shows**, not tells - the jury sees the anamnesis gap, doesn't need to be convinced of it.
 - [ ] Slide 3 is the product, not a concept drawing. Real screenshots only.
 - [ ] Slide 4 has **numbers over adjectives**. No "best-in-class", no "revolutionary".
+- [ ] Slide 5 has six aligned, consistent-lighting portraits; name + role visible on every tile.
 - [ ] Every claim has a source tag visible on the slide: `[MIT]`, `[HPO]`.
-- [ ] The ask is concrete: € amount + what it buys + in how many months.
+- [ ] The ask is concrete: € amount + what it buys.
 - [ ] Each slide defends a single idea. If it takes two claims, split it.
-- [ ] No story callback, no epilogue. The business slide is the ending.
+- [ ] Cascade close lands over the team grid, then silence, then "Thank you."
 
 ---
 
