@@ -15,8 +15,8 @@
     --mint:#A8D5BA;
     --mint-deep:#6FB58A;
     --mint-bg:#E8F3EC;
-    --cream:#F5EFE6;
-    --cream-deep:#EADFCB;
+    --cream:#E8F1EA;
+    --cream-deep:#D4E4D7;
     --accent:#8BC9A5;
     --accent-deep:#4D9F7D;
     --warm-ink:#2D3B36;
@@ -34,7 +34,7 @@
     --med-accent:#3B82F6;
 
     /* Shared */
-    --ivory:#FBF8F3;
+    --ivory:#F4F9F5;
   }
   html,body{background:var(--ivory); color:#171717; font-family:'Inter',system-ui,sans-serif;}
   .font-display{font-family:'Fraunces',serif; font-optical-sizing:auto; letter-spacing:-0.015em;}
@@ -45,9 +45,9 @@
   /* Parent bg */
   .parent-stage{
     background:
-      radial-gradient(1200px 600px at 15% 0%, #EADFCB33 0%, transparent 60%),
+      radial-gradient(1200px 600px at 15% 0%, #D4E4D733 0%, transparent 60%),
       radial-gradient(900px 500px at 100% 100%, #A8D5BA33 0%, transparent 55%),
-      linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 100%);
+      linear-gradient(180deg, #F4F9F5 0%, #E8F1EA 100%);
   }
   /* Medical bg */
   .med-stage{background:var(--med-bg);}
@@ -70,7 +70,7 @@
   }
   .phone-screen{
     width:100%; height:100%; border-radius:42px; overflow:hidden; position:relative;
-    background:#FBF8F3;
+    background:#F4F9F5;
   }
   .phone-scroll{height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch;}
   .phone-scroll::-webkit-scrollbar{display:none;}
@@ -110,7 +110,7 @@
   .side-nav{
     position:fixed; left:0; top:0; bottom:0; width:280px;
     background:#ffffffEE; backdrop-filter: blur(12px);
-    border-right:1px solid #e7e1d5; z-index:50;
+    border-right:1px solid #D5E2D8; z-index:50;
     transform:translateX(-100%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
   }
   .side-nav.open{transform:translateX(0);}
@@ -140,7 +140,7 @@
   .chip{
     display:inline-flex; align-items:center; gap:6px; padding:6px 11px;
     border-radius:999px; font-size:12px; font-weight:500;
-    background:#ffffff; border:1px solid #e7e1d5; color:#2D3B36;
+    background:#ffffff; border:1px solid #D5E2D8; color:#2D3B36;
   }
 
   /* Bottom nav */
@@ -183,7 +183,7 @@
 <!-- ============== SIDE NAV ============== -->
 <div class="nav-scrim" id="navScrim" onclick="toggleNav(false)"></div>
 <aside class="side-nav" id="sideNav">
-  <div class="px-6 pt-7 pb-5 border-b border-[#e7e1d5] flex items-center justify-between">
+  <div class="px-6 pt-7 pb-5 border-b border-[#D5E2D8] flex items-center justify-between">
     <div class="flex items-center gap-2">
       <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 10-7 10"/><path d="M12 11v6"/><path d="M9 14h6"/></svg>
@@ -197,7 +197,7 @@
   <nav class="p-4 flex flex-col gap-1" id="sideNavItems">
     <!-- populated by JS -->
   </nav>
-  <div class="absolute bottom-0 left-0 right-0 p-5 border-t border-[#e7e1d5] text-[11px] text-[#5A6B63] font-mono">
+  <div class="absolute bottom-0 left-0 right-0 p-5 border-t border-[#D5E2D8] text-[11px] text-[#5A6B63] font-mono">
     Démo hackathon - avril 2026<br/>
     Cas patient : Louis M., 2 ans
   </div>
@@ -290,7 +290,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-[#6FB58A] animate-pulse"></span>synchronisé
               </div>
             </div>
-            <div class="rounded-2xl bg-[#F5EFE6] p-4 flex items-center gap-3 mb-3">
+            <div class="rounded-2xl bg-[#E8F1EA] p-4 flex items-center gap-3 mb-3">
               <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#4D9F7D] to-[#8BC9A5] flex items-center justify-center text-white">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
               </div>
@@ -306,7 +306,7 @@
               </div>
             </div>
             <div class="space-y-2">
-              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#f0eadd]">
+              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#E1EDE4]">
                 <div class="w-8 h-8 rounded-lg bg-[#E8F3EC] flex items-center justify-center shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
                 </div>
@@ -315,7 +315,7 @@
                   <div class="text-[12px] text-[#2D3B36] line-clamp-1">Louis a encore eu des difficultés à s'endormir…</div>
                 </div>
               </div>
-              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#f0eadd]">
+              <div class="flex gap-2.5 p-3 rounded-xl bg-white border border-[#E1EDE4]">
                 <div class="w-8 h-8 rounded-lg bg-[#E8F3EC] flex items-center justify-center shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4D9F7D" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
                 </div>
@@ -414,15 +414,15 @@
         </p>
         <div class="mt-8 space-y-4">
           <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">01</div>
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#D5E2D8] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">01</div>
             <div class="text-sm text-[#2D3B36]"><b>Un bouton vocal dominant</b> - capture rapide, même à 3h du matin.</div>
           </div>
           <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">02</div>
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#D5E2D8] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">02</div>
             <div class="text-sm text-[#2D3B36]"><b>Un fil chronologique</b> mixant voix, texte, photo - pour se relire sans effort.</div>
           </div>
           <div class="flex items-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-white border border-[#e7e1d5] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">03</div>
+            <div class="w-8 h-8 rounded-lg bg-white border border-[#D5E2D8] flex items-center justify-center shrink-0 font-mono text-xs text-[#2D3B36]">03</div>
             <div class="text-sm text-[#2D3B36]"><b>Un rappel de consultation</b> toujours visible, en bas de pile.</div>
           </div>
         </div>
@@ -455,7 +455,7 @@
                     <div class="text-[11px] font-mono text-[#5A6B63]">né le 12 avril 2024 · 14,2 kg</div>
                   </div>
                 </div>
-                <button class="w-10 h-10 rounded-full bg-white border border-[#f0eadd] flex items-center justify-center">
+                <button class="w-10 h-10 rounded-full bg-white border border-[#E1EDE4] flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
                 </button>
               </div>
@@ -484,14 +484,14 @@
 
               <!-- secondary CTA row -->
               <div class="mt-3 grid grid-cols-2 gap-3">
-                <button class="rounded-2xl bg-white border border-[#f0eadd] p-4 text-left">
+                <button class="rounded-2xl bg-white border border-[#E1EDE4] p-4 text-left">
                   <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center mb-2">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
                   </div>
                   <div class="text-[13px] font-semibold text-[#2D3B36]">Ajouter en texte</div>
                   <div class="text-[11px] text-[#5A6B63]">quand on ne peut pas parler</div>
                 </button>
-                <button class="rounded-2xl bg-white border border-[#f0eadd] p-4 text-left">
+                <button class="rounded-2xl bg-white border border-[#E1EDE4] p-4 text-left">
                   <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center mb-2">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4D9F7D" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                   </div>
@@ -509,7 +509,7 @@
               <!-- journal entries -->
               <div class="space-y-2.5">
                 <!-- entry -->
-                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                   <div class="flex items-start gap-3">
                     <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4D9F7D" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
@@ -528,7 +528,7 @@
                   </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                   <div class="flex items-start gap-3">
                     <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
@@ -540,7 +540,7 @@
                   </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                   <div class="flex items-start gap-3">
                     <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4D9F7D" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
@@ -553,7 +553,7 @@
                   </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                   <div class="flex items-start gap-3">
                     <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4D9F7D" stroke-width="2"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v4"/></svg>
@@ -565,7 +565,7 @@
                   </div>
                 </div>
 
-                <div class="bg-white rounded-2xl p-4 border border-[#f0eadd]">
+                <div class="bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                   <div class="flex items-start gap-3">
                     <div class="w-9 h-9 rounded-xl bg-[#E8F3EC] flex items-center justify-center shrink-0">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="2"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h16"/></svg>
@@ -579,7 +579,7 @@
               </div>
 
               <!-- consultation card -->
-              <div class="mt-5 rounded-2xl p-4 border border-[#d8cbb6]" style="background: linear-gradient(135deg, #F5EFE6 0%, #EADFCB 100%);">
+              <div class="mt-5 rounded-2xl p-4 border border-[#BDCFC1]" style="background: linear-gradient(135deg, #E8F1EA 0%, #D4E4D7 100%);">
                 <div class="flex items-center gap-3">
                   <div class="w-12 h-12 rounded-2xl bg-white flex flex-col items-center justify-center shadow-sm">
                     <div class="text-[9px] font-mono text-[#4D9F7D] font-semibold">AVR</div>
@@ -590,13 +590,13 @@
                     <div class="text-[13px] font-semibold text-[#2D3B36]">Dr. Claire Lemoine</div>
                     <div class="text-[11px] text-[#5A6B63]">Cabinet Daubenton · 14h30</div>
                   </div>
-                  <button class="text-[11px] font-mono text-[#4D9F7D] bg-white px-3 py-1.5 rounded-full border border-[#e7d9c0]">Préparer</button>
+                  <button class="text-[11px] font-mono text-[#4D9F7D] bg-white px-3 py-1.5 rounded-full border border-[#CCDAD0]">Préparer</button>
                 </div>
               </div>
             </div>
 
             <!-- tab bar -->
-            <div class="absolute bottom-0 inset-x-0 h-20 bg-white/85 backdrop-blur border-t border-[#f0eadd] flex items-center justify-around px-4 pb-4 pt-2">
+            <div class="absolute bottom-0 inset-x-0 h-20 bg-white/85 backdrop-blur border-t border-[#E1EDE4] flex items-center justify-around px-4 pb-4 pt-2">
               <button class="flex flex-col items-center gap-0.5 text-[#2D3B36]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a1 1 0 0 1-1-1v-6h-4v6a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V9z"/></svg><span class="text-[9px] font-mono">journal</span></button>
               <button class="flex flex-col items-center gap-0.5 text-[#5A6B63]"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg><span class="text-[9px] font-mono">suivi</span></button>
               <div class="w-14 h-14 -mt-8 rounded-full bg-[#2D3B36] flex items-center justify-center shadow-lg shadow-[#2D3B3633] border-4 border-white"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 5v14"/><path d="M5 12h14"/></svg></div>
@@ -669,8 +669,8 @@
             </div>
             <div class="flex items-center gap-2.5 text-[13px] text-[#2D3B36]"><span class="w-5 h-5 rounded-full bg-[#E8F3EC] flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>transcription Whisper FR</div>
             <div class="flex items-center gap-2.5 text-[13px] text-[#2D3B36] mt-1.5"><span class="w-5 h-5 rounded-full bg-[#E8F3EC] flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6FB58A" stroke-width="3.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>extraction d'entités cliniques (NER)</div>
-            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-[#e7e1d5] flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-[#4D9F7D] animate-pulse"></span></span>structuration vers terminologie HPO</div>
-            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-dashed border-[#e7e1d5]"></span>anonymisation & chiffrement</div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-[#D5E2D8] flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-[#4D9F7D] animate-pulse"></span></span>structuration vers terminologie HPO</div>
+            <div class="flex items-center gap-2.5 text-[13px] text-[#5A6B63] mt-1.5"><span class="w-5 h-5 rounded-full border border-dashed border-[#D5E2D8]"></span>anonymisation & chiffrement</div>
           </div>
         </div>
 
@@ -682,7 +682,7 @@
       <!-- phone -->
       <div class="col-span-12 lg:col-span-5 flex justify-center">
         <div class="phone">
-          <div class="phone-screen" style="background: linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 100%);">
+          <div class="phone-screen" style="background: linear-gradient(180deg, #F4F9F5 0%, #E8F1EA 100%);">
             <!-- status bar -->
             <div class="absolute top-0 inset-x-0 px-8 pt-3 flex items-center justify-between text-[12px] font-semibold text-[#2D3B36] z-20">
               <span>22:14</span>
@@ -696,7 +696,7 @@
             <div class="phone-scroll pt-12 pb-6 px-5">
               <!-- top bar -->
               <div class="flex items-center justify-between">
-                <button class="w-10 h-10 rounded-full bg-white border border-[#f0eadd] flex items-center justify-center">
+                <button class="w-10 h-10 rounded-full bg-white border border-[#E1EDE4] flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 <div class="text-center">
@@ -707,7 +707,7 @@
               </div>
 
               <!-- mic visual -->
-              <div class="mt-6 flex flex-col items-center">
+              <div class="mt-16 flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center">
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div class="w-44 h-44 rounded-full bg-[#8BC9A544] pulse-ring absolute"></div>
@@ -744,7 +744,7 @@
               </div>
 
               <!-- live transcript -->
-              <div class="mt-6 bg-white rounded-2xl p-4 border border-[#f0eadd]">
+              <div class="mt-6 bg-white rounded-2xl p-4 border border-[#E1EDE4]">
                 <div class="flex items-center justify-between mb-2">
                   <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">Transcription en direct</div>
                   <span class="text-[9px] font-mono text-[#6FB58A] bg-[#E8F3EC] px-1.5 py-0.5 rounded">FR · 98%</span>
@@ -755,7 +755,7 @@
               </div>
 
               <!-- Pedia detected -->
-              <div class="mt-4 rounded-2xl p-4 relative overflow-hidden" style="background: linear-gradient(135deg, #E8F3EC 0%, #F5EFE6 100%); border:1px solid #cde4d3;">
+              <div class="mt-4 rounded-2xl p-4 relative overflow-hidden" style="background: linear-gradient(135deg, #E8F3EC 0%, #E8F1EA 100%); border:1px solid #cde4d3;">
                 <div class="flex items-center justify-between mb-3">
                   <div class="flex items-center gap-2">
                     <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#A8D5BA] to-[#6FB58A] flex items-center justify-center">
@@ -1260,7 +1260,7 @@
 <!-- ============== SCREEN 5 - PRODUCT RECAP ============== -->
 <section class="screen" id="screen-5">
   <div class="min-h-screen" style="background:
-      linear-gradient(180deg, #FBF8F3 0%, #F5EFE6 40%, #F7F9FC 100%);">
+      linear-gradient(180deg, #F4F9F5 0%, #E8F1EA 40%, #F7F9FC 100%);">
 
     <div class="max-w-[1400px] mx-auto px-10 py-14">
       <!-- header -->
@@ -1276,7 +1276,7 @@
       </div>
 
       <!-- Pipeline -->
-      <section class="bg-white rounded-[28px] border border-[#f0eadd] p-8">
+      <section class="bg-white rounded-[28px] border border-[#E1EDE4] p-8">
         <div class="flex items-center justify-between mb-6">
           <h3 class="font-display text-2xl text-[#2D3B36] font-medium">De la voix à la décision clinique - en 4 étapes.</h3>
           <div class="text-[11px] font-mono text-[#5A6B63]">temps médian bout-en-bout · 3.4 s / obs.</div>
@@ -1284,7 +1284,7 @@
 
         <div class="grid grid-cols-4 gap-0 relative">
           <!-- connecting line -->
-          <div class="absolute left-[12.5%] right-[12.5%] top-10 h-[2px] bg-[#e7e1d5] z-0">
+          <div class="absolute left-[12.5%] right-[12.5%] top-10 h-[2px] bg-[#D5E2D8] z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-[#6FB58A] via-[#8BC9A5] to-[#1E3A8A]"></div>
           </div>
 
@@ -1310,7 +1310,7 @@
 
           <!-- step 3 -->
           <div class="relative z-10 pr-5">
-            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#EADFCB] to-[#D4C3A3] flex items-center justify-center shadow-lg shadow-[#EADFCB55]">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#D4E4D7] to-[#D4C3A3] flex items-center justify-center shadow-lg shadow-[#D4E4D755]">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3B36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 12 4-4 4 4 6-6"/></svg>
             </div>
             <div class="mt-5 font-mono text-[11px] text-[#5A6B63] uppercase tracking-widest">03 · système</div>
@@ -1337,7 +1337,7 @@
           <div class="font-display text-[96px] leading-none font-medium rise mt-2">2<span class="text-[36px] font-mono align-top ml-1">min</span></div>
           <div class="text-[14px] mt-3 leading-relaxed max-w-xs">de lecture pour le pédiatre - contre 15 à 20 minutes d'anamnèse orale aujourd'hui.</div>
         </div>
-        <div class="rounded-[28px] p-8 text-[#2D3B36] relative overflow-hidden" style="background: linear-gradient(135deg, #F5EFE6, #EADFCB);">
+        <div class="rounded-[28px] p-8 text-[#2D3B36] relative overflow-hidden" style="background: linear-gradient(135deg, #E8F1EA, #D4E4D7);">
           <div class="text-[11px] font-mono uppercase tracking-widest opacity-70">agrégées côté patient</div>
           <div class="font-display text-[96px] leading-none font-medium rise mt-2" style="animation-delay:.1s">6<span class="text-[36px] font-mono align-top ml-1">mois</span></div>
           <div class="text-[14px] mt-3 leading-relaxed max-w-xs">d'observations parent, à la granularité de la minute, sans perte ni reconstruction a posteriori.</div>
@@ -1350,7 +1350,7 @@
       </section>
 
       <!-- Differentiator matrix -->
-      <section class="mt-6 bg-white rounded-[28px] border border-[#f0eadd] p-8">
+      <section class="mt-6 bg-white rounded-[28px] border border-[#E1EDE4] p-8">
         <div class="flex items-end justify-between mb-6">
           <div>
             <div class="text-[11px] font-mono uppercase tracking-widest text-[#5A6B63]">Différenciateur</div>
@@ -1361,9 +1361,9 @@
 
         <!-- 2x2 matrix -->
         <div class="relative max-w-3xl mx-auto">
-          <div class="grid grid-cols-2 grid-rows-2 aspect-[1.3/1] border border-[#e7e1d5] rounded-2xl overflow-hidden">
+          <div class="grid grid-cols-2 grid-rows-2 aspect-[1.3/1] border border-[#D5E2D8] rounded-2xl overflow-hidden">
             <!-- top-left: lifestyle apps -->
-            <div class="bg-[#F5EFE6] p-6 border-r border-b border-[#e7e1d5] flex flex-col justify-between">
+            <div class="bg-[#E8F1EA] p-6 border-r border-b border-[#D5E2D8] flex flex-col justify-between">
               <div>
                 <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">capture quotidienne</div>
                 <div class="text-[10px] font-mono text-[#5A6B63]">+ usage grand public</div>
@@ -1374,7 +1374,7 @@
               </div>
             </div>
             <!-- top-right: PÉDIA -->
-            <div class="p-6 border-b border-[#e7e1d5] flex flex-col justify-between relative" style="background: linear-gradient(135deg, #E8F3EC 0%, #DBE5F7 100%);">
+            <div class="p-6 border-b border-[#D5E2D8] flex flex-col justify-between relative" style="background: linear-gradient(135deg, #E8F3EC 0%, #DBE5F7 100%);">
               <div>
                 <div class="text-[10px] font-mono uppercase tracking-widest text-[#0F172A]">capture quotidienne</div>
                 <div class="text-[10px] font-mono text-[#0F172A]">+ usage clinique pro</div>
@@ -1391,7 +1391,7 @@
               <div class="absolute top-3 right-3 text-[9px] font-mono bg-[#0F172A] text-white px-1.5 py-0.5 rounded">vous êtes ici</div>
             </div>
             <!-- bottom-left: paper log -->
-            <div class="bg-[#FBF8F3] p-6 border-r border-[#e7e1d5] flex flex-col justify-between">
+            <div class="bg-[#F4F9F5] p-6 border-r border-[#D5E2D8] flex flex-col justify-between">
               <div>
                 <div class="text-[10px] font-mono uppercase tracking-widest text-[#5A6B63]">capture épisodique</div>
                 <div class="text-[10px] font-mono text-[#5A6B63]">+ usage grand public</div>
@@ -1436,7 +1436,7 @@
         </div>
       </section>
 
-      <footer class="mt-14 flex items-center justify-between text-[11px] font-mono text-[#5A6B63] border-t border-[#e7e1d5] pt-5">
+      <footer class="mt-14 flex items-center justify-between text-[11px] font-mono text-[#5A6B63] border-t border-[#D5E2D8] pt-5">
         <div>Pédia · carnet de santé pédiatrique augmenté · fait à Paris, avec soin.</div>
         <div>pedia.health · contact@pedia.health · pour questions investisseurs : ir@pedia.health</div>
       </footer>
