@@ -1,5 +1,5 @@
 Chief complaint (Motif de consultation)
-History — personal, family (ATCD: personnel, familiaux)
+History - personal, family (ATCD: personnel, familiaux)
 Medications (Traitements)
 Allergies
 Nutrition (Alimentation)

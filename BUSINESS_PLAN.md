@@ -1,6 +1,6 @@
-# BUSINESS_PLAN.md — Pedia
+# BUSINESS_PLAN.md - Pedia
 
-> **Format**: seed-stage one-pager, paced for a 90-second SF VC read (references: YC seed one-pager, a16z seed memo, Sequoia seed brief). Not a Series A deck — we don't have the traction. The *YC Series A pitch and deck* guide is consulted for **structure only**, not tone.
+> **Format**: seed-stage one-pager, paced for a 90-second SF VC read (references: YC seed one-pager, a16z seed memo, Sequoia seed brief). Not a Series A deck - we don't have the traction. The *YC Series A pitch and deck* guide is consulted for **structure only**, not tone.
 > **Budgets & market**: `[MIT]` inline on every sensitive figure.
 > **Product rule**: **price < client ROI** on every tier. Non-negotiable.
 
@@ -16,8 +16,8 @@ Parents capture (voice / text / photo, 30 s). HPO ontology structures. The pedia
 
 In French ambulatory pediatrics:
 
-- **4 years** — median diagnostic delay for a pediatric rare disease. `[MIT]`
-- **180 days** — clinical signal unobserved between two follow-up visits (3–6 months apart, typical cadence).
+- **4 years** - median diagnostic delay for a pediatric rare disease. `[MIT]`
+- **180 days** - clinical signal unobserved between two follow-up visits (3–6 months apart, typical cadence).
 - Parents forget, can't find the right clinical words, sometimes don't speak French.
 - Pediatricians re-do the anamnesis at every visit; weak signals are invisible to the naked eye; longitudinal traceability is zero.
 
@@ -25,20 +25,20 @@ In French ambulatory pediatrics:
 
 **Pedia** is an augmented pediatric health record, **prescribed by the pediatrician** to the parent.
 
-- **Parent side (free, forever)** — one button: "Hold to speak", 30 s max. Voice, text, photo, timestamped.
-- **Pipeline** — Whisper transcription → clinical NER (`pedia-ner-fr`) → structuring into **HPO** (17,000 standardized phenotypes) → anonymization → HDS hosting.
-- **Physician side** — pre-consult summary: narrative anamnesis by UE 5 category, 4-month timeline, weak signals (temporal correlations + trends), non-diagnostic pathways to explore.
+- **Parent side (free, forever)** - one button: "Hold to speak", 30 s max. Voice, text, photo, timestamped.
+- **Pipeline** - Whisper transcription → clinical NER (`pedia-ner-fr`) → structuring into **HPO** (17,000 standardized phenotypes) → anonymization → HDS hosting.
+- **Physician side** - pre-consult summary: narrative anamnesis by UE 5 category, 4-month timeline, weak signals (temporal correlations + trends), non-diagnostic pathways to explore.
 
-**Wedge**: be the tool the physician **prescribes to the parent**, not the one the parent picks alone. That gives us (a) near-free distribution (prescription = channel), (b) higher-quality engagement (prescription means "use it"), (c) positioning as the "physician's tool", never "parent-to-physician conduit" — the key to pediatric adoption.
+**Wedge**: be the tool the physician **prescribes to the parent**, not the one the parent picks alone. That gives us (a) near-free distribution (prescription = channel), (b) higher-quality engagement (prescription means "use it"), (c) positioning as the "physician's tool", never "parent-to-physician conduit" - the key to pediatric adoption.
 
 ## 4. Why now
 
-- **Clinical-grade LLM quality** crossed the threshold in 2024–2025 — robust entity extraction + ontology mapping in French.
+- **Clinical-grade LLM quality** crossed the threshold in 2024–2025 - robust entity extraction + ontology mapping in French.
 - **HPO** is the European interoperability standard in pediatric rare-disease pathways (ERN networks).
-- **Parental digital health literacy** spiked post-COVID — voice capture is normalized (voice messages, Siri, WhatsApp voice).
+- **Parental digital health literacy** spiked post-COVID - voice capture is normalized (voice messages, Siri, WhatsApp voice).
 - **ONDAM 2025 pressure** on ambulatory pediatrics + under-billed hospital T2A → buying window.
 
-## 5. Market — TAM / SAM `[MIT]`
+## 5. Market - TAM / SAM `[MIT]`
 
 | Segment | Volume | Avg price | TAM / yr |
 |---|---|---|---|
@@ -50,12 +50,12 @@ In French ambulatory pediatrics:
 - **Priority SAM** (independent pediatricians + high-volume hospital services): **€9M/yr**.
 - **EU expansion** next on the HPO interoperability rail.
 
-## 6. Business model & pricing — **price < ROI on every tier** `[MIT]`
+## 6. Business model & pricing - **price < ROI on every tier** `[MIT]`
 
-### 6.1 Parent — **free, forever**
+### 6.1 Parent - **free, forever**
 Only one side of the market pays. Maximizes parental adoption and shields Pedia from being seen as a "tool that bills families".
 
-### 6.2 Independent pediatrician — **€49 / month / practitioner**
+### 6.2 Independent pediatrician - **€49 / month / practitioner**
 
 | Calculation | Value |
 |---|---|
@@ -68,7 +68,7 @@ Only one side of the market pays. Maximizes parental adoption and shields Pedia 
 
 The **< €50 psychological threshold** lets the pediatrician decide alone without routing to the practice accountant.
 
-### 6.3 Hospital service — **€12,000 / year / service**
+### 6.3 Hospital service - **€12,000 / year / service**
 
 | Calculation | Value |
 |---|---|
@@ -91,17 +91,17 @@ The **< €50 psychological threshold** lets the pediatrician decide alone witho
 | Gross margin | **> 85%** (full-EU SaaS hosting) |
 | CAC payback | **< 6 months** |
 
-## 8. Go-to-market — what we would do if seed funded
+## 8. Go-to-market - what we would do if seed funded
 
 No month-by-month speculation. Two phases:
 
 ### First push (with seed funding)
 - **AFPA** (Association Française de Pédiatrie Ambulatoire) distribution partnership.
-- **Pediatric congresses** (JFRP, Printemps de la Pédiatrie) — booth + timed workshops.
-- **Prescriber word-of-mouth** — each satisfied pediatrician prescribes to 30–50 families.
+- **Pediatric congresses** (JFRP, Printemps de la Pédiatrie) - booth + timed workshops.
+- **Prescriber word-of-mouth** - each satisfied pediatrician prescribes to 30–50 families.
 
-### Next — if the pilot validates
-- Pilot **2 CHUs** (Necker, Lyon Sud — already listed as supporters on the landing page).
+### Next - if the pilot validates
+- Pilot **2 CHUs** (Necker, Lyon Sud - already listed as supporters on the landing page).
 - CME (continuing medical education) embedding Pedia into anamnesis training.
 - **CNAM** partial reimbursement via a dedicated "pediatric pre-consult summary" CCAM code.
 - **ARS** regional rare-disease / neurodevelopmental-screening schemes.
@@ -111,9 +111,9 @@ HPO interoperability opens DE / ES / IT / BE / NL once France is validated. Loca
 
 ## 9. Where we are · next concrete step
 
-- **Today** — HTML prototype (`Pedia.html`) + semiology skeleton validated by our two MDs.
-- **First concrete step with seed funding** — closed beta with 10 pilot practices.
-- **The step that decides the company** — a 50-pediatrician chronometered pilot answering one question: **is time saved per consultation ≥ 2 min?** If yes, ROI ×21 holds and GTM scales.
+- **Today** - HTML prototype (`Pedia.html`) + semiology skeleton validated by our two MDs.
+- **First concrete step with seed funding** - closed beta with 10 pilot practices.
+- **The step that decides the company** - a 50-pediatrician chronometered pilot answering one question: **is time saved per consultation ≥ 2 min?** If yes, ROI ×21 holds and GTM scales.
 - **CE marking class I** in scope; DPIA (AIPD) mandatory before open beta.
 
 No ARR projection at hackathon stage. We'll have ARR when we have paying pilots.
@@ -130,10 +130,10 @@ No ARR projection at hackathon stage. We'll have ARR when we have paying pilots.
 | **MyChart / Epic MyChart EU** | Patient portal | No free-form capture, no HPO |
 
 ### 10.2 Moat (12–18 months to copy)
-1. **French pediatric HPO ontology** — proven mapping from unstructured parental observations.
-2. **Multilingual voice pipeline** — FR in v0, 5 EU languages in v1.
-3. **Physician-prescribed distribution** — hard to replicate without clinical partnerships.
-4. **Published clinical study** — regulatory argument and entry barrier (planned post-pilot).
+1. **French pediatric HPO ontology** - proven mapping from unstructured parental observations.
+2. **Multilingual voice pipeline** - FR in v0, 5 EU languages in v1.
+3. **Physician-prescribed distribution** - hard to replicate without clinical partnerships.
+4. **Published clinical study** - regulatory argument and entry barrier (planned post-pilot).
 
 ## 11. Regulatory
 
@@ -185,18 +185,18 @@ No ARR projection at hackathon stage. We'll have ARR when we have paying pilots.
 ## 15. Sources
 
 ### Content `[MIT]` + `[HPO]`
-- **MIT Sloan Healthcare Initiative** — pediatric cost-of-care & diagnostic-delay reports (France comparable cohort).
-- **MIT Media Lab Connected Health** — parental digital capture & longitudinal pediatric monitoring.
-- **MIT wage benchmark** — medical-professional time valuation, France-adjusted.
-- **HPO / Monarch Initiative** — 17,000 standardized phenotypes · https://hpo.jax.org
+- **MIT Sloan Healthcare Initiative** - pediatric cost-of-care & diagnostic-delay reports (France comparable cohort).
+- **MIT Media Lab Connected Health** - parental digital capture & longitudinal pediatric monitoring.
+- **MIT wage benchmark** - medical-professional time valuation, France-adjusted.
+- **HPO / Monarch Initiative** - 17,000 standardized phenotypes · https://hpo.jax.org
 - Complements: Orphanet (FR rare diseases), HAS (TND guidelines), CNAM Santé directory (FR pediatrician + GP count).
 
 ### Form references (seed-stage pitch / business doc)
-- Kevin Hale — *How to pitch your startup* · YC · https://www.ycombinator.com/library/6q-how-to-pitch-your-company
-- Michael Seibel — *How to build the perfect demo day pitch* · YC · https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch
-- Paul Graham — *How to convince investors* · http://paulgraham.com/convince.html
-- *How to build a great Series A pitch and deck* · YC · https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck — **consulted for one-pager structure only, not pitch cadence.**
+- Kevin Hale - *How to pitch your startup* · YC · https://www.ycombinator.com/library/6q-how-to-pitch-your-company
+- Michael Seibel - *How to build the perfect demo day pitch* · YC · https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch
+- Paul Graham - *How to convince investors* · http://paulgraham.com/convince.html
+- *How to build a great Series A pitch and deck* · YC · https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck - **consulted for one-pager structure only, not pitch cadence.**
 
 ---
 
-*Last updated: 2026-04-18 — ahead of the ANDCS × MIT Hackathon 2026 final pitch, Track 2 AI in Pediatrics.*
+*Last updated: 2026-04-18 - ahead of the ANDCS × MIT Hackathon 2026 final pitch, Track 2 AI in Pediatrics.*

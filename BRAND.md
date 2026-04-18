@@ -1,10 +1,10 @@
-# BRAND.md — Pedia slide palette
+# BRAND.md - Pedia slide palette
 
 > Colors lifted straight from `Pedia.html`. Two families: **green** (parent side) and **blue** (physician side). Same neutrals across both. Use these exact hex values in Google Slides so the deck matches the screenshots.
 
 ---
 
-## 🌿 Green — parent side
+## 🌿 Green - parent side
 
 | Role | Name | Hex | When |
 |---|---|---|---|
@@ -12,7 +12,7 @@
 | Soft | Mint | **`#A8D5BA`** | background wash, soft blobs, non-emphasis chips |
 | Tint | Mint-bg | **`#E8F3EC`** | cards, input backgrounds, subtle fills |
 
-## 🔷 Blue — physician side
+## 🔷 Blue - physician side
 
 | Role | Name | Hex | When |
 |---|---|---|---|
@@ -47,10 +47,10 @@ Used only on parent-journey slides if you want the warm feel from the HTML landi
 
 | Slide | Dominant | Accent | Why |
 |---|---|---|---|
-| **1 — Hook (problem)** | black (`#0F172A`) | green `#6FB58A` on the word "Pedia" | problem statement is heavy; end-beat lands on parent-side green |
-| **2 — Anamnesis comparison** | left column warm/neutral · right column **med-blue `#1E3A8A`** frame | mint `#A8D5BA` for "what parents captured" inset | visually encodes the transition: scribble (warm) → clinical report (blue) |
-| **3 — Product (POC)** | white · medium gray neutrals | green for parent capture screenshot · blue for physician dashboard screenshot | mirrors the Pedia.html screenshots exactly |
-| **4 — Business + ask + close** | **med-blue `#1E3A8A`** headlines + figures | green `#6FB58A` on the "Parents always free" line and the cascade close | business is blue (institutional), the emotional close returns to green (parents / children) |
+| **1 - Hook (problem)** | black (`#0F172A`) | green `#6FB58A` on the word "Pedia" | problem statement is heavy; end-beat lands on parent-side green |
+| **2 - Anamnesis comparison** | left column warm/neutral · right column **med-blue `#1E3A8A`** frame | mint `#A8D5BA` for "what parents captured" inset | visually encodes the transition: scribble (warm) → clinical report (blue) |
+| **3 - Product (POC)** | white · medium gray neutrals | green for parent capture screenshot · blue for physician dashboard screenshot | mirrors the Pedia.html screenshots exactly |
+| **4 - Business + ask + close** | **med-blue `#1E3A8A`** headlines + figures | green `#6FB58A` on the "Parents always free" line and the cascade close | business is blue (institutional), the emotional close returns to green (parents / children) |
 
 ---
 
@@ -58,16 +58,16 @@ Used only on parent-journey slides if you want the warm feel from the HTML landi
 
 Matches the HTML mock:
 
-- **Display / numbers** — serif display or humanist sans at large size. In Google Slides: *Playfair Display* or *Source Serif 4*, weight 500–600.
-- **Body / captions** — *Inter* (or system sans), weight 400–500.
-- **Mono / source tags** — *JetBrains Mono* or *IBM Plex Mono*, 10–11 pt, `#94A3B8`.
+- **Display / numbers** - serif display or humanist sans at large size. In Google Slides: *Playfair Display* or *Source Serif 4*, weight 500–600.
+- **Body / captions** - *Inter* (or system sans), weight 400–500.
+- **Mono / source tags** - *JetBrains Mono* or *IBM Plex Mono*, 10–11 pt, `#94A3B8`.
 
 ## Accessibility sanity
 
 All foreground / background pairs listed are WCAG AA compliant for body text (4.5:1) except:
 
-- `#6FB58A` green on white → contrast 2.5:1 — **only use for large text / display, never body copy**.
-- `#3B82F6` blue on white → contrast 3.7:1 — **only for links and large text**, not body copy.
+- `#6FB58A` green on white → contrast 2.5:1 - **only use for large text / display, never body copy**.
+- `#3B82F6` blue on white → contrast 3.7:1 - **only for links and large text**, not body copy.
 
 For any small body text, use `#0F172A` or `#475569` on white or `#F7F9FC`.
 
