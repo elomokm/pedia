@@ -119,11 +119,11 @@ All three in the same moment, showing the loop : parent speaks → Pedia structu
 
 **Script (Fanette, continuing from slide 2)** :
 
-> "Pedia is a multimodal, multilingual pediatric journal, prescribed by the physician. Parents can log every day - voice, text, photo - in their mother tongue.
+> "Pedia is a multimodal, multilingual pediatric journal, prescribed by the physician. Three stakeholders, three interfaces. Parents log every day, in their mother tongue: voice, text, photo. Physicians read a structured report in medical language before each appointment, with four-month evolution curves and the weak signals detected across all observations. Hospital services get longitudinal records and avoided reconvocations.
 >
 > Behind the scenes: transcription, clinical extraction, structuring into HPO. Hosted HDS, RGPD-compliant, nothing leaves the EU.
 >
-> Before each appointment, the pediatrician receives a one-page structured report in medical language, with four-month evolution curves and the weak signals detected across all observations. If a concerning pattern appears, the physician is alerted first - never a diagnosis, only a pathway to explore. The clinical decision stays with the physician."
+> If a concerning pattern appears, the physician is alerted first - never a diagnosis, only a pathway to explore. The clinical decision stays with the physician."
 
 ---
 
@@ -152,7 +152,8 @@ CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo**
 
 ### Block 4 - Where we are · next concrete step
 - **Today**: prototype (`Pedia.html` mockup) · semiology validated by our two MDs.
-- **Next**: 50-pediatrician chronometered pilot - **the question that matters: is time saved ≥ 2 min per consult?**
+- **Next**: 50-pediatrician chronometered pilot.
+- **North-star KPI**: time saved per consultation ≥ 2 min. Every other KPI (CAC, LTV, churn, activation) flows from it.
 - **Regulatory scope**: MDR class I, CE mark in scope.
 
 ### Block 5 - Team + Ask
@@ -165,13 +166,13 @@ CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo**
 
 **Script (Fanette or Ayda - decide at rehearsal)** :
 
-> "Prescribed by the physician, paid by the medical structure. Parents always free.
+> "Three stakeholders. Prescribed by the physician, paid by the medical structure. Parents always free.
 >
-> An independent pediatrician pays forty-nine euros a month and recovers eleven hours of clinical time. ROI times twenty-one. A hospital service pays twelve thousand euros a year - payback under six months. On every tier, **price stays below the client's ROI**.
+> An independent pediatrician pays forty-nine euros a month and recovers eleven hours of clinical time. ROI times twenty-one. A hospital service pays twelve thousand euros a year, payback under six months. On every tier, **price stays below the client's ROI**.
 >
 > TAM France: thirty-one million euros. Europe is the natural next step, on the HPO interoperability rail.
 >
-> Today we have a validated prototype. The one number that decides the company is whether a fifty-pediatrician chronometered pilot saves at least two minutes per consultation. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts.
+> Today we have a validated prototype. Our north-star KPI: at least two minutes saved per consultation, measured in a fifty-pediatrician chronometered pilot. We are raising four hundred thousand euros to run that pilot, get CE marking class one, and sign our first two hospital contracts.
 >
 > Two physicians. Four engineers. The pairing is the moat."
 >
