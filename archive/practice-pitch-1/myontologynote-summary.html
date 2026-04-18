@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyOntologyNote — Project Summary</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 48px;
+    color: #000;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 16px;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+  }
+
+  ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 48px 0;
+  }
+
+  .pitch {
+    font-style: italic;
+    font-size: 16px;
+    padding: 16px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 16px 0 24px 0;
+  }
+
+  .footer {
+    margin-top: 60px;
+    font-size: 13px;
+    font-style: italic;
+    border-top: 1px solid #000;
+    padding-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<h1>MyOntologyNote</h1>
+<p class="subtitle">Project Summary</p>
+
+<h2>One-line pitch</h2>
+<p class="pitch">A multimodal, multilingual pediatric journal, prescribed by physicians, that turns daily parental observations into structured medical reports before each consultation.</p>
+
+<h2>The pediatric problem</h2>
+<ul>
+  <li>In pediatrics, everything relies on parental observation — children don't describe their symptoms</li>
+  <li>Ideally, a child is seen every 3 to 6 months by their pediatrician</li>
+  <li>Between two consultations, 90 to 180 days of observations escape the medical system</li>
+  <li>During a consultation: 12 minutes to recount 3 months</li>
+  <li>Result: a pediatric rare disease takes an average of 4 years to be diagnosed</li>
+</ul>
+
+<h2>Parent pain points</h2>
+<ul>
+  <li>Forget half of their observations</li>
+  <li>Can't find the right words (especially non-French-speaking parents)</li>
+  <li>Live far from a physician (medical deserts)</li>
+</ul>
+
+<h2>Physician pain points</h2>
+<ul>
+  <li>Reconstruct 3 months of observations in 12 minutes</li>
+  <li>Discover a key signal too late</li>
+  <li>Miss early detection (4-year diagnostic wandering for rare diseases)</li>
+</ul>
+
+<h2>The solution</h2>
+<ul>
+  <li><strong>Prescribed by the pediatrician</strong> when there's something to track (persistent cough, chronic condition, diagnostic doubt)</li>
+  <li><strong>Daily multimodal logging</strong>: voice, text, photo, emoji</li>
+  <li><strong>Native multilingual support</strong>: parent inputs in their mother tongue, physician reads in French</li>
+  <li><strong>AI extraction</strong> turns each observation into a standardized clinical indicator (frequency, intensity, duration, triggers)</li>
+  <li><strong>HPO ontology</strong> as the pivot (17,000 internationally standardized phenotypes)</li>
+  <li><strong>Structured one-page medical report</strong> with evolution curves of key indicators, delivered before each appointment</li>
+  <li><strong>Alert system</strong>: physician alerted first, parent can be notified non-alarmingly</li>
+</ul>
+
+<h2>Non-negotiable clinical rules</h2>
+<ul>
+  <li>No diagnosis, ever</li>
+  <li>Neutral medical vocabulary (no "severe", "worrying", "alarming")</li>
+  <li>Parental attribution on every observation</li>
+  <li>Alerts go to the physician first, parent notified without alarmism</li>
+  <li>Explicit consent required for any data sharing</li>
+  <li>Parents: product always free</li>
+</ul>
+

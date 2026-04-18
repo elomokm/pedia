@@ -1,0 +1,16 @@
+# Hackathon artifacts — too large for git
+participant-handbook.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Build / deps (if we add any later)
+node_modules/
+dist/
+.env
+.env.local
