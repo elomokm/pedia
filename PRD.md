@@ -1,152 +1,151 @@
 # PRD — Pedia
 
-> **Version** : v0.1 hackathon · **Auteurs** : Fanette, Elom, Raoul, Raphaël, Ayda, Anouar · **Mis à jour** : 18 avril 2026
+> **Version**: v0.1 hackathon · **Authors**: Fanette, Elom, Raoul, Raphaël, Ayda, Anouar · **Updated**: April 18, 2026
 
-## 1. Problème
+## 1. Problem
 
-- **4 ans** de retard diagnostique médian pour une maladie rare pédiatrique en France. `[MIT]`
-- **180 jours** de signal clinique perdus entre deux consultations de suivi (3 à 6 mois en pédiatrie ambulatoire).
-- **< 20 minutes** de consultation pédiatrique libérale médiane (DREES 2007) pour reconstruire ces 3 mois de mémoire parentale.
-- **Parents** : oublient, ne trouvent pas les mots, parfois non-francophones, parfois en désert médical.
-- **Pédiatres** : ré-anamnèse à chaque visite, signaux faibles invisibles à l'œil nu, pas de traçabilité longitudinale.
+- **4 years** — median diagnostic delay for a pediatric rare disease in France. `[MIT]`
+- **180 days** — clinical signal lost between two follow-up visits (3 to 6 months apart in ambulatory pediatrics).
+- **Parents**: forget, can't find the right words, sometimes non-French-speaking, sometimes in a medical desert.
+- **Pediatricians**: re-anamnesis at every visit, weak signals invisible to the naked eye, no longitudinal traceability.
 
 ## 2. Vision
 
-Tout ce qui est vu à la maison arrive structuré chez le pédiatre, sans demander plus au parent et sans allonger la consultation.
+Everything seen at home arrives structured at the pediatrician's desk, without asking more of the parent and without lengthening the consultation.
 
 ## 3. Personas
 
-### 3.1 Camille — parent (utilisatrice quotidienne, **gratuit**)
-- 32 ans, maman de Louis (2 ans). Smartphone en permanence.
-- Douleur : "j'oublie la moitié en rendez-vous", "je ne sais pas si c'est normal ou pas".
-- Besoin : capturer en 30 s, au moment où ça se passe, sans remplir de formulaire.
-- Succès : passer du journal dispersé (post-it, notes iPhone, photos) à un fil unique.
+### 3.1 Camille — parent (daily user, **free**)
+- 32 yrs old, mother of Louis (2 yrs). Smartphone always at hand.
+- Pain: "I forget half of it in the appointment", "I don't know if it's normal or not".
+- Need: capture in 30 seconds, in the moment, with zero form-filling.
+- Success: move from a scattered log (sticky notes, iPhone notes, photos) to a single thread.
 
-### 3.2 Dr. Claire Lemoine — pédiatre libérale (**payeuse — 49 €/mois**)
-- 44 ans, cabinet seul, 25 consultations/jour. RPPS 10003418927.
-- Douleur : < 20 min pour comprendre 3 mois, anamnèse à refaire, oubli de signaux entre visites.
-- Besoin : arriver en consultation avec une synthèse 2 min fiable.
-- Succès : récupérer 11 h de temps médical / mois (ROI × 21 sur 49 €).
+### 3.2 Dr. Claire Lemoine — independent pediatrician (**payer — €49/month**)
+- 44 yrs old, solo practice, 25 consultations/day. RPPS 10003418927.
+- Pain: short consultation to understand 3 months, anamnesis re-built from scratch, signals missed between visits.
+- Need: walk into the consult with a trustworthy 2-minute summary.
+- Success: recover 11 hours of clinical time per month (ROI ×21 on €49).
 
-### 3.3 Service de pédiatrie hospitalière — CHU / CHG (**payeur — 12 k€/an**)
-- Chef de service + cadre. Suivi de cohortes longues (rare, chronique, neurodéveloppemental).
-- Douleur : reconvocations inutiles, T2A non facturée, coordination CAMSP / neuropédiatre / ORL défaillante.
-- Besoin : dossier longitudinal partagé, export structuré, alertes signaux faibles.
-- Succès : +33 k€/an récupérés, payback 5 mois.
+### 3.3 Hospital pediatric service — CHU / CHG (**payer — €12k/year**)
+- Head of department + nurse coordinator. Long-cohort follow-up (rare, chronic, neurodevelopmental).
+- Pain: unnecessary reconvocations, under-billed T2A, poor coordination with CAMSP / neuropediatrician / ENT.
+- Need: shared longitudinal record, structured export, weak-signal alerts.
+- Success: +€33k/year recovered, 5-month payback.
 
-## 4. User stories principales
+## 4. Core user stories
 
 ### 4.1 Parent
-- **P1** — *En tant que parent, je veux capturer une observation vocale en 30 s, depuis l'écran d'accueil, sans navigation.* → un bouton dominant "Tenez pour parler".
-- **P2** — *En tant que parent, je veux voir mon fil chronologique mixant voix, texte, photo, pour me relire avant le rendez-vous.*
-- **P3** — *En tant que parent, je veux savoir que la prochaine consultation approche et ce que j'ai noté depuis la précédente.*
-- **P4** — *En tant que parent non-francophone, je veux pouvoir parler dans ma langue.* (objectif v1 — pipeline multilingue).
+- **P1** — *As a parent, I want to capture a voice observation in 30 s, from the home screen, with no navigation.* → one dominant "Hold to speak" button.
+- **P2** — *As a parent, I want to see my chronological thread — voice, text, photo — so I can re-read myself before the appointment.*
+- **P3** — *As a parent, I want to know the next appointment is coming and what I logged since the last one.*
+- **P4** — *As a non-French-speaking parent, I want to speak in my native language.* (v1 target — multilingual pipeline).
 
-### 4.2 Pédiatre
-- **M1** — *En tant que pédiatre, je veux ouvrir le dossier et comprendre l'enfant en 2 min avant son entrée dans la salle.*
-- **M2** — *En tant que pédiatre, je veux voir une **anamnèse narrative** reconstituée depuis les observations parentales, structurée par les catégories de l'UE 5 sémiologie.*
-- **M3** — *En tant que pédiatre, je veux une timeline des 4 derniers mois avec les symptômes récurrents.*
-- **M4** — *En tant que pédiatre, je veux voir les **signaux faibles** — corrélations temporelles, tendances, motifs récurrents détectés sur 47+ observations.*
-- **M5** — *En tant que pédiatre, je veux des **pistes à explorer** non diagnostiques (orientations, bilans préalables) sans que Pedia ne pose de diagnostic.*
-- **M6** — *En tant que pédiatre, je veux pouvoir exporter la synthèse en PDF et partager avec un CAMSP / neuropédiatre / ORL.*
+### 4.2 Pediatrician
+- **M1** — *As a pediatrician, I want to open the file and understand the child in 2 minutes before they walk into the room.*
+- **M2** — *As a pediatrician, I want a **narrative anamnesis** reconstructed from parental observations, structured by the UE 5 semiology categories.*
+- **M3** — *As a pediatrician, I want a 4-month timeline with recurring symptoms.*
+- **M4** — *As a pediatrician, I want **weak signals** — temporal correlations, trends, recurring motifs detected across 47+ observations.*
+- **M5** — *As a pediatrician, I want **non-diagnostic pathways to explore** (referrals, prerequisite exams) without Pedia posting a diagnosis.*
+- **M6** — *As a pediatrician, I want to export the summary as PDF and share with CAMSP / neuropediatrician / ENT.*
 
-### 4.3 Service hospitalier
-- **H1** — *En tant que cadre de service, je veux déployer Pedia sur une cohorte (ex. neurodéveloppemental) avec audit d'accès et consentements parentaux.*
-- **H2** — *En tant que chef de service, je veux réduire les reconvocations inutiles via les signaux faibles et la synthèse pré-consultation.*
+### 4.3 Hospital service
+- **H1** — *As a department manager, I want to deploy Pedia on a cohort (e.g. neurodevelopmental) with access audit and parental consents.*
+- **H2** — *As a department head, I want to reduce unnecessary reconvocations via weak signals and the pre-consult summary.*
 
-## 5. Cartographie : écrans `Pedia.html` → user stories
+## 5. Mapping: `Pedia.html` screens → user stories
 
-| # | Écran | Nom | Couvre |
+| # | Screen | Name | Covers |
 |---|---|---|---|
-| 1 | `screen-1` | Landing / hero | positionnement |
-| 2 | `screen-2` | Journal parent (mobile) | P1, P2, P3 |
-| 3 | `screen-3` | Saisie vocale + pipeline HPO | P1, transparence IA |
-| 4 | `screen-4` | Dashboard médecin | M1, M2, M3, M4, M5, M6, H1 |
-| 5 | `screen-5` | Récap produit | vision |
+| 1 | `screen-1` | Landing / hero | positioning |
+| 2 | `screen-2` | Parent journal (mobile) | P1, P2, P3 |
+| 3 | `screen-3` | Voice capture + HPO pipeline | P1, AI transparency |
+| 4 | `screen-4` | Physician dashboard | M1, M2, M3, M4, M5, M6, H1 |
+| 5 | `screen-5` | Product recap | vision |
 
-Patient de démo : **Louis M.**, 2 ans, né le 12/04/2024 — motif "crises de coucher répétées, retard de langage". 47 observations sur 4 mois, 5 signaux détectés, lecture pédiatre estimée 2 min.
+Demo patient: **Louis M.**, 2 years, born 2024-04-12 — chief complaint: "recurrent bedtime crises, language delay." 47 observations over 4 months, 5 detected signals, 2-minute physician read estimated.
 
-## 6. Couverture sémiologique — matrice contre `ANAMNESIS_REPORT.md`
+## 6. Semiology coverage — matrix against `ANAMNESIS_REPORT.md`
 
-Pedia doit couvrir **toutes** les catégories de l'UE 5 sémiologie pédiatrique ci-dessous, visibles dans le bloc "Résumé narratif · anamnèse parentale" du dashboard médecin (`screen-4`).
+Pedia must cover **all** categories of UE 5 pediatric semiology below, visible in the "Narrative summary · parental anamnesis" block of the physician dashboard (`screen-4`).
 
-| Catégorie | Source de capture parent | Présent dans dashboard |
+| Category | Parent capture source | Present in dashboard |
 |---|---|---|
-| Motif de consultation | observation récurrente top-ranked | ✅ |
-| ATCD personnels | saisie initiale + observations datées | ✅ |
-| ATCD familiaux | saisie initiale | ✅ |
-| Traitements | observations + rappel posologique | ✅ |
-| Allergies | saisie initiale + corrélations temporelles | ✅ |
-| Alimentation | observations + photos repas | ✅ |
-| Croissance staturo-pondérale | pesée parent + photos courbes | ✅ |
-| Mode de vie | observations quotidiennes | ✅ |
-| Développement psychomoteur | jalons déclarés + vocabulaire | ✅ |
-| Vaccinations | carnet importé / déclaré | ✅ |
-| Symptôme — timing | horodatage auto | ✅ |
-| Symptôme — douleur (localisation, intensité) | capture vocale | ✅ |
-| Facteurs déclenchants / soulageants | corrélations signaux faibles | ✅ |
-| Tolérance (comportement, alimentation, sommeil) | observations longitudinales | ✅ |
-| Signes associés | NER clinique sur capture vocale | ✅ |
-| Comptage (entourage) | observations multi-rédacteurs | ✅ |
+| Chief complaint | top-ranked recurrent observation | ✅ |
+| Personal history | onboarding + dated observations | ✅ |
+| Family history | onboarding | ✅ |
+| Medications | observations + dosing reminders | ✅ |
+| Allergies | onboarding + temporal correlations | ✅ |
+| Nutrition | observations + meal photos | ✅ |
+| Growth (weight / height) | parental weighing + chart photos | ✅ |
+| Lifestyle | daily observations | ✅ |
+| Psychomotor development | declared milestones + vocabulary | ✅ |
+| Vaccinations | imported / declared record | ✅ |
+| Symptom — timing | auto-timestamping | ✅ |
+| Symptom — pain (location, intensity) | voice capture | ✅ |
+| Triggers / relievers | weak-signal correlations | ✅ |
+| Tolerance (behavior, nutrition, sleep) | longitudinal observations | ✅ |
+| Associated signs | clinical NER on voice capture | ✅ |
+| Circle corroboration | multi-author observations | ✅ |
 
-## 7. Métriques de succès
+## 7. Success metrics
 
-### 7.1 Produit (60 jours post-lancement pilote)
-- ≥ 70 % de pédiatres actifs prescrivant Pedia aux parents.
-- ≥ 3 observations / patient / semaine en moyenne.
-- Taux d'ouverture rapport pré-consultation > 85 %.
+### 7.1 Product (60 days post-pilot launch)
+- ≥ 70% of active pediatricians prescribe Pedia to parents.
+- ≥ 3 observations / patient / week on average.
+- Pre-consult report open rate > 85%.
 
-### 7.2 Clinique (6 mois pilote)
-- Gain de temps médecin mesuré ≥ 2 min / consultation (seuil de sécurité pour ROI × 5).
-- ≥ 1 orientation précoce (CAMSP / spécialiste) déclenchée sur signal faible par cohorte de 50 patients.
-- NPS pédiatre > 45.
+### 7.2 Clinical (6-month pilot)
+- Measured physician time saved ≥ 2 min / consultation (safety threshold for ROI × 5).
+- ≥ 1 early referral (CAMSP / specialist) triggered on a weak signal per 50-patient cohort.
+- Pediatrician NPS > 45.
 
 ### 7.3 Business
-- CAC < 300 €, LTV / CAC > 6.
-- Churn < 2 % / mois.
-- 500 pédiatres signés fin An 1 (ARR 294 k€).
+- CAC < €300, LTV / CAC > 6.
+- Churn < 2% / month.
+- 500 pediatricians signed after the first post-pilot push (no ARR projection at hackathon stage).
 
-## 8. Pipeline technique (résumé — détail non couvert par ce PRD)
+## 8. Technical pipeline (summary — full detail out of scope here)
 
-1. **Capture** — voix (tenir pour parler, 30 s max), texte, photo. Client mobile PWA + app native itérable.
-2. **Transcription** — Whisper FR (latence médiane cible 420 ms).
-3. **NER clinique** — modèle `pedia-ner-fr` v0.8+ extrait entités.
-4. **Structuration HPO** — mapping vers Human Phenotype Ontology (17 000 phénotypes normalisés).
-5. **Anonymisation + chiffrement** au repos, HDS.
-6. **Synthèse pré-consultation** — LLM spécialisé génère anamnèse narrative + détecte signaux faibles par pattern matching sur ≥ 30 observations.
-7. **Export** — PDF + partage CAMSP / spécialistes.
+1. **Capture** — voice (hold to speak, 30 s max), text, photo. Mobile PWA client + iterable native app.
+2. **Transcription** — Whisper FR (target median latency 420 ms).
+3. **Clinical NER** — `pedia-ner-fr` v0.8+ model extracts entities.
+4. **HPO structuring** — mapping to Human Phenotype Ontology (17,000 standardized phenotypes).
+5. **Anonymization + encryption** at rest, HDS-certified hosting.
+6. **Pre-consult summary** — specialized LLM generates narrative anamnesis + detects weak signals via pattern matching across ≥ 30 observations.
+7. **Export** — PDF + sharing to CAMSP / specialists.
 
 ## 9. Non-goals
 
-- Pas de diagnostic automatique. Toutes les suggestions sont **non diagnostiques** et marquées comme telles.
-- Pas de télé-consultation, pas de prise de rendez-vous, pas de facturation.
-- Pas de remplacement du carnet de santé officiel — complément, pas substitut.
-- Pas de conseil santé direct au parent hors prescription médicale (éviter la requalification en DM classe IIa au lancement).
-- Pas de gestion de cohorte recherche au v1 — ciblé routine clinique.
+- No automated diagnosis. All suggestions are **non-diagnostic** and labelled as such.
+- No telemedicine, no appointment booking, no billing.
+- No replacement for the official French child health record — a complement, not a substitute.
+- No direct parent-facing health advice outside medical prescription (to avoid classifying as MDR class IIa at launch).
+- No research cohort management at v1 — targeted at routine clinical use.
 
-## 10. Dépendances externes
+## 10. External dependencies
 
-- Ontologie **HPO** (Human Phenotype Ontology, licence libre).
-- Transcription **Whisper** (ou équivalent EU si Schrems II bloque).
-- Hébergement **HDS** certifié (OVHcloud / Scaleway / Outscale).
-- Partenariat **AFPA** (Association Française de Pédiatrie Ambulatoire) — distribution libéraux.
-- Accès **Réseau Dyspra** / filières maladies rares — validation clinique.
+- **HPO** ontology (Human Phenotype Ontology, open license).
+- **Whisper** for transcription (or an EU-equivalent if Schrems II blocks).
+- **HDS-certified** hosting (OVHcloud / Scaleway / Outscale).
+- **AFPA** partnership (Association Française de Pédiatrie Ambulatoire) — independent-pediatrician distribution.
+- Access to the **Dyspra Network** / rare-disease hubs — clinical validation.
 
-## 11. Risques produit
+## 11. Product risks
 
-| Risque | Mitigation |
+| Risk | Mitigation |
 |---|---|
-| Gain de temps < 2 min en pratique | Étude chronométrée dès M3–M6 sur 50 pédiatres |
-| Parents ne capturent pas assez | Rappel push intelligent + onboarding prescription médecin |
-| Faux positifs signaux faibles usent la confiance | Calibrer seuils, traçabilité des corrélations (r affiché) |
-| Pédiatre perçoit l'outil comme une menace | Positionner "outil du médecin", jamais "du parent vers le médecin" |
+| Time saved < 2 min in practice | Chronometered study across 50 pediatricians in the seed-funded pilot |
+| Parents don't capture enough | Smart push reminders + onboarding via physician prescription |
+| Weak-signal false positives erode trust | Calibrate thresholds, display correlation traceability (r values) |
+| Pediatrician perceives the tool as a threat | Frame as "physician's tool", never "parent-to-physician conduit" |
 
-## 12. Roadmap synthétique
+## 12. Where we are · what comes next
 
-- **M0–M3** — MVP bêta fermée, 10 cabinets pilotes.
-- **M3–M6** — pilote 50 pédiatres + étude chronométrée.
-- **M6–M9** — premier contrat hospitalier.
-- **M9–M12** — marquage CE classe I, AIPD finalisée.
-- **An 2** — ouverture généralistes + multilingue v1.
-- **An 3** — contrat institutionnel CNAM / ARS.
-- **An 4** — expansion UE via HPO interop.
+States and triggers, no speculative dates at hackathon stage.
+
+- **Today**: HTML mockup (`Pedia.html`) · semiology skeleton validated by our two MDs.
+- **If seed-funded — first push**: closed beta with 10 pilot practices.
+- **Scale step**: 50-pediatrician chronometered pilot — the one number that decides the company is whether time saved per consultation is **≥ 2 min**.
+- **Regulatory scope**: MDR class I, CE mark in scope · DPIA (AIPD) mandatory before open beta.
+- **Product scope**: multilingual voice pipeline in scope · HPO interoperability in scope from day one.

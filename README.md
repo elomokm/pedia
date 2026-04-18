@@ -1,56 +1,55 @@
 # Pedia
 
-**Carnet de santé pédiatrique augmenté.** Pour que plus rien ne se perde entre deux consultations.
+**Augmented pediatric health record.** So nothing is ever lost between two consultations.
 
-Les parents capturent au quotidien — voix, texte, photo, 30 secondes suffisent. Pedia structure ces observations en langage clinique via l'ontologie HPO. Le pédiatre reçoit, avant chaque consultation, une synthèse exploitable en **2 minutes** : anamnèse narrative, courbes de tendance, signaux faibles, pistes à explorer.
+Parents capture day-to-day observations — voice, text, photo, 30 seconds is enough. Pedia structures those observations into clinical language through the HPO ontology. Before each appointment, the pediatrician receives an actionable pre-consult report readable in **2 minutes**: narrative anamnesis, trend curves, weak signals, non-diagnostic pathways to explore.
 
-## Pourquoi
+## Why
 
-- **4 ans** de retard diagnostique médian pour une maladie rare pédiatrique en France.
-- **180 jours** de signal perdus entre deux consultations de suivi.
-- **Moins de 20 minutes** de consultation pédiatrique en moyenne (médiane DREES) — pour reconstruire ces 3 mois de mémoire.
+- **4 years** — median diagnostic delay for a pediatric rare disease in France.
+- **180 days** — clinical signal lost between two follow-up visits.
 
-Pedia comprime ces 4 ans à quelques mois — sans rien demander de plus au parent, sans alourdir la consultation.
+Pedia compresses those 4 years into a few months — without asking more of the parent, without lengthening the consultation.
 
-## Équipe
+## Team
 
 | | |
 |---|---|
 | Fanette, Elom | dev |
 | Raoul, Raphaël | dev + business |
-| Ayda, Anouar | med |
+| Ayda, Anouar | MD |
 
-## Lancer la démo
+## Run the demo
 
 ```
 open Pedia.html
 ```
 
-Mockup HTML autonome (pas de build, pas de dépendance). 5 écrans — landing, vue parent, saisie vocale, tableau de bord médecin, récap. Navigation par les touches flèches et le footer.
+Standalone HTML mockup (no build, no dependency). 5 screens — landing, parent view, voice capture, physician dashboard, recap. Navigate with arrow keys or the footer controls.
 
-## Piste hackathon
+## Hackathon track
 
-**Pédiatrie** — Cosmic Harp 2026. Format pitch : 3 min + 2 min Q&A, slides uniquement (démo = captures de `Pedia.html`).
+**Track 2 — AI in Pediatrics**, ANDCS × MIT Hackathon 2026 (17–19 April, Epitech Paris, Kremlin-Bicêtre). Pitch format: 3 min + 2 min Q&A, slides only (demo = screenshots of `Pedia.html`).
 
-## Structure du repo
+## Repo layout
 
 ```
-Pedia.html              — mockup HTML de la démo (5 écrans)
-ANAMNESIS_REPORT.md     — squelette sémiologique de référence (UE 5 pédiatrie)
-PITCH.md                — script du pitch slide par slide
+Pedia.html              — HTML mockup of the demo (5 screens)
+ANAMNESIS_REPORT.md     — reference semiology skeleton (UE 5 pediatrics)
+PITCH.md                — slide-by-slide pitch script
 PRD.md                  — product requirements
-BUSINESS_PLAN.md        — plan d'affaires (format SF startup, sources MIT)
-PRACTICE_QUESTIONS.md   — préparation Q&A jury (2 min)
-RGPD.md                 — brief réglementaire interne
-CLAUDE.md               — consignes pour Claude Code
-archive/                — matériaux des pitches précédents
-references/             — référentiel de sémiologie pédiatrique UE 5
-final-pitch/            — captures et slides livrés au jury
-practice-pitch-2/       — brouillons en cours
+BUSINESS_PLAN.md        — business plan (seed one-pager, MIT-sourced)
+PRACTICE_QUESTIONS.md   — jury Q&A prep (2 min)
+RGPD.md                 — internal regulatory brief (French GDPR = RGPD)
+CLAUDE.md               — project guidance for Claude Code
+archive/                — prior pitch materials
+references/             — UE 5 pediatric semiology reference
+final-pitch/            — day-of deliverables
+practice-pitch-2/       — work-in-progress drafts
 ```
 
-## Ce que Pedia n'est pas
+## What Pedia is not
 
-- Pas un outil de diagnostic — les suggestions sont non diagnostiques, l'avis médical reste celui du praticien.
-- Pas une télé-consultation — Pedia prépare le rendez-vous, ne le remplace pas.
-- Pas un carnet de santé officiel — complément, pas substitut.
+- Not a diagnostic tool — suggestions are non-diagnostic; the clinical decision stays with the physician.
+- Not a telehealth consultation — Pedia prepares the appointment, it does not replace it.
+- Not the official child health record — a complement, not a substitute.

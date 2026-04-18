@@ -1,110 +1,110 @@
-# PRACTICE_QUESTIONS.md — préparation Q&A jury (2 min)
+# PRACTICE_QUESTIONS.md — jury Q&A prep (2 min)
 
-> **Budget** : 2 min après le pitch. On vise **5 à 6 questions**, réponse courte (≤ 20 s chacune à l'oral).
-> **Règle** : si la question part en HS ou en piège, ramener en **15 s** vers Problème / Solution / ROI / Équipe.
-> **Attribution** : chaque question a un·e répondant·e principal·e (P) et un·e back-up (B).
-
----
-
-## 🩺 Médical — défendu par Ayda / Anouar
-
-### Q1. « Vos suggestions ne sont-elles pas un diagnostic déguisé ? »
-- **P** : Ayda · **B** : Anouar
-- *« Non. Pedia ne pose aucun diagnostic. Ce qui apparaît dans "pistes à explorer", ce sont des **orientations non diagnostiques** — CAMSP, ORL, neuropédiatre — ou des **bilans somatiques préalables** (audiométrie, ferritine). La décision clinique reste intégralement celle du praticien. C'est d'ailleurs ce qui nous maintient dispositif médical **classe I** et non IIa. »*
-
-### Q2. « Les parents ne vont-ils pas sur-signaler et angoisser ? »
-- **P** : Anouar · **B** : Ayda
-- *« L'interface parent n'affiche **aucune alerte**, aucune couleur rouge, aucune suggestion. Côté parent, Pedia est un **journal**, pas un diagnostiqueur. Les signaux faibles ne sont visibles que côté médecin. On protège volontairement le parent du biais de recherche de symptôme. »*
-
-### Q3. « Comment validez-vous l'exactitude de l'anamnèse générée ? »
-- **P** : Ayda · **B** : Elom
-- *« Trois garde-fous. Un : extraction vers l'ontologie **HPO** — 17 000 phénotypes standardisés, pas du texte libre. Deux : chaque entrée est **traçable à l'observation source** (audio + transcription). Trois : le pédiatre peut éditer la synthèse avant export. Étude de concordance prévue sur les 50 pédiatres du pilote M3–M6. »*
-
-### Q4. « Et si l'enfant a une maladie que l'IA ne connaît pas ? »
-- **P** : Anouar · **B** : Ayda
-- *« HPO couvre toutes les maladies rares référencées Orphanet. Pour un phénotype non mappé, Pedia remonte les **observations brutes** dans la synthèse, avec horodatage. Le médecin garde toujours accès à la donnée non structurée. On ne substitue pas la clinique, on la **nourrit**. »*
+> **Budget**: 2 min after the pitch. We aim for **5 to 6 questions**, short answer (≤ 20 s each out loud).
+> **Rule**: if a question goes off-topic or is a trap, pivot in **15 s** back to Problem / Solution / ROI / Team.
+> **Attribution**: each question has a primary responder (**P**) and a back-up (**B**).
 
 ---
 
-## 💻 Technique — défendu par Elom / Fanette
+## 🩺 Medical — defended by Ayda / Anouar
 
-### Q5. « Pourquoi HPO et pas une taxonomie maison ? »
-- **P** : Elom · **B** : Fanette
-- *« HPO est la **norme internationale** d'interopérabilité pédiatrique, maintenue par le Monarch Initiative, adoptée par les filières maladies rares françaises. Construire maison, c'est se couper des réseaux et des filières. HPO, c'est la clé d'entrée pour l'Europe en an 4. »*
+### Q1. "Aren't your suggestions a diagnosis in disguise?"
+- **P**: Ayda · **B**: Anouar
+- *"No. Pedia posts no diagnosis. What shows up in 'pathways to explore' is **non-diagnostic referrals** — CAMSP, ENT, neuropediatrician — or **prerequisite somatic work-ups** (audiometry, ferritin). The clinical decision stays entirely with the practitioner. That's precisely what keeps us a class I medical device, not class IIa."*
 
-### Q6. « La voix d'un parent exténué à 3h du matin — votre transcription tient ? »
-- **P** : Fanette · **B** : Elom
-- *« Whisper FR fait du bruit ambiant robuste. Latence médiane mesurée : 420 ms. Quand la transcription est douteuse, on remonte un score de confiance et le parent peut réécouter. L'audio brut est conservé — jamais supprimé avant confirmation. »*
+### Q2. "Won't parents over-signal and work themselves up into anxiety?"
+- **P**: Anouar · **B**: Ayda
+- *"The parent interface displays **no alerts**, no red colors, no suggestions. On the parent side, Pedia is a **journal**, not a diagnostician. Weak signals are only visible to the physician. We deliberately shield the parent from symptom-seeking bias."*
 
-### Q7. « OpenAI / US — comment gérez-vous Schrems II ? »
-- **P** : Elom · **B** : Raoul
-- *« Stack 100 % EU dès la production. Whisper peut tourner on-prem ou via un provider UE. LLM structuration : modèle hébergé chez un provider HDS français ou allemand. Aucune donnée santé ne sort de l'UE. Détails dans notre brief RGPD interne. »*
+### Q3. "How do you validate the accuracy of the generated anamnesis?"
+- **P**: Ayda · **B**: Elom
+- *"Three guardrails. One: extraction into the **HPO** ontology — 17,000 standardized phenotypes, not free text. Two: every entry is **traceable back to the source observation** (audio + transcript). Three: the pediatrician can edit the summary before export. Concordance study planned on the 50-pediatrician pilot."*
 
----
-
-## 💰 Business — défendu par Raoul / Raphaël
-
-### Q8. « Pourquoi 49 € et pas 99 € ? »
-- **P** : Raoul · **B** : Raphaël
-- *« Seuil psychologique sous 50 €. En-dessous, la décision d'achat ne remonte pas au comptable du cabinet — le pédiatre décide seul. Upsell prévu en an 2 : formule Premium 79 € avec conseils vaccinaux + alertes HAS. On garde la règle : **prix < ROI** sur chaque tier. »*
-
-### Q9. « Comment justifiez-vous les 11 h gagnées par mois ? »
-- **P** : Raphaël · **B** : Raoul
-- *« Hypothèse à 4 min par consultation × 25 consultations/jour × 20 jours = 11 h. À valider en pilote chronométré dès M3. **Seuil de sécurité** : même avec 1 min gagnée, ROI reste × 5. On ne joue pas au-dessus de ce chiffre. »*
-
-### Q10. « Vous faites face à Doctolib qui a 300 000 médecins — vous êtes morts. »
-- **P** : Raoul · **B** : Raphaël
-- *« Doctolib fait la **prise de rendez-vous** et la **téléconsultation**. Nous, on fait la **capture longitudinale parent-enfant** entre consultations. Différent métier, différent payeur (Doctolib = médecin généraliste multi-spé, nous = pédiatre + hôpital pédiatrique). Notre moat : ontologie HPO, pipeline multilingue, distribution prescrite par le pédiatre. Douze à dix-huit mois pour qu'un concurrent copie. »*
-
-### Q11. « Pourquoi l'hôpital rapporte-t-il moins en ROI que le libéral ? »
-- **P** : Raoul · **B** : Raphaël
-- *« Parce que l'hôpital ne monétise pas le temps individuel. Il achète de l'économie budgétaire — reconvocations évitées + T2A récupérée. ROI × 2,8 mais **payback 5 mois**, c'est ultra-compétitif face aux SaaS hospitaliers classiques à 12–18 mois. »*
-
-### Q12. « Vos chiffres de marché viennent d'où ? »
-- **P** : Raoul · **B** : Raphaël
-- *« Sources MIT — MIT Sloan Healthcare Initiative sur les coûts de prise en charge pédiatrique, et MIT Media Lab Connected Health sur l'adoption parentale du digital santé. Recoupés avec les données DREES et l'annuaire Santé de la CNAM pour le compte de praticiens France. »*
+### Q4. "What if the child has a disease the AI doesn't know about?"
+- **P**: Anouar · **B**: Ayda
+- *"HPO covers every rare disease indexed in Orphanet. For an unmapped phenotype, Pedia surfaces the **raw observations** in the summary, timestamped. The physician always keeps access to the unstructured data. We don't replace clinical judgment — we **feed it**."*
 
 ---
 
-## ⚖️ Régulatoire — défendu par Raphaël / Ayda
+## 💻 Technical — defended by Elom / Fanette
 
-### Q13. « RGPD, données santé mineures — vous gérez comment ? »
-- **P** : Raphaël · **B** : Ayda
-- *« Réponse type : **SaaS DM classe I, hébergement HDS, CE M12, AIPD en cours, consentement parental explicite Art. 9-2-a RGPD, aucun transfert hors UE.** Le brief complet est dans notre `RGPD.md`. »*
+### Q5. "Why HPO and not a custom taxonomy?"
+- **P**: Elom · **B**: Fanette
+- *"HPO is the **international standard** for pediatric interoperability, maintained by the Monarch Initiative, adopted by French rare-disease pathways. Rolling our own cuts us off from the networks and pathways. HPO is also our entry key into Europe."*
 
-### Q14. « Que se passe-t-il à la majorité de l'enfant ? »
-- **P** : Ayda · **B** : Raphaël
-- *« À 15 ans, l'enfant prend la main sur le consentement (loi française). Dossier conservé pendant 20 ans post-majorité pour cohérence avec le dossier médical (Art. R1112-7 CSP). Droits d'accès, rectification, effacement garantis à tout moment — délai de réponse : 1 mois. »*
+### Q6. "A parent's voice at 3 a.m., exhausted — does your transcription hold up?"
+- **P**: Fanette · **B**: Elom
+- *"Whisper FR is robust to ambient noise. Measured median latency: 420 ms. When the transcription is uncertain, we surface a confidence score and the parent can listen again. Raw audio is kept — never deleted before confirmation."*
 
----
-
-## 👥 Équipe — défendue par Fanette
-
-### Q15. « Vous êtes six, c'est beaucoup pour une pré-seed. Qui part quand ? »
-- **P** : Fanette · **B** : Raoul
-- *« On ne part pas, on **complémentaire**. Deux médecins — Ayda et Anouar — garantissent la crédibilité clinique qu'aucun concurrent tech ne peut répliquer. Deux dev — Elom et moi — portent le produit. Deux dev-business — Raoul et Raphaël — couvrent la GTM libéral/hôpital. Aucun doublon. »*
-
-### Q16. « Pourquoi vous gagneriez face à une équipe 100 % médicale ou 100 % tech ? »
-- **P** : Raphaël · **B** : Ayda
-- *« Parce que Pedia n'est ni un outil tech qu'on vend aux médecins, ni une app médicale qu'on fait coder par un prestataire. C'est une **interface médecin-parent** — ça demande les deux cultures dans la même pièce tous les jours. On est déjà cette configuration. »*
+### Q7. "OpenAI / US — how do you handle Schrems II?"
+- **P**: Elom · **B**: Raoul
+- *"100% EU stack in production. Whisper can run on-prem or via an EU provider. LLM structuring runs on a French or German HDS provider. No health data leaves the EU. Details in our internal RGPD brief."*
 
 ---
 
-## 🎯 Si le jury part en off-topic — phrase de rebond
+## 💰 Business — defended by Raoul / Raphaël
 
-> *« Question intéressante — on peut y revenir après. Avant ça, sur ce qui nous amène ici : `[un des trois pivots : 4 ans de retard · ROI × 21 · capture parent 30 s]`. »*
+### Q8. "Why €49 and not €99?"
+- **P**: Raoul · **B**: Raphaël
+- *"Psychological threshold under €50. Below that, the buying decision doesn't go up to the practice accountant — the pediatrician decides alone. Premium €79 upsell planned later: HAS-based vaccination advice + public-health alerts. The rule holds: **price < ROI** on every tier."*
 
-## 🛡️ Ce qu'on n'avance **jamais**
+### Q9. "How do you justify 11 hours saved per month?"
+- **P**: Raphaël · **B**: Raoul
+- *"Assumption: 4 min per consultation × 25 consultations/day × 20 days = 11 h. To be validated in the chronometered pilot. **Safety threshold**: even at 1 min saved, ROI stays ×5. We never pitch above that figure."*
 
-- Un chiffre de gain de temps > 11 h sans préciser "hypothèse à valider".
-- Une comparaison frontale avec Doctolib autre que "métier différent".
-- Une promesse de diagnostic automatique.
-- Un pourcentage d'amélioration du délai diagnostique avant qu'on ait le pilote.
-- Un prix inférieur à 49 € (détruit la marge, détruit la perception de valeur).
+### Q10. "You're up against Doctolib with 300,000 physicians — you're dead."
+- **P**: Raoul · **B**: Raphaël
+- *"Doctolib does **appointment booking** and **teleconsult**. We do **longitudinal parent-child capture** between consultations. Different job, different payer (Doctolib = multi-specialty GPs, us = pediatricians + pediatric hospital services). Our moat: HPO ontology, multilingual pipeline, physician-prescribed distribution. Twelve to eighteen months for a competitor to copy."*
 
-## 🪜 Priorité si on a seulement 2 questions sur 5
+### Q11. "Why does the hospital tier show lower ROI than the independent pediatrician tier?"
+- **P**: Raoul · **B**: Raphaël
+- *"Because hospitals don't monetize individual time. They buy **budget economy** — avoided reconvocations + recovered T2A billing. Payback under six months, which is ultra-competitive against classic hospital SaaS at 12–18 months."*
 
-1. **Q1 (diagnostic déguisé ?)** — c'est le piège classique, il faut l'emporter avec calme.
-2. **Q8 ou Q9 (pricing / ROI)** — montre la maîtrise business.
-3. **Q10 (concurrents)** — montre la stratégie.
-4. Les autres en remplissage.
+### Q12. "Where do your market numbers come from?"
+- **P**: Raoul · **B**: Raphaël
+- *"MIT sources — MIT Sloan Healthcare Initiative on pediatric cost of care, and MIT Media Lab Connected Health on parental digital-health adoption. Cross-checked with CNAM Santé directory for the France practitioner counts."*
+
+---
+
+## ⚖️ Regulatory — defended by Raphaël / Ayda
+
+### Q13. "GDPR, pediatric health data — how do you handle it?"
+- **P**: Raphaël · **B**: Ayda
+- *"Short answer: **class I medical-device SaaS, HDS hosting, CE mark in scope, DPIA in progress, explicit parental consent Art. 9-2-a GDPR, no transfer outside the EU.** Full brief in our `RGPD.md`."*
+
+### Q14. "What happens when the child turns into an adult?"
+- **P**: Ayda · **B**: Raphaël
+- *"At 15, the minor takes over consent (French law). File kept 20 years post-majority for coherence with the French medical record (Art. R1112-7 CSP). Rights to access, rectification, erasure guaranteed at any time — response window: 1 month."*
+
+---
+
+## 👥 Team — defended by Fanette
+
+### Q15. "Six of you — that's a lot for a pre-seed. Who leaves when?"
+- **P**: Fanette · **B**: Raoul
+- *"Nobody leaves — we **complement**. Two physicians, Ayda and Anouar, provide clinical credibility no tech-only competitor can replicate. Two devs, Elom and me, carry the product. Two dev-business, Raoul and Raphaël, cover independent-pediatrician and hospital GTM. No redundancy."*
+
+### Q16. "Why would you win over a 100%-medical or 100%-tech team?"
+- **P**: Raphaël · **B**: Ayda
+- *"Because Pedia is neither a tech tool we sell to doctors, nor a medical app we outsource to a dev shop. It's a **physician-parent interface** — it requires both cultures in the same room every day. We already are that configuration."*
+
+---
+
+## 🎯 If the jury goes off-topic — pivot line
+
+> *"Interesting question — happy to come back to it. Before that, on what brought us here: `[one of three anchors: 4-year diagnostic delay · ROI ×21 · 30-second parental capture]`."*
+
+## 🛡️ What we **never** say
+
+- A time-saved figure > 11 h without "hypothesis to be validated".
+- A head-on comparison to Doctolib other than "different job".
+- A promise of automated diagnosis.
+- A percentage improvement in diagnostic delay before we have the pilot.
+- A price below €49 (kills margin, kills the perception of value).
+
+## 🪜 Priorities if we only get 2 out of 5 questions
+
+1. **Q1 (disguised diagnosis?)** — the classic trap. Win it calmly.
+2. **Q8 or Q9 (pricing / ROI)** — shows business mastery.
+3. **Q10 (competitors)** — shows strategy.
+4. The rest is filler.

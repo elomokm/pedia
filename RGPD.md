@@ -1,126 +1,127 @@
-# RGPD.md — brief interne · Pedia
+# RGPD.md — internal brief · Pedia
 
-> **Usage** : brief interne de l'équipe — pas un doc pour le pitch.
-> **Objectif** : que n'importe lequel des 6 membres de l'équipe puisse répondre à une question régulatoire sur scène en **15 secondes**.
-> **Audience cible** : jury hackathon (niveau découverte), pas avocat spécialisé.
-
----
-
-## 🎯 Réponse-type 15 s (à savoir par cœur)
-
-> *« SaaS dispositif médical classe I, hébergement HDS, CE marking visé M12, AIPD en cours, consentement parental explicite Art. 9-2-a RGPD, aucun transfert hors UE. »*
-
-Si on vous arrête à « classe I » ou « HDS » → décliner les points 2, 4, 5 ci-dessous.
+> **Note for MIT readers**: **RGPD** is the French implementation of **GDPR** (EU Regulation 2016/679). French legal citations are preserved verbatim below.
+> **Use**: internal team brief — not a pitch document.
+> **Goal**: any of the 6 team members can answer a regulatory question on stage in **15 seconds**.
+> **Target audience**: hackathon jury (overview level), not specialized counsel.
 
 ---
 
-## 1. Classe des données
+## 🎯 15-second stock answer (to memorize)
 
-Pedia traite de la **donnée de santé à caractère personnel concernant un mineur** :
-- voix (enregistrement parental),
-- texte (note libre),
-- photo (éruption, posture, geste),
-- métadonnées temporelles et géographiques minimales.
+> *"Class I medical-device SaaS, HDS hosting, CE marking in scope, DPIA (AIPD) in progress, explicit parental consent under Art. 9-2-a GDPR, no transfer outside the EU."*
 
-Juridiquement : **catégorie particulière** (Art. 9 RGPD) + **mineur** (protection renforcée, loi française Art. 7-1 LIL 78-17).
+If stopped at "class I" or "HDS", expand with points 2, 4, and 5 below.
 
-## 2. Qualification du logiciel
+---
 
-- **SaaS dispositif médical (DM)** → **classe I** au lancement.
-- La montée en **classe IIa** interviendrait si Pedia ajoutait une fonction d'**aide au diagnostic** active (ex. probabilité d'une pathologie). **Ce n'est pas le cas en v1** — Pedia suggère des pistes non diagnostiques (orientations, bilans préalables) ; la décision clinique reste au praticien.
-- **CE marking classe I** visé à **M12**. Dossier technique + déclaration de conformité + responsable réglementaire nommé (Raphaël en lead, DPO externe en conseil).
+## 1. Data classes
 
-## 3. Bases légales du traitement
+Pedia processes **personal health data concerning a minor**:
+- voice (parental recording),
+- text (free-form note),
+- photo (rash, posture, gesture),
+- minimal temporal and geographic metadata.
 
-- **Principale** : consentement explicite du titulaire de l'autorité parentale — Art. 9-2-a RGPD.
-- **Secondaire** : intérêt vital de la personne concernée — Art. 9-2-c RGPD (cas urgence signalée).
-- **Âge** : mineur < 15 ans → consentement parental obligatoire (loi française). À partir de 15 ans : l'adolescent reprend la main sur son consentement.
+Legally: **special category** (Art. 9 GDPR) + **minor** (reinforced protection, French law Art. 7-1 LIL 78-17).
 
-## 4. Hébergement
+## 2. Software qualification
 
-**HDS (Hébergeur de Données de Santé) obligatoire** — certification ISO 27001 + référentiel HDS.
+- **Medical-device (MD) SaaS** → **class I** at launch.
+- Upgrade to **class IIa** would be triggered only if Pedia added an active **diagnostic-aid** function (e.g., pathology probability). **Not the case at v1** — Pedia surfaces non-diagnostic pathways (referrals, prerequisite work-ups); the clinical decision stays with the physician.
+- **CE marking class I** in scope. Technical file + declaration of conformity + regulatory lead appointed (Raphaël lead, external DPO advising).
 
-| Candidat | Certif HDS | Localisation | Préférence Pedia |
+## 3. Legal bases for processing
+
+- **Primary**: explicit consent of the parental-authority holder — Art. 9-2-a GDPR.
+- **Secondary**: vital interest of the data subject — Art. 9-2-c GDPR (flagged-emergency cases).
+- **Age**: minor < 15 years → parental consent mandatory (French law). From 15 onwards, the adolescent resumes control of their consent.
+
+## 4. Hosting
+
+**HDS (Hébergeur de Données de Santé — certified health-data hosting) mandatory** — ISO 27001 + HDS standard.
+
+| Candidate | HDS certified | Location | Pedia preference |
 |---|---|---|---|
-| **OVHcloud** | oui | FR | **retenu par défaut** |
-| **Scaleway** | oui | FR | back-up |
-| **Outscale** | oui | FR | option |
+| **OVHcloud** | yes | FR | **default pick** |
+| **Scaleway** | yes | FR | backup |
+| **Outscale** | yes | FR | option |
 
-**Exclus** : AWS, GCP, Azure US — même avec clauses-types post-Schrems II, risque CLOUD Act non acceptable pour donnée pédiatrique.
+**Excluded**: AWS, GCP, Azure US — even with post–Schrems II SCCs, CLOUD Act exposure is unacceptable for pediatric data.
 
-## 5. Droits des personnes
+## 5. Data-subject rights
 
-| Droit | Délai | Qui exerce |
+| Right | Window | Exercised by |
 |---|---|---|
-| Accès | 1 mois | Parent (< 15 ans) / mineur (≥ 15 ans) |
-| Rectification | 1 mois | — |
-| Effacement ("droit à l'oubli") | 1 mois | — |
-| Portabilité (export HPO + brut) | 1 mois | — |
-| Opposition | 1 mois | — |
-| Limitation | 1 mois | — |
-| Retrait du consentement | Immédiat | Sans préjudice de la légalité antérieure |
+| Access | 1 month | Parent (< 15) / minor (≥ 15) |
+| Rectification | 1 month | — |
+| Erasure ("right to be forgotten") | 1 month | — |
+| Portability (HPO + raw export) | 1 month | — |
+| Objection | 1 month | — |
+| Restriction | 1 month | — |
+| Consent withdrawal | Immediate | Without prejudice to prior-processing legality |
 
-Interface dédiée dans l'app parent : "Mes données · exporter / supprimer".
+Dedicated interface in the parent app: "My data · export / delete".
 
-## 6. Durée de conservation
+## 6. Retention
 
-- **Active** : pendant toute la durée du suivi médical avec le pédiatre prescripteur.
-- **Archivage intermédiaire** : 20 ans **post-majorité** de l'enfant, cohérence avec le dossier médical français (Art. R1112-7 CSP).
-- **Suppression à la demande** : droit à l'effacement exercé à tout moment, hors obligation d'archivage médical légale.
+- **Active**: throughout the medical follow-up with the prescribing pediatrician.
+- **Intermediate archive**: 20 years **post-majority** of the child, in line with the French medical record (Art. R1112-7 CSP).
+- **Deletion on request**: right to erasure exercisable at any time, except where legal medical-archiving duty applies.
 
-## 7. DPO & registre
+## 7. DPO & register
 
-- **DPO externe** la 1re année (≈ 6 k€/an, budgétée dans le plan seed).
-- **Registre des traitements** (Art. 30 RGPD) tenu dès J1.
-- **Contact** : `dpo@pedia.health` (mailbox déjà réservée).
+- **External DPO** for year one (≈ €6k/yr, budgeted in the seed plan).
+- **Processing register** (Art. 30 GDPR) maintained from day 1.
+- **Contact**: `dpo@pedia.health` (mailbox reserved).
 
-## 8. AIPD — Analyse d'impact relative à la protection des données
+## 8. DPIA (AIPD — Analyse d'Impact relative à la Protection des Données)
 
-**Obligatoire** car triple facteur :
-1. Donnée de santé (Art. 9).
-2. Mineur (public vulnérable).
-3. Profilage algorithmique (NER + pattern matching + LLM).
+**Mandatory** because of three cumulative factors:
+1. Health data (Art. 9).
+2. Minor (vulnerable public).
+3. Algorithmic profiling (NER + pattern matching + LLM).
 
-**Planning** : AIPD lancée **M1**, finalisée **M3** avant mise en production ouverte au-delà des 10 cabinets bêta.
+**Schedule**: DPIA kicked off early, finalized before open-beta production rollout.
 
-## 9. Sous-traitants (chaîne complète — Art. 28 RGPD)
+## 9. Sub-processors (full chain — Art. 28 GDPR)
 
-| Service | Fournisseur envisagé | Localisation | DPA |
+| Service | Planned provider | Location | DPA |
 |---|---|---|---|
-| Transcription voix | Whisper self-hosted / provider EU | FR / DE | ✅ |
-| Structuration LLM | Provider HDS FR | FR | ✅ |
-| Hébergement | OVHcloud HDS | FR | ✅ |
-| Monitoring / logs | Provider EU (Grafana Cloud EU) | DE | ✅ |
-| Analytics produit | PostHog self-hosted | FR (chez OVH) | ✅ |
+| Voice transcription | Whisper self-hosted / EU provider | FR / DE | ✅ |
+| LLM structuring | FR HDS provider | FR | ✅ |
+| Hosting | OVHcloud HDS | FR | ✅ |
+| Monitoring / logs | EU provider (Grafana Cloud EU) | DE | ✅ |
+| Product analytics | PostHog self-hosted | FR (on OVH) | ✅ |
 
-**Règle** : aucune sous-traitance hors UE. Si techniquement nécessaire (ex. modèle US), alors pas de donnée santé identifiante envoyée — uniquement embeddings anonymisés, et encore, après arbitrage.
+**Rule**: no sub-processing outside the EU. If technically needed (e.g., a US model), no identifiable health data is sent — only anonymized embeddings, and even that requires deliberation.
 
-## 10. Sécurité technique
+## 10. Technical security
 
-- **Chiffrement au repos** : AES-256 (géré par l'hébergeur HDS).
-- **TLS 1.3** en transit (aucune version antérieure acceptée).
-- **Pseudonymisation** des identifiants patient côté DB.
-- **MFA obligatoire** pour les comptes pédiatres (app pro).
-- **Logs d'accès** conservés 3 ans (exigence HDS).
-- **Rotation des secrets** trimestrielle.
-- **Sauvegardes** chiffrées, testées mensuellement, RPO 24 h / RTO 4 h.
+- **At-rest encryption**: AES-256 (managed by HDS host).
+- **TLS 1.3** in transit (no earlier version accepted).
+- **Pseudonymization** of patient identifiers DB-side.
+- **MFA required** for pediatrician pro accounts.
+- **Access logs** retained 3 years (HDS requirement).
+- **Secret rotation**: quarterly.
+- **Backups** encrypted, tested monthly, RPO 24 h / RTO 4 h.
 
-## 11. Que dire si le jury demande
+## 11. What to say if the jury asks
 
-### Question courte → réponse 15 s (voir top du doc)
+### Short question → 15-second answer (see top of doc)
 
-### Question détaillée — réponse 30 s
-> *« Côté régulatoire, Pedia est qualifié dispositif médical classe I. Pas d'aide au diagnostic, donc pas classe IIa — nos suggestions sont non diagnostiques. Marquage CE visé à douze mois. Hébergement HDS en France, OVHcloud. Consentement parental explicite Art. 9-2-a RGPD. AIPD en cours — obligatoire parce qu'on cumule donnée santé, mineur, et IA. Durée de conservation calée sur le dossier médical français : 20 ans post-majorité. Rien ne sort de l'UE. Un DPO externe nous accompagne dès la première année. »*
+### Detailed question — 30 seconds
+> *"On the regulatory side, Pedia is a class I medical device. No diagnostic aid, so not class IIa — our suggestions are non-diagnostic. CE marking in scope. HDS hosting in France, OVHcloud. Explicit parental consent under Art. 9-2-a GDPR. DPIA in progress — mandatory because we combine health data, minors, and AI. Retention aligned with the French medical record: 20 years post-majority. Nothing leaves the EU. An external DPO supports us from year one."*
 
-### Question piège : « vous êtes trop petits pour gérer tout ça » — réponse 20 s
-> *« Classe I est le niveau le plus léger — marquage CE auto-déclaré avec dossier technique. Un DPO externe à 6 k€/an couvre la conformité RGPD. L'AIPD, notre rôle réglementaire, et le DPA avec l'hébergeur HDS sont standard, pas exotiques. Ce qui serait gros, c'est classe IIa — on ne s'y aventure pas avant que l'étude clinique le justifie. »*
+### Trap question: "You're too small to handle all that" — 20 seconds
+> *"Class I is the lightest regulatory level — self-declared CE marking with a technical file. An external DPO at €6k/yr covers GDPR compliance. The DPIA, our regulatory lead role, and the DPA with the HDS host are standard, not exotic. What would be heavy is class IIa — we don't go there until a clinical study justifies it."*
 
 ---
 
-## Check-list avant pitch (à cocher par Raphaël)
+## Pre-pitch checklist (owned by Raphaël)
 
-- [ ] DPO externe identifié et contacté (3 cabinets en short-list).
-- [ ] OVHcloud HDS devis reçu.
-- [ ] Mailbox `dpo@pedia.health` active.
-- [ ] Réponse-type 15 s mémorisée par au moins **4** membres sur 6.
-- [ ] `RGPD.md` relu par Ayda + Anouar (vérification cohérence mention Art. R1112-7 CSP).
+- [ ] External DPO identified and contacted (3-firm shortlist).
+- [ ] OVHcloud HDS quote received.
+- [ ] `dpo@pedia.health` mailbox active.
+- [ ] 15-second stock answer memorized by at least **4 of 6** team members.
+- [ ] `RGPD.md` reviewed by Ayda + Anouar (sanity-check on the Art. R1112-7 CSP reference).

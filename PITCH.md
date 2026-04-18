@@ -1,10 +1,12 @@
-# PITCH.md — Pedia · Pediatrics track · Cosmic Harp 2026
+# PITCH.md — Pedia · Track 2 AI in Pediatrics · ANDCS × MIT Hackathon 2026
 
+> **Event** — Hackathon ANDCS × MIT Hacking Medicine, 17–19 April 2026, Epitech Paris, Kremlin-Bicêtre
+> **Track** — Track 2 · AI in Pediatrics
 > **Format** — 3 min pitch + 2 min Q&A · slides only · no live demo
-> **Language** — English
+> **Language** — English (MIT judges)
 > **Voice** — seed / demo-day pitch discipline. Primary anchors: Kevin Hale's *How to pitch your startup* (YC), Michael Seibel's *Demo day pitch* (YC), Paul Graham's *How to convince investors*. Series A deck guides are referenced for structure only — our stage is pre-traction, our format is 3 min, not 30. Numbers over adjectives. Show don't tell. No fluff. One claim per slide.
 > **Demo** — still images (screenshots of `Pedia.html`), no interactive product.
-> **Goal** — win the pediatrics track.
+> **Goal** — win Track 2.
 
 ---
 
@@ -33,7 +35,6 @@ Second beat, same slide (click-fade reveals):
 
 ```
                 180 days lost between visits.
-                < 20 minutes to rebuild 3 months.
                 4 years to diagnose a rare disease.
 ```
 
@@ -46,10 +47,10 @@ Third beat (final reveal):
 **Script (Ayda or Anouar, slow cadence)** :
 
 > "In pediatrics, symptoms don't speak. Parents do.
-> One hundred and eighty days lost between visits. Less than twenty minutes to rebuild three months. Four years to diagnose a pediatric rare disease.
+> One hundred and eighty days lost between visits. Four years to diagnose a pediatric rare disease.
 > We are Pedia."
 
-*Sources displayed small, bottom of slide: `[DREES 2007]` for the 20-min figure, `[MIT]` for the 4-year figure.*
+*Source displayed small, bottom of slide: `[MIT]` for the 4-year figure.*
 
 ---
 
@@ -57,7 +58,7 @@ Third beat (final reveal):
 
 Split in half, same child, same appointment window, two renderings.
 
-### Left panel — **"What the doctor writes in 20 minutes"**
+### Left panel — **"What the doctor writes during the visit"**
 Paper texture, handwritten serif, arrows, crossed-out words, fragments only.
 
 ```
@@ -92,7 +93,7 @@ Clean white, clinical typography, 15 structured rows from `ANAMNESIS_REPORT.md`.
 
 **Script (Raphaël, slows on the contrast)** :
 
-> "Same child. Same appointment. On the left: what the pediatrician can scribble in under twenty minutes. On the right: what Pedia assembled from forty-seven parental observations over four months.
+> "Same child. Same appointment. On the left: what the pediatrician can scribble during the visit. On the right: what Pedia assembled from forty-seven parental observations over four months.
 >
 > Every observation becomes a standardized clinical indicator — frequency, intensity, duration, triggers — through the HPO ontology. Seventeen thousand internationally standardized phenotypes.
 >
@@ -135,49 +136,46 @@ Single slide, five blocks, scannable in 10 seconds.
 
 ### Block 1 — Market `[MIT]`
 - **TAM France — €31M/yr** (10k pediatricians · 35k GPs seeing kids · 450 hospital services)
-- **SAM — €9M/yr** · **SOM Y3 — €4M ARR**
-- **Y4 — EU expansion via HPO interop → TAM ×6 (≈ €186M)**
+- **SAM — €9M/yr** (independent pediatricians + priority hospital services)
+- **EU expansion** next on the HPO interoperability rail.
 
 ### Block 2 — Pricing (**price < ROI on every tier**)
 
 | Parent | Independent pediatrician | Hospital service |
 |---|---|---|
 | **Free, forever** | **€49 / month** | **€12k / year** |
-| — | Recovers 11 h / month of clinical time ≈ €1,058 | +€33k/yr recovered (avoided reconvocations + T2A) |
-| — | **ROI ×21** · breakeven at 1m 30s saved total | **Payback 5 months** · ROI ×2.8 |
+| — | Recovers 11 h / month of clinical time ≈ €1,058 | Avoided reconvocations + T2A capture |
+| — | **ROI ×21** · breakeven at 1m 30s saved total | **Payback < 6 months** |
 
-### Block 3 — Unit economics
+### Block 3 — Unit-economics targets
 CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo** · GM **> 85%**
 
-### Block 4 — Traction roadmap
-```
-Y1 : €294k ARR   →   Y2 : €1.5M   →   Y3 : €4M
-500 clinicians       + hospitals      + institutional
-                     + GPs            (CNAM / ARS)
-```
-Milestones: 50-clinician chronometered pilot by M6 · first hospital contract by M9 · **CE mark M12**.
+### Block 4 — Where we are · next concrete step
+- **Today**: prototype (`Pedia.html` mockup) · semiology validated by our two MDs.
+- **Next**: 50-pediatrician chronometered pilot — **the question that matters: is time saved ≥ 2 min per consult?**
+- **Regulatory scope**: MDR class I, CE mark in scope.
 
 ### Block 5 — Team + Ask
 **Six co-founders** : Fanette, Elom (dev) · Raoul, Raphaël (dev + business) · Ayda, Anouar (MD — clinical credibility no tech team can replicate).
 
-**Pre-seed ask: €400k, 12-month runway, three outcomes**:
+**Pre-seed ask: €400k**, funding three deliverables:
 1. 50-pediatrician chronometered pilot
 2. CE marking class I
 3. Two paying hospital contracts
 
 **Script (Raoul)** :
 
-> "Market. Thirty-one million euros addressable in France. Nine million serviceable. Four million ARR target by year three. Europe from year four on the HPO rail.
+> "Market. Thirty-one million euros addressable in France. Nine million serviceable. Europe next on the HPO interoperability rail.
 >
-> Pricing. Parents always free. Independent pediatrician, forty-nine euros a month — they recover eleven hours of clinical time. ROI times twenty-one. Hospital service, twelve thousand a year — payback five months. On every tier, **price stays below ROI**.
+> Pricing. Parents always free. Independent pediatrician, forty-nine euros a month — they recover eleven hours of clinical time. ROI times twenty-one. Hospital service, twelve thousand a year — payback under six months. On every tier, **price stays below ROI**.
 >
-> Economics. CAC under three hundred. LTV over eighteen hundred. LTV over CAC, greater than six. Churn under two percent. Gross margin above eighty-five.
+> Economics. CAC under three hundred. LTV over eighteen hundred. LTV over CAC greater than six. Churn under two percent. Gross margin above eighty-five.
 >
-> Traction. Two hundred ninety-four thousand ARR year one. Four million by year three. Fifty-pediatrician chronometered pilot by month six. CE mark at month twelve.
+> Today we have a validated prototype. Next step: a fifty-pediatrician chronometered pilot — the one number that matters is whether we save at least two minutes per consultation.
 >
 > Team. Six founders. Two physicians — Ayda and Anouar. Four engineers. The pairing is the moat.
 >
-> We are raising four hundred thousand pre-seed. Twelve months of runway. Fifty pilots. Two hospital contracts. CE mark. Thank you."
+> We are raising four hundred thousand pre-seed for three deliverables: the pilot, CE marking class one, and two hospital contracts. Thank you."
 
 ---
 
@@ -204,7 +202,7 @@ All at 1440 × 900, PNG, full-bleed:
 - [ ] Slide 2 **shows**, not tells — the jury sees the anamnesis gap, doesn't need to be convinced of it.
 - [ ] Slide 3 is the product, not a concept drawing. Real screenshots only.
 - [ ] Slide 4 has **numbers over adjectives**. No "best-in-class", no "revolutionary".
-- [ ] Every claim has a source tag visible on the slide: `[DREES]`, `[MIT]`, `[HPO]`.
+- [ ] Every claim has a source tag visible on the slide: `[MIT]`, `[HPO]`.
 - [ ] The ask is concrete: € amount + what it buys + in how many months.
 - [ ] Each slide defends a single idea. If it takes two claims, split it.
 - [ ] No story callback, no epilogue. The business slide is the ending.
@@ -233,6 +231,5 @@ All at 1440 × 900, PNG, full-bleed:
 - *How to build a great Series A pitch and deck* · YC Library · https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck
 
 **Content sources**
-- `[DREES]` — durée médiane consultation pédiatrique libérale (2007 study)
 - `[MIT]` — MIT Sloan Healthcare Initiative · MIT Media Lab Connected Health
 - `[HPO]` — Human Phenotype Ontology, Monarch Initiative · https://hpo.jax.org
