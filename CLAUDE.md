@@ -43,12 +43,16 @@ Les profils med (Ayda, Anouar) sont la source de vérité sémiologique — tout
 
 ## Règles
 
-- **Langue docs** : français (c'est une équipe francophone, un jury francophone, un marché français).
+- **Langue docs** : français par défaut (équipe francophone, jury francophone, marché français). **Exception** : `PITCH.md` est en anglais — décision explicite pour jouer l'international (demande utilisateur). Ne pas retraduire sans confirmation.
 - **Ton** : concis, direct. Pas de marketing creux. Chiffres > adjectifs.
 - **Chiffres business** : toujours les reprendre depuis `archive/business-plan-1min.md`. Ne pas les re-dériver dans un autre fichier sans vérifier.
 - **Prix < ROI** pour chaque tier client — contrainte forte du produit, à rappeler dans tout doc business.
-- **Source `[MIT]`** : les figures de marché et de coût dans `BUSINESS_PLAN.md` sont taguées `[MIT]` (MIT Sloan Healthcare Initiative + MIT Media Lab Connected Health). Ne pas enlever les tags.
-- **Pas de démo à construire** : on ne code pas de backend, de frontend supplémentaire, de CI. Tout ce qui existe est dans `Pedia.html`.
+- **Sources chiffres** `[MIT]` · `[DREES]` · `[HPO]` — tagguées inline dans `PITCH.md` et `BUSINESS_PLAN.md`. Ne pas enlever les tags.
+  - `[MIT]` = MIT Sloan Healthcare Initiative + MIT Media Lab Connected Health + wage benchmark.
+  - `[DREES]` = durée consultation pédiatrique (DREES 2007, médiane < 20 min).
+  - `[HPO]` = Human Phenotype Ontology (Monarch Initiative, 17 000 phénotypes).
+- **Référentiels pitch** : `PITCH.md` est **ancré** sur la cadence seed / demo-day — Kevin Hale (*How to pitch your startup*) + Michael Seibel (*Demo day pitch*) + Paul Graham (*How to convince investors*). Le guide *YC Series A pitch and deck* est consulté pour la **structure business** uniquement (slide 4 + `BUSINESS_PLAN.md`), **jamais** pour le ton du pitch — notre stage est pré-traction, notre format est 3 min. Ne pas migrer la cadence vers un ton Series A.
+- **Pas de démo à construire** : on ne code pas de backend, de frontend supplémentaire, de CI. Tout ce qui existe est dans `Pedia.html`. Captures d'écran uniquement pendant le pitch.
 - **Jamais** de diagnostic posé par l'IA dans les slides, le PRD, le pitch. Toujours "pistes non diagnostiques" / "aide à l'anamnèse". La décision clinique reste au praticien.
 
 ## Git

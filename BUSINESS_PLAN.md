@@ -1,6 +1,6 @@
 # BUSINESS_PLAN.md — Pedia
 
-> **Format** : one-pager SF (YC / a16z / Sequoia seed-read). 16 sections, scannables en 90 s.
+> **Format** : one-pager seed-stage, cadencé pour une lecture SF VC en 90 s (référentiels : YC seed one-pager, a16z seed memo, Sequoia seed brief). On ne vise pas un deck Series A — on n'a pas la traction pour. Le guide *YC Series A pitch and deck* est consulté pour la **structure**, pas pour le ton.
 > **Budgets & marché** : sources **MIT** — tag inline `[MIT]` à chaque figure sensible.
 > **Règle produit** : **prix < ROI** sur chaque tier client. Non négociable.
 
@@ -202,12 +202,21 @@ Formule **Premium 79 €/mo** pour les libéraux : conseils vaccinaux automatis�
 | Sur-signalement parental → angoisse | Moyenne | Moyen | Pas d'alerte côté parent · signaux visibles médecin uniquement |
 | Rejet pédiatre ("encore un logiciel") | Moyenne | Élevé | Positionnement "outil du médecin" · UX 2 min · prescription par le pédiatre lui-même |
 
-## 16. Sources `[MIT]`
+## 16. Sources
 
+### Contenu `[MIT]` + `[DREES]` + `[HPO]`
 - **MIT Sloan Healthcare Initiative** — pediatric cost-of-care & diagnostic-delay reports (France comparable cohort).
 - **MIT Media Lab Connected Health** — parental digital capture & longitudinal pediatric monitoring.
 - **MIT wage benchmark** — medical professional time valuation, adjusted for France.
+- **DREES** — *La durée des séances des médecins généralistes* + études spécialistes libéraux (médiane consultation pédiatrique : 15–25 min pour la moitié des consultations).
+- **HPO / Monarch Initiative** — 17 000 phénotypes standardisés · https://hpo.jax.org
 - Compléments : Orphanet (maladies rares FR), HAS (recommandations TND 2018/2020), DREES (démographie médicale FR), annuaire Santé CNAM (compte pédiatres + généralistes).
+
+### Références de forme (seed-stage pitch / business doc)
+- Kevin Hale — *How to pitch your startup* · YC · https://www.ycombinator.com/library/6q-how-to-pitch-your-company
+- Michael Seibel — *How to build the perfect demo day pitch* · YC · https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch
+- Paul Graham — *How to convince investors* · http://paulgraham.com/convince.html
+- *How to build a great Series A pitch and deck* · YC · https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck — **consulté pour la structure du one-pager uniquement, pas pour la cadence du pitch.**
 
 ---
 

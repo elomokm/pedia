@@ -2,7 +2,7 @@
 
 > **Format** — 3 min pitch + 2 min Q&A · slides only · no live demo
 > **Language** — English
-> **Voice** — YC best practices. Numbers over adjectives. Show don't tell. No fluff. One claim per slide.
+> **Voice** — seed / demo-day pitch discipline. Primary anchors: Kevin Hale's *How to pitch your startup* (YC), Michael Seibel's *Demo day pitch* (YC), Paul Graham's *How to convince investors*. Series A deck guides are referenced for structure only — our stage is pre-traction, our format is 3 min, not 30. Numbers over adjectives. Show don't tell. No fluff. One claim per slide.
 > **Demo** — still images (screenshots of `Pedia.html`), no interactive product.
 > **Goal** — win the pediatrics track.
 
@@ -126,7 +126,7 @@ All three in the same moment, showing the loop : parent speaks → Pedia structu
 
 ---
 
-## Slide 4 — Business (2:00–3:00) · **YC one-pager layout**
+## Slide 4 — Business (2:00–3:00) · **seed one-pager layout**
 
 Single slide, five blocks, scannable in 10 seconds.
 
@@ -196,7 +196,9 @@ All at 1440 × 900, PNG, full-bleed:
 
 ---
 
-## YC best-practice checklist (to cross before D-day)
+## Pitch best-practice checklist (to cross before D-day)
+
+> Anchored on Hale, Seibel, Graham — see *Sources* at the bottom of this doc.
 
 - [ ] Slide 1 tells the judges what Pedia is within 20 seconds.
 - [ ] Slide 2 **shows**, not tells — the jury sees the anamnesis gap, doesn't need to be convinced of it.
@@ -217,3 +219,20 @@ All at 1440 × 900, PNG, full-bleed:
 - [ ] Q&A drill from `PRACTICE_QUESTIONS.md` — every answer under 20 s out loud.
 - [ ] Who-speaks-what fixed (table at the top of this doc).
 - [ ] No filler words ("so", "kind of", "basically") — record and cut.
+
+---
+
+## Sources
+
+**Pitch craft (primary anchors, matched to our stage and format)**
+- Kevin Hale — *How to pitch your startup* · YC Startup School · https://www.ycombinator.com/library/6q-how-to-pitch-your-company
+- Michael Seibel — *How to build the perfect demo day pitch* · YC · https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch
+- Paul Graham — *How to convince investors* · http://paulgraham.com/convince.html
+
+**Series A deck guides (reference for structure only, not cadence)**
+- *How to build a great Series A pitch and deck* · YC Library · https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck
+
+**Content sources**
+- `[DREES]` — durée médiane consultation pédiatrique libérale (2007 study)
+- `[MIT]` — MIT Sloan Healthcare Initiative · MIT Media Lab Connected Health
+- `[HPO]` — Human Phenotype Ontology, Monarch Initiative · https://hpo.jax.org
