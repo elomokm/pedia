@@ -10,7 +10,7 @@ Cible : compresser les **4 ans** de retard diagnostique médian d'une maladie ra
 
 ## Contexte hackathon
 
-- **Cosmic Harp 2026**, piste **Pediatrie**.
+- **Cosmic Harp 2026**, piste **Pédiatrie**.
 - **Pitch** : 3 min + 2 min Q&A. Slides uniquement pendant le pitch (pas de démo live, pas de logiciel à lancer). Démo = captures de `Pedia.html`.
 - **On vise à gagner** — chaque document doit être exploitable tel quel par l'équipe le jour J.
 
@@ -36,7 +36,7 @@ Les profils med (Ayda, Anouar) sont la source de vérité sémiologique — tout
 | `PRACTICE_QUESTIONS.md` | Q&A jury | édition fréquente |
 | `RGPD.md` | brief réglementaire interne | oui — vérifié par les med |
 | `archive/business-plan-1min.md` | chiffres business historiques, **source de vérité** | oui |
-| `references/UE 5 Référentiel-Sémiologie Adulte et Pediatrie.pdf` | référentiel pédiatrique | oui |
+| `references/UE 5 Référentiel-Sémiologie Adulte et Pédiatrie.pdf` | référentiel pédiatrique | oui |
 | `final-pitch/` | livrables jour J | écrire dedans quand demandé |
 | `practice-pitch-2/` | brouillons en cours | zone de jeu |
 | `participant-handbook.zip` | doc d'organisation, **ignoré git** | oui |

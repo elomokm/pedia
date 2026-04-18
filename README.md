@@ -8,7 +8,7 @@ Les parents capturent au quotidien — voix, texte, photo, 30 secondes suffisent
 
 - **4 ans** de retard diagnostique médian pour une maladie rare pédiatrique en France.
 - **180 jours** de signal perdus entre deux consultations de suivi.
-- **12 minutes** pour reconstruire 3 mois de mémoire pendant le rendez-vous.
+- **Moins de 20 minutes** de consultation pédiatrique en moyenne (médiane DREES) — pour reconstruire ces 3 mois de mémoire.
 
 Pedia comprime ces 4 ans à quelques mois — sans rien demander de plus au parent, sans alourdir la consultation.
 
@@ -30,7 +30,7 @@ Mockup HTML autonome (pas de build, pas de dépendance). 5 écrans — landing, 
 
 ## Piste hackathon
 
-**Pediatrie** — Cosmic Harp 2026. Format pitch : 3 min + 2 min Q&A, slides uniquement (démo = captures de `Pedia.html`).
+**Pédiatrie** — Cosmic Harp 2026. Format pitch : 3 min + 2 min Q&A, slides uniquement (démo = captures de `Pedia.html`).
 
 ## Structure du repo
 

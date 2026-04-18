@@ -1,8 +1,9 @@
-# PITCH.md — Pedia · piste Pediatrie · Cosmic Harp 2026
+# PITCH.md — Pedia · piste Pédiatrie · Cosmic Harp 2026
 
 > **Format** : 3 min pitch + 2 min Q&A · slides uniquement · démo = captures de `Pedia.html`
 > **Arc** : Story → Problème → Solution → Business → Équipe → Story callback
-> **Objectif** : gagner la piste Pediatrie.
+> **Objectif** : gagner la piste Pédiatrie.
+> **Voix** : cadence prose-poétique du pitch archivé (`archive/practice-pitch-1/myontologynote-pitch-90s.html`). Principes courts, déclaratifs, empilés. Énumérations rythmiques (« voix, texte, photo »). Cascade de contraste en clôture (« Parents zéro euro. Enfants, des années gagnées »).
 
 ---
 
@@ -55,23 +56,25 @@
 
 ---
 
-## Slide 2 — Problème quantifié (0:25–0:40) · **3 chiffres, fond sombre**
+## Slide 2 — Problème (0:25–0:40) · **3 chiffres massifs, fond sombre**
 
-Trois chiffres côte à côte, typographie massive, pas de blabla.
+Trois chiffres côte à côte, typographie massive, une phrase-principe au-dessus.
 
 ```
+  En pédiatrie, tout se joue sur l'observation.
+  Un enfant ne décrit pas ses symptômes — ses parents les vivent, chaque jour.
+
 ┌──────────────────┬──────────────────┬──────────────────┐
-│      4 ans       │     180 jours    │      12 min      │
-│ retard           │ de signal perdus │ pour reconstruire│
-│ diagnostique     │ entre 2 consults │  3 mois          │
-│ médian maladie   │                  │                  │
-│ rare pédiatrique │                  │                  │
+│     180 jours    │   < 20 minutes   │      4 ans       │
+│ de signal perdus │ de consultation  │ de retard        │
+│ entre 2 consults │ médiane pédiatre │ diagnostique     │
+│                  │                  │ (maladie rare)   │
 └──────────────────┴──────────────────┴──────────────────┘
-            source [MIT] — bas de slide, discret
+                           [DREES]                [MIT]
 ```
 
 **À prononcer** :
-> « `[PRÉNOM]` n'est pas un cas isolé. En France : quatre ans de retard diagnostique médian en pédiatrie rare. Cent quatre-vingts jours de signal perdus entre deux consultations. Douze minutes pour reconstruire trois mois. C'est la règle. »
+> « `[PRÉNOM]` n'est pas un cas isolé. **En pédiatrie, tout se joue sur l'observation.** Un enfant est suivi tous les trois à six mois — entre deux, cent quatre-vingts jours échappent au médecin. Au rendez-vous, **moins de vingt minutes** pour raconter trois mois. Résultat : **quatre ans** pour diagnostiquer une maladie rare pédiatrique. »
 
 ---
 
@@ -80,7 +83,7 @@ Trois chiffres côte à côte, typographie massive, pas de blabla.
 **Capture** : écran 2 (`screen-2` de `Pedia.html`) — vue téléphone, bouton vocal dominant "Tenez pour parler · 30s max".
 
 **À prononcer** (Fanette) :
-> « Voici Pedia. Côté parent, un seul geste : parler. Trente secondes maximum. Voix, texte, photo — ce qui est vu à la maison arrive, horodaté, dans un fil unique. C'est gratuit pour le parent, pour toujours. »
+> « Pedia est un journal pédiatrique **multimodal**, **multilingue**, **prescrit par le médecin**. Les parents loggent chaque jour — voix, texte, photo, dans leur langue maternelle. Trente secondes suffisent. »
 
 ---
 
@@ -88,7 +91,7 @@ Trois chiffres côte à côte, typographie massive, pas de blabla.
 
 **Principe visuel** : slide scindée verticalement, 15 lignes, même enfant — **`[PRÉNOM]`**, 2 ans.
 
-- **Gauche (fond papier froissé, écriture manuscrite)** : ce que le pédiatre a réussi à gribouiller en 12 minutes.
+- **Gauche (fond papier froissé, écriture manuscrite)** : ce que le pédiatre a réussi à gribouiller dans une consultation de moins de 20 minutes.
 - **Droite (fond blanc clinique, typographie propre)** : ce que Pedia assemble depuis les observations parentales longitudinales.
 
 | # | Catégorie sémiologique | Notes griffonnées (gauche) | Rapport Pedia (droite) |
@@ -110,11 +113,11 @@ Trois chiffres côte à côte, typographie massive, pas de blabla.
 | 15 | Comptage entourage | — | Éducatrice crèche rapporte mêmes alignements (4 mentions indépendantes) |
 
 **À prononcer** (Raphaël, voix qui ralentit sur le contraste) :
-> « Même enfant. Même consultation. À gauche, ce que le pédiatre a pu capturer en 12 minutes. À droite, ce que Pedia a assemblé depuis les 47 observations des parents sur 4 mois. »
+> « Même enfant. Même consultation. À gauche, ce que le pédiatre a pu griffonner en moins de vingt minutes — la durée médiane d'une consultation pédiatrique en France. À droite, ce que Pedia a assemblé depuis quarante-sept observations parentales sur quatre mois. »
 >
 > *(pause 1 s)*
 >
-> « Ce que la consultation a manqué — les alignements d'objets, la triade stéréotypies / rires / retard, le pattern crèche — Pedia l'a reconstitué. C'est ce qui fait la différence entre un orientage CAMSP à 2 ans et un diagnostic TSA à 7. »
+> « Chaque observation devient un indicateur clinique standardisé : **fréquence, intensité, durée, déclencheurs** — via l'ontologie HPO. Les alignements d'objets, la triade stéréotypies-rires-retard, le pattern crèche : ce que la consultation a manqué, Pedia l'a reconstitué. »
 
 *Si le prénom de la story (slide 1) n'est pas "Louis", mettre à jour `Pedia.html` pour que toutes les captures affichent le même prénom. Tâche de consistance — voir `CLAUDE.md`.*
 
@@ -125,20 +128,20 @@ Trois chiffres côte à côte, typographie massive, pas de blabla.
 **Capture** : dashboard médecin complet — bandeau patient (Louis M., 2 ans, 47 observations, 5 signaux, lecture 2 min) + timeline + signaux faibles détectés.
 
 **À prononcer** (Raphaël) :
-> « Dr Claire Lemoine ouvre le dossier avant que la famille entre dans la salle. Deux minutes de lecture. Elle voit la timeline, les signaux faibles — crises corrélées aux journées crèche r égal 0.71, dégradation du sommeil sur 6 semaines, alignements d'objets mentionnés 12 fois. Les pistes à explorer sont des suggestions, **jamais des diagnostics**. La décision reste la sienne. »
+> « Avant chaque rendez-vous, le pédiatre reçoit un **compte-rendu structuré d'une page**, en langage médical, avec les courbes d'évolution. Si un signal préoccupant apparaît, il est alerté en priorité. Pas de diagnostic, jamais. La décision clinique reste la sienne. »
 
 ---
 
 ## Slide 6 — Pipeline en une ligne (1:45–1:55)
 
 ```
-Parents captent  →  HPO structure  →  Pediatre lit en 2 min
+Parents captent  →  HPO structure  →  Pédiatre lit en 2 min
   (voix / texte      (17 000 phénotypes     (anamnèse +
    / photo · 30s)     · hébergé HDS)         signaux faibles)
 ```
 
 **À prononcer** (Elom) :
-> « Whisper transcrit. Notre NER extrait. HPO structure — 17 000 phénotypes pédiatriques normalisés. Hébergement HDS, RGPD, chiffrement bout-en-bout. Latence médiane 420 millisecondes. »
+> « Transcription. Extraction. Structuration vers HPO — **dix-sept mille phénotypes internationalement standardisés**. Hébergement HDS, RGPD, chiffrement bout-en-bout. Rien ne sort de l'UE. »
 
 ---
 
@@ -146,7 +149,7 @@ Parents captent  →  HPO structure  →  Pediatre lit en 2 min
 
 Trois colonnes, **règle affichée en haut : "Prix < ROI sur chaque tier."**
 
-| Parent | Pediatre libéral | Service hospitalier |
+| Parent | Pédiatre libéral | Service hospitalier |
 |---|---|---|
 | **Gratuit, pour toujours** | **49 € / mois / praticien** | **12 000 € / an / service** |
 | — | 11 h de temps médical récupérées / mois → ≈ 1 058 € | +33 k€/an récupérés (reconvocations évitées + T2A) |
@@ -154,7 +157,11 @@ Trois colonnes, **règle affichée en haut : "Prix < ROI sur chaque tier."**
 | `[MIT wage benchmark]` | `[MIT wage benchmark]` | `[MIT]` |
 
 **À prononcer** (Raoul) :
-> « Un seul payeur : le médecin. Le parent utilise, gratuitement. Quarante-neuf euros par mois en libéral — le prix d'une consultation et demie, pour onze heures récupérées : ROI fois vingt-et-un. Douze mille euros par an pour un service hospitalier, payback cinq mois. Sur chaque tier, le prix reste **sous** le ROI client. C'est la règle qui nous tient. »
+> « **Prescrit par le médecin. Payé par la structure médicale. Parents toujours gratuits.** »
+>
+> *(pause 0,5 s)*
+>
+> « Un pédiatre libéral paie quarante-neuf euros par mois — et récupère onze heures de temps médical. ROI fois vingt-et-un. Un service hospitalier paie douze mille euros par an — et récupère trente-trois mille euros. Payback cinq mois. Sur chaque tier, le prix reste **sous** le ROI client. »
 
 ---
 
@@ -176,7 +183,7 @@ libéral pur    │   + hôpital +     │   + contrat
 **An 4 — extension UE → TAM × 6 (~186 M€).**
 
 **À prononcer** (Raoul) :
-> « Marché France : trente-et-un millions d'euros adressables. Trajectoire : trois cent mille d'ARR en an un, quatre millions en an trois. An quatre, on ouvre l'Europe via l'interop HPO. »
+> « TAM France : trente-et-un millions d'euros. Trois cent mille d'ARR en an un, quatre millions en an trois. Extension naturelle dans les pays qui ont un équivalent du carnet de santé — l'Europe dès l'an quatre, via l'interop HPO. »
 
 ---
 
@@ -191,7 +198,7 @@ dev           dev          dev+business  dev+business med          med
 
 **Ce qu'on demande au jury / aux sponsors** :
 1. Pilote chronométré sur **50 pédiatres** (M3–M6).
-2. Introduction **AFPA** (Association Française de Pediatrie Ambulatoire).
+2. Introduction **AFPA** (Association Française de Pédiatrie Ambulatoire).
 3. Sponsor **marquage CE** classe I (objectif M12).
 
 **À prononcer** (Fanette) :
@@ -205,8 +212,10 @@ dev           dev          dev+business  dev+business med          med
 
 > « Avec Pedia, `[PRÉNOM]` aurait été diagnostiqué·e à `[ÂGE PRÉCOCE]`, pas à `[ÂGE TARDIF]`. »
 
-**À prononcer** (locuteur slide 1, voix basse) :
-> « Avec Pedia, `[PRÉNOM]` aurait été diagnostiqué·e à `[ÂGE PRÉCOCE]`. Pas à `[ÂGE TARDIF]`. »
+**À prononcer** (locuteur slide 1, voix basse, cascade finale) :
+> « Un pédiatre paie deux euros par jour. Il récupère onze heures par mois.
+> Pour les parents, c'est zéro euro.
+> Pour `[PRÉNOM]`, et pour tous les enfants comme `[PRÉNOM]`, c'est des années d'errance diagnostique évitées. »
 >
 > *(silence 2 s)*
 >

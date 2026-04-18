@@ -6,9 +6,9 @@
 
 - **4 ans** de retard diagnostique médian pour une maladie rare pédiatrique en France. `[MIT]`
 - **180 jours** de signal clinique perdus entre deux consultations de suivi (3 à 6 mois en pédiatrie ambulatoire).
-- **12 minutes** de consultation pour reconstruire ces 3 mois de mémoire parentale.
+- **< 20 minutes** de consultation pédiatrique libérale médiane (DREES 2007) pour reconstruire ces 3 mois de mémoire parentale.
 - **Parents** : oublient, ne trouvent pas les mots, parfois non-francophones, parfois en désert médical.
-- **Pediatres** : ré-anamnèse à chaque visite, signaux faibles invisibles à l'œil nu, pas de traçabilité longitudinale.
+- **Pédiatres** : ré-anamnèse à chaque visite, signaux faibles invisibles à l'œil nu, pas de traçabilité longitudinale.
 
 ## 2. Vision
 
@@ -24,7 +24,7 @@ Tout ce qui est vu à la maison arrive structuré chez le pédiatre, sans demand
 
 ### 3.2 Dr. Claire Lemoine — pédiatre libérale (**payeuse — 49 €/mois**)
 - 44 ans, cabinet seul, 25 consultations/jour. RPPS 10003418927.
-- Douleur : 12 min pour comprendre 3 mois, anamnèse à refaire, oubli de signaux entre visites.
+- Douleur : < 20 min pour comprendre 3 mois, anamnèse à refaire, oubli de signaux entre visites.
 - Besoin : arriver en consultation avec une synthèse 2 min fiable.
 - Succès : récupérer 11 h de temps médical / mois (ROI × 21 sur 49 €).
 
@@ -42,7 +42,7 @@ Tout ce qui est vu à la maison arrive structuré chez le pédiatre, sans demand
 - **P3** — *En tant que parent, je veux savoir que la prochaine consultation approche et ce que j'ai noté depuis la précédente.*
 - **P4** — *En tant que parent non-francophone, je veux pouvoir parler dans ma langue.* (objectif v1 — pipeline multilingue).
 
-### 4.2 Pediatre
+### 4.2 Pédiatre
 - **M1** — *En tant que pédiatre, je veux ouvrir le dossier et comprendre l'enfant en 2 min avant son entrée dans la salle.*
 - **M2** — *En tant que pédiatre, je veux voir une **anamnèse narrative** reconstituée depuis les observations parentales, structurée par les catégories de l'UE 5 sémiologie.*
 - **M3** — *En tant que pédiatre, je veux une timeline des 4 derniers mois avec les symptômes récurrents.*
@@ -129,7 +129,7 @@ Pedia doit couvrir **toutes** les catégories de l'UE 5 sémiologie pédiatrique
 - Ontologie **HPO** (Human Phenotype Ontology, licence libre).
 - Transcription **Whisper** (ou équivalent EU si Schrems II bloque).
 - Hébergement **HDS** certifié (OVHcloud / Scaleway / Outscale).
-- Partenariat **AFPA** (Association Française de Pediatrie Ambulatoire) — distribution libéraux.
+- Partenariat **AFPA** (Association Française de Pédiatrie Ambulatoire) — distribution libéraux.
 - Accès **Réseau Dyspra** / filières maladies rares — validation clinique.
 
 ## 11. Risques produit
@@ -139,7 +139,7 @@ Pedia doit couvrir **toutes** les catégories de l'UE 5 sémiologie pédiatrique
 | Gain de temps < 2 min en pratique | Étude chronométrée dès M3–M6 sur 50 pédiatres |
 | Parents ne capturent pas assez | Rappel push intelligent + onboarding prescription médecin |
 | Faux positifs signaux faibles usent la confiance | Calibrer seuils, traçabilité des corrélations (r affiché) |
-| Pediatre perçoit l'outil comme une menace | Positionner "outil du médecin", jamais "du parent vers le médecin" |
+| Pédiatre perçoit l'outil comme une menace | Positionner "outil du médecin", jamais "du parent vers le médecin" |
 
 ## 12. Roadmap synthétique
 
