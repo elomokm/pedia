@@ -11,9 +11,9 @@
 | Block | Speaker |
 |---|---|
 | 1. Hook (problem) | **Ayda** |
-| 2. Anamnesis comparison (solution) | **Fanette** |
+| 2. Anamnesis comparison (solution) | **Ayda** |
 | 3. Product (solution) | **Fanette** |
-| 4. Business + ask | **Fanette** *or* **Ayda** (decide at rehearsal) |
+| 4. Business + ask | **Anyone** (decide at rehearsal) |
 | 5. Team faces + cascade close + thank you | same speaker as block 4 |
 
 ---
