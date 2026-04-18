@@ -14,10 +14,10 @@
 
 | Time | Slide | Block | Speaker |
 |---|---|---|---|
-| 0:00–0:20 | **1** | Hook — strong words | Ayda or Anouar (medical credibility) |
-| 0:20–1:20 | **2** | Problem → Solution · anamnesis comparison | Raphaël |
-| 1:20–2:00 | **3** | Product / POC · interface screenshots | Fanette |
-| 2:00–3:00 | **4** | Business · market, pricing, unit economics, ask | Raoul |
+| 0:00–0:20 | **1** | Hook — problem | **Ayda** (medical credibility) |
+| 0:20–1:20 | **2** | Anamnesis comparison — solution | **Fanette** |
+| 1:20–2:00 | **3** | Product / POC — solution | **Fanette** (continuing) |
+| 2:00–3:00 | **4** | Business · market, pricing, ask · close | **Fanette** *or* **Ayda** (decide at rehearsal) |
 
 ---
 
@@ -44,7 +44,7 @@ Third beat (final reveal):
                                       Pedia.
 ```
 
-**Script (Ayda or Anouar, slow cadence)** :
+**Script (Ayda, slow cadence)** :
 
 > "In pediatrics, everything relies on observation. A child doesn't describe their symptoms — their parents live them, every day.
 >
@@ -93,7 +93,7 @@ Clean white, clinical typography, 15 structured rows from `ANAMNESIS_REPORT.md`.
 | Associated signs | Object-lining play (12 mentions) · inappropriate laughter · hand stereotypies |
 | Circle corroboration | Daycare educator independently reports same object-lining (4 mentions) |
 
-**Script (Raphaël, slows on the contrast)** :
+**Script (Fanette, slows on the contrast)** :
 
 > "Same child. Same appointment. On the left: what the pediatrician can scribble during the visit. On the right: what Pedia assembled from forty-seven parental observations over four months.
 >
@@ -117,7 +117,7 @@ Three screenshots side by side, captured from `Pedia.html`:
 
 All three in the same moment, showing the loop : parent speaks → Pedia structures → doctor reads.
 
-**Script (Fanette)** :
+**Script (Fanette, continuing from slide 2)** :
 
 > "Pedia is a multimodal, multilingual pediatric journal, prescribed by the physician. Parents can log every day — voice, text, photo — in their mother tongue.
 >
@@ -163,7 +163,7 @@ CAC **< €300** · LTV **> €1,800** · **LTV / CAC > 6** · Churn **< 2%/mo**
 2. CE marking class I
 3. Two paying hospital contracts
 
-**Script (Raoul)** :
+**Script (Fanette or Ayda — decide at rehearsal)** :
 
 > "Prescribed by the physician, paid by the medical structure. Parents always free.
 >

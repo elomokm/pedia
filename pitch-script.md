@@ -10,16 +10,16 @@
 
 | Block | Speaker |
 |---|---|
-| 1. Hook | **Ayda** *or* **Anouar** |
-| 2. Anamnesis comparison | **Raphaël** |
-| 3. Product | **Fanette** |
-| 4. Business + team + ask + close | **Raoul** |
+| 1. Hook (problem) | **Ayda** |
+| 2. Anamnesis comparison (solution) | **Fanette** |
+| 3. Product (solution) | **Fanette** |
+| 4. Business + team + ask + close | **Fanette** *or* **Ayda** (decide at rehearsal) |
 
 ---
 
-## 🎙️ 0:00 – 0:20 · Hook
+## 🎙️ 0:00 – 0:20 · Hook · problem
 
-**Ayda or Anouar, slow cadence.**
+**Ayda, slow cadence.**
 
 In pediatrics, everything relies on observation. A child doesn't describe their symptoms — their parents live them, every day.
 
@@ -29,9 +29,9 @@ We are Pedia.
 
 ---
 
-## 🎙️ 0:20 – 1:20 · Anamnesis comparison (hero slide)
+## 🎙️ 0:20 – 1:20 · Anamnesis comparison (hero slide) · solution
 
-**Raphaël, slows on the contrast.**
+**Fanette, slows on the contrast.**
 
 Same child. Same appointment. On the left: what the pediatrician can scribble during the visit. On the right: what Pedia assembled from forty-seven parental observations over four months.
 
@@ -41,9 +41,9 @@ What the visit missed, Pedia rebuilt. That is the difference between an early CA
 
 ---
 
-## 🎙️ 1:20 – 2:00 · Product
+## 🎙️ 1:20 – 2:00 · Product · solution
 
-**Fanette.**
+**Fanette (continuing).**
 
 Pedia is a multimodal, multilingual pediatric journal, prescribed by the physician. Parents can log every day — voice, text, photo — in their mother tongue.
 
@@ -55,7 +55,7 @@ Before each appointment, the pediatrician receives a one-page structured report 
 
 ## 🎙️ 2:00 – 3:00 · Business + team + close
 
-**Raoul.**
+**Fanette or Ayda** (pick the stronger voice at rehearsal — business story works for either).
 
 Prescribed by the physician, paid by the medical structure. Parents always free.
 
