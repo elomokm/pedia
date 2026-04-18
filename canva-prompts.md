@@ -115,7 +115,12 @@ Cross out "retard" with a thin hand-drawn line.
 **Right panel column title** (same style, color `#1E3A8A`):
 `What Pedia hands the doctor before the visit`
 
-**Right panel table rows** (clinical typography, 11 to 12 pt, every row aligned in a 2-column grid with a 110 px left column for category labels):
+**Right panel options** (pick one at build time):
+
+- **Option A (preferred)**: direct screenshot of `Pedia.html` screen-4, cropped to the "Résumé narratif + anamnèse parentale" block on the left 7 columns. Crop tight, 1600 x 1200 minimum, PNG. Insert full-bleed into the right panel, add the 3 px blue left border on top. Zero rebuild.
+- **Option B (fallback)**: rebuild the table in Canva using the row structure below. Use this only if the screenshot is too text-dense at final export size.
+
+**Right panel table rows (for Option B, or to verify the screenshot content)** (clinical typography, 11 to 12 pt, every row aligned in a 2-column grid with a 110 px left column for category labels):
 
 | Category (`#94A3B8`, 9 pt uppercase) | Value (`#0F172A`, 12 pt) |
 |---|---|
@@ -221,6 +226,8 @@ Card 3 (physician):
 **TAM callout** (right side, small, under the headline):
 `TAM France: €31M. Europe next on the HPO interoperability rail.` Inter 12 pt, color `#475569`.
 
+**Optional right-side thumbnail** (anchors the fact that the product exists): a 320 px wide screenshot of `Pedia.html` screen-4 (physician dashboard top), faded to 60% opacity or overlaid behind the ask block so the numbers stay readable. Keeps "this is real, not a pitch fiction" in peripheral vision.
+
 **Bottom-right source tag**: `[MIT]`, JetBrains Mono 10 pt `#94A3B8`.
 
 **Do not**: include an ARR projection (no Y1/Y2/Y3 curves). Do not include M3/M6/M12 milestones. Keep the slide about what we charge, why price < ROI, and what we do with the money. No roadmap timeline.
@@ -273,6 +280,28 @@ Bold-green these three phrases: `two euros a day`, `Parents pay zero`, `Children
 3. Slide 1: drop in the text, pick the font sizes.
 4. Slide 4: assemble from this spec. No free-hand rewriting.
 5. Slide 5 last: team photos after the Saturday shoot.
+
+## Screenshot catalog
+
+All screenshots captured from `Pedia.html` at 1920 x 1080 display, then cropped as needed. Export PNG, sRGB. Save under `final-pitch/screenshots/`.
+
+| ID | Source screen | Crop | Used on | Export size |
+|---|---|---|---|---|
+| `S1-hero` | screen-1 | full hero + phone mock in corner | optional slide 1 background at 15% opacity | 1920 x 1080 |
+| `S2-parent-phone` | screen-2 | phone only, tight crop around the device frame | slide 3 card 1 | 720 x 1480 |
+| `S3-voice-capture` | screen-3 | phone only, mic pulse + waveform visible | slide 3 card 2 | 720 x 1480 |
+| `S3-pipeline-panel` | screen-3 | left context panel (transcription, NER, HPO, anonymization) | slide 3 card 2 alternate | 640 x 720 |
+| `S4-dashboard-top` | screen-4 | patient banner + narrative anamnesis block (left 7 columns) | slide 2 right panel (Option A), slide 3 card 3, slide 4 background thumbnail | 1600 x 1200 |
+| `S4-anamnesis-block` | screen-4 | narrative anamnesis block only, no patient banner | slide 2 right panel (tighter crop) | 1200 x 1400 |
+| `S4-timeline-signals` | screen-4 | lower half: 4-month timeline + weak signals | backup for slide 3 card 3 | 1600 x 900 |
+| `S4-pathways` | screen-4 | right column "pistes à explorer" block | Q&A backup visual | 800 x 1200 |
+| `S5-recap` | screen-5 | product recap strip | not used in pitch, brand consistency reference | 1920 x 600 |
+
+**Capture method**: open `Pedia.html` in Chrome at 1920 x 1080, use `Cmd/Ctrl + Shift + P -> "Capture screenshot"` via DevTools. For tight element crops: right-click the element in DevTools, `Capture node screenshot`. Avoid browser zoom (always 100%). Avoid extensions that overlay badges.
+
+**Patient consistency**: every screenshot shows **Louis M., 2 yrs**. If the team picks a different first name for the story, edit `Pedia.html` first, re-export all screenshots in one pass, then import into Canva.
+
+**File naming**: `S{screen}-{what}.png`, lowercase, hyphenated. Example: `S4-dashboard-top.png`.
 
 ## Export settings
 
