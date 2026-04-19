@@ -34,150 +34,215 @@
 <header id="title-block-header">
 <h1 class="title">Pedia - BRAND (FR)</h1>
 </header>
-<h1 id="brandmd---palette-des-slides-pedia">BRAND.md - palette des
-slides Pedia</h1>
+<h1 id="brandmd---palette-slides-pedia">BRAND.md - palette slides
+Pedia</h1>
 <blockquote>
-<p>Couleurs tirées directement de <code>Pedia.html</code>. Deux familles
-: <strong>vert</strong> (côté parent) et <strong>bleu</strong> (côté
-médecin). Mêmes neutres partagés. Utiliser ces valeurs hex exactes dans
-Google Slides pour que le deck matche les captures.</p>
+<p>Couleurs tirées directement de <code>Pedia.html</code> (état courant
+sur main). Trois surfaces : <strong>côté parent</strong> (vert + crème),
+<strong>côté médecin</strong> (bleu + neutres cliniques), <strong>états
+dashboard</strong> (ambre + rouge). Utiliser ces hex exacts dans Google
+Slides pour que le deck matche la maquette.</p>
 </blockquote>
 <hr />
-<h2 id="-vert---côté-parent">🌿 Vert - côté parent</h2>
+<h2 id="-côté-parent---vert--crème">🌿 Côté parent - vert + crème</h2>
 <table>
 <thead>
 <tr class="header">
 <th>Rôle</th>
-<th>Nom</th>
+<th>Variable CSS</th>
 <th>Hex</th>
 <th>Quand</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Primaire</td>
-<td>Mint-deep</td>
-<td><strong><code>#6FB58A</code></strong></td>
-<td>accents côté parent, pastille « free forever », la marque Pedia sur
-les slides parent</td>
+<td>Accent deep (CTA principal)</td>
+<td><code>--coral-deep</code></td>
+<td><strong><code>#4A8F6B</code></strong></td>
+<td>bouton « Voir la démo », accents du parcours prescrit, marque Pedia
+sur slides parent</td>
 </tr>
 <tr class="even">
-<td>Soft</td>
-<td>Mint</td>
+<td>Accent soft</td>
+<td><code>--coral</code></td>
 <td><strong><code>#A8D5BA</code></strong></td>
-<td>wash de fond, blobs doux, chips secondaires</td>
+<td>fonds de pastilles, surbrillances douces (même valeur que mint)</td>
 </tr>
 <tr class="odd">
-<td>Tint</td>
+<td>Mint deep</td>
+<td><code>--mint-deep</code></td>
+<td><strong><code>#6FB58A</code></strong></td>
+<td>accents parent secondaires, points de statut, succès</td>
+</tr>
+<tr class="even">
+<td>Mint</td>
+<td><code>--mint</code></td>
+<td><strong><code>#A8D5BA</code></strong></td>
+<td>blobs de fond, chips, remplissages secondaires</td>
+</tr>
+<tr class="odd">
 <td>Mint-bg</td>
+<td><code>--mint-bg</code></td>
 <td><strong><code>#E8F3EC</code></strong></td>
-<td>cartes, arrière-plans d'inputs, remplissages discrets</td>
+<td>cartes, fonds d'input, remplissages discrets</td>
+</tr>
+<tr class="even">
+<td>Cream</td>
+<td><code>--cream</code></td>
+<td><strong><code>#F5EFE6</code></strong></td>
+<td>wash chaud, cadre capture vocale, ancre de gradient</td>
+</tr>
+<tr class="odd">
+<td>Cream deep</td>
+<td><code>--cream-deep</code></td>
+<td><strong><code>#EADFCB</code></strong></td>
+<td>cartes de rappel, accents calendrier</td>
+</tr>
+<tr class="even">
+<td>Warm ink</td>
+<td><code>--warm-ink</code></td>
+<td><strong><code>#2D3B36</code></strong></td>
+<td>titres + corps sur surfaces parent</td>
+</tr>
+<tr class="odd">
+<td>Warm ink soft</td>
+<td><code>--warm-ink-soft</code></td>
+<td><strong><code>#5A6B63</code></strong></td>
+<td>copy parent secondaire</td>
+</tr>
+<tr class="even">
+<td>Border chaude</td>
+<td>(en dur)</td>
+<td><strong><code>#f0eadd</code></strong> /
+<strong><code>#e7e1d5</code></strong></td>
+<td>bordures wash crème</td>
+</tr>
+<tr class="odd">
+<td>Page ivoire</td>
+<td><code>--ivory</code></td>
+<td><strong><code>#FBF8F3</code></strong></td>
+<td>fond page landing / journal parent</td>
 </tr>
 </tbody>
 </table>
-<h2 id="-bleu---côté-médecin">🔷 Bleu - côté médecin</h2>
+<h2 id="-côté-médecin---bleu--neutres-cliniques">🔷 Côté médecin - bleu
++ neutres cliniques</h2>
 <table>
 <thead>
 <tr class="header">
 <th>Rôle</th>
-<th>Nom</th>
+<th>Variable CSS</th>
 <th>Hex</th>
 <th>Quand</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Primaire</td>
-<td>Med-blue</td>
+<td>Med blue</td>
+<td><code>--med-blue</code></td>
 <td><strong><code>#1E3A8A</code></strong></td>
-<td>accents côté médecin, CTA principal, chiffres d'en-tête sur slide
-business</td>
+<td>marque Pedia pro, CTA principaux, chiffres de titres</td>
 </tr>
 <tr class="even">
-<td>Accent</td>
-<td>Med-accent</td>
+<td>Med accent</td>
+<td><code>--med-accent</code></td>
 <td><strong><code>#3B82F6</code></strong></td>
-<td>liens, états actifs, surbrillance sparklines</td>
+<td>liens, états actifs, surlignes de charts</td>
 </tr>
 <tr class="odd">
-<td>Tint</td>
-<td>Med-blue-soft</td>
+<td>Med blue soft</td>
+<td><code>--med-blue-soft</code></td>
 <td><strong><code>#DBE5F7</code></strong></td>
-<td>fonds de cartes, remplissages de tags, surbrillance breadcrumb</td>
+<td>remplissages de chips, surbrillance nav, breadcrumbs</td>
 </tr>
-</tbody>
-</table>
-<h2 id="-neutres-les-deux-côtés">⚫ Neutres (les deux côtés)</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Rôle</th>
-<th>Nom</th>
-<th>Hex</th>
-<th>Quand</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ink fort</td>
-<td>Med-ink</td>
+<tr class="even">
+<td>Med ink</td>
+<td><code>--med-ink</code></td>
 <td><strong><code>#0F172A</code></strong></td>
-<td>titres, chiffres clés sur fonds blancs</td>
-</tr>
-<tr class="even">
-<td>Ink moyen</td>
-<td>Med-ink-soft</td>
-<td><strong><code>#475569</code></strong></td>
-<td>corps de texte</td>
+<td>titres + corps sur surfaces médecin</td>
 </tr>
 <tr class="odd">
-<td>Ink léger</td>
-<td>Med-ink-faint</td>
-<td><strong><code>#94A3B8</code></strong></td>
-<td>tags de source, petites légendes, horodatages</td>
+<td>Med ink soft</td>
+<td><code>--med-ink-soft</code></td>
+<td><strong><code>#475569</code></strong></td>
+<td>copy médecin secondaire</td>
 </tr>
 <tr class="even">
-<td>Bordure</td>
-<td>Med-border</td>
+<td>Med ink faint</td>
+<td><code>--med-ink-faint</code></td>
+<td><strong><code>#94A3B8</code></strong></td>
+<td>tags de source, horodatages, petites légendes mono</td>
+</tr>
+<tr class="odd">
+<td>Med border</td>
+<td><code>--med-border</code></td>
 <td><strong><code>#E2E8F0</code></strong></td>
 <td>bordures de cartes, séparateurs</td>
 </tr>
-<tr class="odd">
-<td>Carte</td>
-<td>Blanc</td>
+<tr class="even">
+<td>Med card</td>
+<td><code>--med-card</code></td>
 <td><strong><code>#FFFFFF</code></strong></td>
 <td>fond de carte / slide</td>
 </tr>
-<tr class="even">
-<td>Page</td>
-<td>Med-bg</td>
+<tr class="odd">
+<td>Med bg</td>
+<td><code>--med-bg</code></td>
 <td><strong><code>#F7F9FC</code></strong></td>
-<td>canvas hors-blanc, alternative au blanc pur</td>
+<td>canvas page (hors-blanc)</td>
+</tr>
+<tr class="even">
+<td>Med hover</td>
+<td>(en dur)</td>
+<td><strong><code>#F1F5FB</code></strong></td>
+<td>remplissages hover de lignes de tableau</td>
 </tr>
 </tbody>
 </table>
-<h2 id="-fond-chaud-optionnel">🎨 Fond chaud (optionnel)</h2>
-<p>Utilisé uniquement sur les slides du parcours parent si on veut le
-feel chaleureux de la landing HTML :</p>
+<h2 id="-états-sémantiques-dashboard-ambre--rouge">🟡 États sémantiques
+dashboard (ambre + rouge)</h2>
+<p>Utilisés dans le dashboard médecin (<code>screen-4</code>) pour les «
+pistes à explorer » et la sévérité des signaux. À garder
+<strong>uniquement</strong> pour des statuts/états, jamais comme accent
+de marque.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Rôle</th>
 <th>Hex</th>
+<th>Quand</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ivoire page</td>
-<td><strong><code>#FBF8F3</code></strong></td>
+<td>Attention deep</td>
+<td><strong><code>#B45309</code></strong></td>
+<td>badges numérotés sur les pistes non diagnostiques</td>
 </tr>
 <tr class="even">
-<td>Wash crème</td>
-<td><strong><code>#F5EFE6</code></strong></td>
+<td>Attention plus sombre</td>
+<td><strong><code>#78350F</code></strong></td>
+<td>corps sur cartes ambre</td>
 </tr>
 <tr class="odd">
-<td>Ink chaud</td>
-<td><strong><code>#2D3B36</code></strong></td>
+<td>Attention wash</td>
+<td><strong><code>#FEF3C7</code></strong></td>
+<td>fond de carte ambre</td>
+</tr>
+<tr class="even">
+<td>Attention border</td>
+<td><strong><code>#FDE68A</code></strong></td>
+<td>bordure de carte ambre</td>
+</tr>
+<tr class="odd">
+<td>Alert</td>
+<td><strong><code>#B91C1C</code></strong></td>
+<td>tags « corrélation forte », marqueurs d'épisode prolongé</td>
+</tr>
+<tr class="even">
+<td>Alert wash</td>
+<td><strong><code>#FEE2E2</code></strong></td>
+<td>fond de tag alert</td>
 </tr>
 </tbody>
 </table>
@@ -197,82 +262,115 @@ feel chaleureux de la landing HTML :</p>
 <td><strong>1 - Hook (problème)</strong></td>
 <td>noir (<code>#0F172A</code>)</td>
 <td>vert <code>#6FB58A</code> sur le mot « Pedia »</td>
-<td>l'énoncé du problème est lourd ; le beat final atterrit sur le vert
-côté parent</td>
+<td>énoncé du problème lourd ; beat final atterrit sur le vert côté
+parent</td>
 </tr>
 <tr class="even">
 <td><strong>2 - Comparaison d'anamnèse</strong></td>
-<td>colonne gauche warm/neutre · colonne droite cadre <strong>med-blue
-<code>#1E3A8A</code></strong></td>
-<td>mint <code>#A8D5BA</code> pour l'encart « ce qu'ont capturé les
-parents »</td>
+<td>colonne gauche wash crème (<code>#F5EFE6</code>) · colonne droite
+cadre <strong>med-blue <code>#1E3A8A</code></strong></td>
+<td>mint <code>#A8D5BA</code> pour l'encart « 47 observations parentales
+»</td>
 <td>encode visuellement la transition : scribble (chaud) → rapport
 clinique (bleu)</td>
 </tr>
 <tr class="odd">
 <td><strong>3 - Produit (POC)</strong></td>
-<td>blanc · neutres gris moyens</td>
-<td>vert pour la capture parent · bleu pour la capture dashboard
-médecin</td>
-<td>reflète exactement les captures Pedia.html</td>
+<td>blanc · neutres cliniques</td>
+<td>vert <code>#4A8F6B</code> sur carte parent · bleu
+<code>#1E3A8A</code> sur carte médecin</td>
+<td>reflète exactement les captures Pedia.html (grille 3 cartes)</td>
 </tr>
 <tr class="even">
-<td><strong>4 - Business + demande + clôture</strong></td>
+<td><strong>4 - Business + demande</strong></td>
 <td>titres et chiffres <strong>med-blue
 <code>#1E3A8A</code></strong></td>
-<td>vert <code>#6FB58A</code> sur la ligne « Parents always free » et
-sur la clôture en cascade</td>
-<td>le business est bleu (institutionnel), la clôture émotionnelle
-revient au vert (parents / enfants)</td>
+<td>vert <code>#4A8F6B</code> sur la ligne « Parents always free » et
+sur la tuile €0 parent</td>
+<td>business bleu (institutionnel) ; le vert ancre le palier gratuit à
+vie</td>
+</tr>
+<tr class="odd">
+<td><strong>5 - Équipe + clôture</strong></td>
+<td>page ivoire <code>#FBF8F3</code></td>
+<td>bandeau vert <code>#6FB58A</code> sous chaque portrait</td>
+<td>clôture humaine sur la palette côté parent</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="couplage-typographique">Couplage typographique</h2>
-<p>Aligné sur la maquette HTML :</p>
+<p>Pris directement de <code>Pedia.html</code> :</p>
 <ul>
-<li><strong>Display / chiffres</strong> : serif display ou humaniste
-sans en grande taille. Dans Google Slides : <em>Playfair Display</em> ou
-<em>Source Serif 4</em>, poids 500-600.</li>
-<li><strong>Corps / légendes</strong> : <em>Inter</em> (ou sans
-système), poids 400-500.</li>
-<li><strong>Mono / tags de source</strong> : <em>JetBrains Mono</em> ou
-<em>IBM Plex Mono</em>, 10-11 pt, <code>#94A3B8</code>.</li>
+<li><strong>Display / titres / chiffres d'en-tête</strong> :
+<strong>Fraunces</strong> (serif variable, optical sizing activé), poids
+500 ou 600. <code>font-family: 'Fraunces', serif</code>.</li>
+<li><strong>Corps / légendes / UI</strong> : <strong>Inter</strong>,
+poids 400 ou 500.
+<code>font-family: 'Inter', system-ui, sans-serif</code>.</li>
+<li><strong>Tags de source / mono / petits chiffres</strong> :
+<strong>JetBrains Mono</strong>, 10-11 pt, couleur
+<code>#94A3B8</code>.</li>
 </ul>
+<p>Dans Google Slides : installer Fraunces et JetBrains Mono via le
+sélecteur de police. Inter est livré par défaut.</p>
 <h2 id="sanity-accessibilité">Sanity accessibilité</h2>
 <p>Toutes les paires premier-plan / arrière-plan listées respectent WCAG
-AA pour le texte de corps (4.5:1), sauf :</p>
+AA pour le corps de texte (4.5:1) sauf :</p>
 <ul>
-<li><code>#6FB58A</code> vert sur blanc → contraste 2.5:1 :
-<strong>uniquement pour grand texte / display, jamais pour le
+<li><code>#6FB58A</code> mint-deep sur blanc → contraste 2.5:1 →
+<strong>uniquement pour grand texte / display, jamais pour
 corps</strong>.</li>
-<li><code>#3B82F6</code> bleu sur blanc → contraste 3.7:1 :
-<strong>uniquement pour les liens et le grand texte</strong>, pas pour
-le corps.</li>
+<li><code>#3B82F6</code> med-accent sur blanc → contraste 3.7:1 →
+<strong>uniquement pour liens et grand texte</strong>, pas pour
+corps.</li>
+<li><code>#A8D5BA</code> mint sur blanc → contraste 1.8:1 →
+<strong>remplissages décoratifs uniquement</strong>, jamais pour
+texte.</li>
+<li><code>#4A8F6B</code> vert forêt sur blanc → contraste 4.6:1 →
+<strong>sûr pour le corps de texte</strong>.</li>
+<li><code>#1E3A8A</code> med-blue sur blanc → contraste 10.9:1 →
+<strong>sûr pour tout</strong>.</li>
+<li><code>#2D3B36</code> warm-ink sur <code>#FBF8F3</code> ivoire →
+contraste 12.1:1 → <strong>sûr pour tout</strong>.</li>
 </ul>
-<p>Pour tout petit texte de corps, utiliser <code>#0F172A</code> ou
-<code>#475569</code> sur blanc ou <code>#F7F9FC</code>.</p>
+<p>Pour tout petit texte de corps sur fond crème / ivoire, utiliser
+<code>#2D3B36</code> ou <code>#5A6B63</code>. Sur blanc /
+<code>#F7F9FC</code>, utiliser <code>#0F172A</code> ou
+<code>#475569</code>.</p>
 <hr />
 <h2 id="liste-hex-à-copier-coller-dans-google-slides">Liste hex à
 copier-coller dans Google Slides</h2>
-<pre><code>#6FB58A   vert primaire
-#A8D5BA   vert soft
-#E8F3EC   vert tint
+<pre><code># Parent (vert + crème)
+#4A8F6B   vert forêt (CTA parent, accent principal)
+#6FB58A   mint-deep (statut, succès)
+#A8D5BA   mint (accent soft, chips)
+#E8F3EC   mint-bg (wash pâle)
+#F5EFE6   crème (wash chaud)
+#EADFCB   crème deep
+#FBF8F3   ivoire (fond page parent)
+#2D3B36   warm-ink (titres parent)
+#5A6B63   warm-ink-soft (secondaire parent)
 
-#1E3A8A   bleu primaire
-#3B82F6   bleu accent
-#DBE5F7   bleu tint
+# Médecin (bleu + neutres cliniques)
+#1E3A8A   med-blue (accent médecin principal)
+#3B82F6   med-accent (liens, surbrillances)
+#DBE5F7   med-blue-soft (remplissages chips)
+#0F172A   med-ink (titres médecin)
+#475569   med-ink-soft (secondaire médecin)
+#94A3B8   med-ink-faint (tags source, horodatages)
+#E2E8F0   med-border (séparateurs)
+#FFFFFF   med-card (fond slide)
+#F7F9FC   med-bg (canvas page)
+#F1F5FB   med-hover
 
-#0F172A   ink fort
-#475569   ink moyen
-#94A3B8   ink léger
-#E2E8F0   bordure
-#FFFFFF   carte
-#F7F9FC   page
-
-#FBF8F3   ivoire (chaud, optionnel)
-#F5EFE6   crème (chaud, optionnel)
-#2D3B36   ink chaud (optionnel)</code></pre>
+# États sémantiques dashboard
+#B45309   attention deep
+#78350F   attention plus sombre
+#FEF3C7   attention wash
+#FDE68A   attention border
+#B91C1C   alert
+#FEE2E2   alert wash</code></pre>
 <p>Charger ces couleurs comme thème Google Slides une fois, puis les
 réutiliser sur tout le deck.</p>
 <footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
