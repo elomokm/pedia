@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - canva-prompts (EN)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · canva-prompts - per-slide briefs</div>
+  <div class="lang">
+    <a class="current">EN</a> · <a href="canva-prompts-FR.html">Français</a> · <a href="index-EN.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - canva-prompts (EN)</h1>
+</header>
+<h1 id="canva-promptsmd">canva-prompts.md</h1>
+<p>Per-slide briefs for building the pitch deck in Canva. Each block is
+self-contained: copy-paste into Canva Magic Design or hand to a teammate
+designing that slide. All graphic constraints are baked in so the five
+slides ship consistent.</p>
+<hr />
+<h2 id="global-graphic-constraints-apply-to-every-slide">Global graphic
+constraints (apply to every slide)</h2>
+<p><strong>Brand colors</strong> (from <code>BRAND.md</code>, post
+green-swap):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Hex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Green primary (parent, CTA, accents)</td>
+<td><code>#4D9F7D</code></td>
+</tr>
+<tr class="even">
+<td>Green mid (soft accents, chips)</td>
+<td><code>#6FB58A</code></td>
+</tr>
+<tr class="odd">
+<td>Green soft (backgrounds, blobs)</td>
+<td><code>#8BC9A5</code></td>
+</tr>
+<tr class="even">
+<td>Green tint (pale wash)</td>
+<td><code>#E8F1EA</code></td>
+</tr>
+<tr class="odd">
+<td>Blue primary (physician, headlines)</td>
+<td><code>#1E3A8A</code></td>
+</tr>
+<tr class="even">
+<td>Blue accent (links, sparklines)</td>
+<td><code>#3B82F6</code></td>
+</tr>
+<tr class="odd">
+<td>Blue tint (physician cards)</td>
+<td><code>#DBE5F7</code></td>
+</tr>
+<tr class="even">
+<td>Ink strong (body)</td>
+<td><code>#0F172A</code></td>
+</tr>
+<tr class="odd">
+<td>Ink medium (secondary body)</td>
+<td><code>#475569</code></td>
+</tr>
+<tr class="even">
+<td>Ink faint (source tags, captions)</td>
+<td><code>#94A3B8</code></td>
+</tr>
+<tr class="odd">
+<td>Border</td>
+<td><code>#E2E8F0</code></td>
+</tr>
+<tr class="even">
+<td>Page background (neutral)</td>
+<td><code>#F7F9FC</code></td>
+</tr>
+<tr class="odd">
+<td>Pastel green page (warm alt)</td>
+<td><code>#F4F9F5</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Typography</strong>:</p>
+<ul>
+<li>Display / headlines / numbers: <strong>Fraunces</strong> (serif),
+weight 500 or 600, optical sizing on.</li>
+<li>Body / captions: <strong>Inter</strong>, weight 400 or 500.</li>
+<li>Source tags, timestamps, small mono: <strong>JetBrains
+Mono</strong>, 10 to 11 pt, color <code>#94A3B8</code>.</li>
+</ul>
+<p><strong>Aspect ratio</strong>: 16:9, 1920 x 1080.</p>
+<p><strong>Do not</strong>:</p>
+<ul>
+<li>Use em dashes (use hyphens, colons, or parentheses).</li>
+<li>Use the color orange anywhere. The palette is green + blue +
+neutrals only.</li>
+<li>Use stock illustrations of smiling doctors. Real screenshots of
+<code>Pedia.html</code> on slides 2 and 3, real team photos on slide
+5.</li>
+<li>Use "revolutionary", "best-in-class", "cutting-edge". Numbers, not
+adjectives.</li>
+<li>Drop the source tags. Every number needs <code>[MIT]</code> or
+<code>[HPO]</code> visible somewhere on the slide.</li>
+</ul>
+<hr />
+<h2 id="slide-1---hook-000-to-020">Slide 1 - Hook (0:00 to 0:20)</h2>
+<p><strong>One-line brief</strong>: dark background, massive serif,
+three beats revealing one principle, two numbers, then the brand
+mark.</p>
+<p><strong>Layout</strong>:</p>
+<ul>
+<li>Full-bleed background <code>#0F172A</code> (ink strong).</li>
+<li>Three text beats, left-aligned, padded 80 px from left, vertically
+centered.</li>
+<li>Final beat ("Pedia.") is right-aligned, italic, one line below the
+two-number line.</li>
+</ul>
+<p><strong>Text content (exact)</strong>:</p>
+<pre><code>In pediatrics,
+symptoms don&#39;t speak.
+Parents do.</code></pre>
+<p>then click-reveals:</p>
+<pre><code>180 days lost between visits.
+4 years to diagnose a rare disease.</code></pre>
+<p>then:</p>
+<pre><code>                                      Pedia.</code></pre>
+<p><strong>Colors</strong>:</p>
+<ul>
+<li>Background: <code>#0F172A</code>.</li>
+<li>Three-line principle: white <code>#FFFFFF</code>.</li>
+<li>Two stats: white, with the numbers "180 days" and "4 years" bolded
+in green <code>#6FB58A</code>.</li>
+<li>"Pedia." in green primary <code>#4D9F7D</code>, italic Fraunces
+600.</li>
+</ul>
+<p><strong>Typography</strong>:</p>
+<ul>
+<li>Principle lines: Fraunces 500, 64 pt, line-height 1.15, tracking
+-0.01 em.</li>
+<li>Stats: Inter 500, 22 pt, color white; numbers Fraunces 600, 28 pt,
+color <code>#6FB58A</code>.</li>
+<li>"Pedia.": Fraunces 600 italic, 56 pt.</li>
+</ul>
+<p><strong>Bottom-right corner</strong>: small JetBrains Mono 10 pt
+<code>[MIT]</code>, color <code>#94A3B8</code>.</p>
+<p><strong>Do not</strong>: add logos, tagline, pedia mark in the first
+two beats. The slide starts spartan on purpose.</p>
+<hr />
+<h2 id="slide-2---anamnesis-comparison-020-to-120---hero-slide">Slide 2
+- Anamnesis comparison (0:20 to 1:20) - hero slide</h2>
+<p><strong>One-line brief</strong>: split-panel same-child-two-views.
+Left is warm paper scribble, right is clinical structured report.</p>
+<p><strong>Layout</strong>:</p>
+<ul>
+<li>Full-bleed 16:9 split vertically 50 / 50.</li>
+<li>Left panel: pastel green <code>#F4F9F5</code> background, simulated
+paper texture (subtle noise).</li>
+<li>Right panel: white <code>#FFFFFF</code> background, 4 px left border
+in blue primary <code>#1E3A8A</code>.</li>
+</ul>
+<p><strong>Left panel content</strong> (handwritten scribble, serif or
+cursive):</p>
+<pre><code>Louis, 2y
+-&gt; sleep?
+-&gt; langage... retard
+&quot;ok au repas&quot;
+crèche ?
+follow up 3mo</code></pre>
+<p>Cross out "retard" with a thin hand-drawn line.</p>
+<p><strong>Left panel column title</strong> (top, 12 pt uppercase,
+letter-spaced 0.08 em, color <code>#475569</code>):
+<code>What the doctor writes during the visit</code></p>
+<p><strong>Right panel column title</strong> (same style, color
+<code>#1E3A8A</code>):
+<code>What Pedia hands the doctor before the visit</code></p>
+<p><strong>Right panel options</strong> (pick one at build time):</p>
+<ul>
+<li><strong>Option A (preferred)</strong>: direct screenshot of
+<code>Pedia.html</code> screen-4, cropped to the "Résumé narratif +
+anamnèse parentale" block on the left 7 columns. Crop tight, 1600 x 1200
+minimum, PNG. Insert full-bleed into the right panel, add the 3 px blue
+left border on top. Zero rebuild.</li>
+<li><strong>Option B (fallback)</strong>: rebuild the table in Canva
+using the row structure below. Use this only if the screenshot is too
+text-dense at final export size.</li>
+</ul>
+<p><strong>Right panel table rows (for Option B, or to verify the
+screenshot content)</strong> (clinical typography, 11 to 12 pt, every
+row aligned in a 2-column grid with a 110 px left column for category
+labels):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category (<code>#94A3B8</code>, 9 pt uppercase)</th>
+<th>Value (<code>#0F172A</code>, 12 pt)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chief complaint</td>
+<td>Recurrent sleep-onset crises (14 episodes / 4 mo) +
+expressive-language stagnation</td>
+</tr>
+<tr class="even">
+<td>Personal history</td>
+<td>Bronchiolitis at 8 mo, 3 otitis, no hospitalization</td>
+</tr>
+<tr class="odd">
+<td>Family history</td>
+<td>Maternal uncle, adult ASD diagnosis</td>
+</tr>
+<tr class="even">
+<td>Nutrition</td>
+<td>Refuses soft textures since W-8</td>
+</tr>
+<tr class="odd">
+<td>Timing</td>
+<td>Crises cluster 8 pm to 10 pm, 11 of 14 follow a daycare day</td>
+</tr>
+<tr class="even">
+<td>Triggers</td>
+<td>Worse after collective care, relieved by rhythmic rocking</td>
+</tr>
+<tr class="odd">
+<td>Associated signs</td>
+<td>Object-lining play (12 mentions), hand stereotypies</td>
+</tr>
+<tr class="even">
+<td>Circle corroboration</td>
+<td>Daycare educator reports same lining (4 mentions)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inset at the bottom of the right panel</strong> (green accent
+block):
+<code>From 47 parental observations, frequency, intensity, duration, triggers, via HPO ontology.</code>
+Background <code>#E8F1EA</code>, left border <code>#6FB58A</code> 3 px,
+text <code>#0F172A</code>, 10 pt Inter.</p>
+<p><strong>Bottom-right source tag</strong>:
+<code>[HPO - Monarch Initiative]</code>, JetBrains Mono 10 pt,
+<code>#94A3B8</code>.</p>
+<p><strong>Typography</strong>:</p>
+<ul>
+<li>Scribble: handwritten feel font (e.g. Caveat), 20 pt, color
+<code>#2D3B36</code>.</li>
+<li>Right panel headers: Inter 600, 11 pt uppercase letter-spaced.</li>
+<li>Right panel row labels: JetBrains Mono 9 pt uppercase, color
+<code>#94A3B8</code>.</li>
+<li>Right panel row values: Inter 400, 12 pt, color
+<code>#0F172A</code>.</li>
+</ul>
+<p><strong>Do not</strong>: make the left panel neat or apologetic. The
+contrast is the whole point. Messy scribble, crossed words,
+fragments.</p>
+<hr />
+<h2 id="slide-3---product-120-to-200">Slide 3 - Product (1:20 to
+2:00)</h2>
+<p><strong>One-line brief</strong>: three interface screenshots from
+<code>Pedia.html</code> in an equal-weight horizontal grid, with a
+one-line caption above each.</p>
+<p><strong>Layout</strong>:</p>
+<ul>
+<li>White background <code>#FFFFFF</code>.</li>
+<li>Top line:
+<code>Prescribed by the physician, multimodal, multilingual pediatric journal.</code>
+Inter 500, 18 pt, color <code>#475569</code>, centered, 40 px from
+top.</li>
+<li>Three equal-width cards side by side, 24 px gap between, full
+vertical extent below the top line.</li>
+<li>Card 1 (parent): pale green background <code>#E8F1EA</code>, 3 px
+left border <code>#4D9F7D</code>.</li>
+<li>Card 2 (pipeline): pale gray background <code>#F7F9FC</code>, 3 px
+left border <code>#94A3B8</code>.</li>
+<li>Card 3 (physician): pale blue background <code>#DBE5F7</code>, 3 px
+left border <code>#1E3A8A</code>.</li>
+</ul>
+<p><strong>Card content</strong>:</p>
+<p>Card 1 (parent):</p>
+<ul>
+<li>Mono badge top: <code>PARENT</code>, 9 pt, color
+<code>#94A3B8</code>.</li>
+<li>Screenshot: <code>Pedia.html</code> screen-2 (parent phone with
+voice CTA).</li>
+<li>Caption below screenshot: <code>Hold to speak. 30 seconds.</code>
+Fraunces 500, 18 pt, color <code>#2D3B36</code>.</li>
+</ul>
+<p>Card 2 (pipeline):</p>
+<ul>
+<li>Mono badge: <code>PIPELINE</code>, 9 pt, <code>#94A3B8</code>.</li>
+<li>Screenshot: <code>Pedia.html</code> screen-3 (voice capture + HPO
+pipeline panel).</li>
+<li>Caption: <code>Transcription, HPO mapping, HDS hosting.</code>
+Fraunces 500, 18 pt, color <code>#0F172A</code>.</li>
+</ul>
+<p>Card 3 (physician):</p>
+<ul>
+<li>Mono badge: <code>PHYSICIAN</code>, 9 pt, <code>#94A3B8</code>.</li>
+<li>Screenshot: <code>Pedia.html</code> screen-4 (top half: patient
+banner + narrative anamnesis).</li>
+<li>Caption: <code>2-minute read before the visit.</code> Fraunces 500,
+18 pt, color <code>#1E3A8A</code>.</li>
+</ul>
+<p><strong>Bottom-right source tag</strong>: <code>[HPO]</code>,
+JetBrains Mono 10 pt, <code>#94A3B8</code>.</p>
+<p><strong>Do not</strong>: invent product illustrations. Use the real
+<code>Pedia.html</code> screenshots at 1440 x 900 PNG, cropped tightly
+to the phone or dashboard area. No mockup frames around them. No drop
+shadows (the cards already have borders).</p>
+<hr />
+<h2 id="slide-4---business-200-to-245">Slide 4 - Business (2:00 to
+2:45)</h2>
+<p><strong>One-line brief</strong>: seed one-pager layout. One headline,
+a three-tile pricing row, a four-line numbers strip, and an ask
+block.</p>
+<p><strong>Layout</strong>:</p>
+<ul>
+<li>White <code>#FFFFFF</code> background, 52 px page padding.</li>
+<li>Headline, top, Fraunces 500, 26 pt, color <code>#1E3A8A</code>, with
+the phrase "Parents always free" colored green primary
+<code>#4D9F7D</code> and italic.</li>
+<li>Three pricing tiles side by side, equal width, 16 px gap.</li>
+<li>Single-line unit-economics strip below, centered.</li>
+<li>Two-column ask block at the bottom: KPI on the left, ask on the
+right.</li>
+</ul>
+<p><strong>Headline text</strong>:
+<code>Prescribed by the physician, paid by the medical structure. Parents always free.</code></p>
+<p><strong>Pricing tiles</strong> (each 14 px padding, border-radius 8
+px, 1 px border <code>#E2E8F0</code>, 3 px left border in the tile's
+color):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tile 1 (parent)</th>
+<th>Tile 2 (pediatrician)</th>
+<th>Tile 3 (hospital)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role: <code>PARENTS</code> (mono 10 pt <code>#475569</code>)</td>
+<td>role: <code>INDEPENDENT PEDIATRICIAN</code></td>
+<td>role: <code>HOSPITAL SERVICE</code></td>
+</tr>
+<tr class="even">
+<td>price: <code>Free</code> (Fraunces 22 pt <code>#4D9F7D</code>)</td>
+<td>price: <code>€49 / mo</code> (Fraunces 22 pt
+<code>#1E3A8A</code>)</td>
+<td>price: <code>€12k / yr</code> (Fraunces 22 pt
+<code>#1E3A8A</code>)</td>
+</tr>
+<tr class="odd">
+<td>roi: <code>Forever</code> (Inter 11 pt <code>#475569</code>)</td>
+<td>roi: <code>Recovers 11 h, ROI x21</code></td>
+<td>roi: <code>Payback &lt; 6 months</code></td>
+</tr>
+<tr class="even">
+<td>background <code>#E8F1EA</code>, border <code>#4D9F7D</code></td>
+<td>background <code>#DBE5F7</code>, border <code>#1E3A8A</code></td>
+<td>background <code>#DBE5F7</code>, border <code>#3B82F6</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unit-economics strip</strong> (centered, Inter 11 pt, color
+<code>#475569</code>, with key values in <code>#0F172A</code> bold):
+<code>CAC &lt; €300 . LTV &gt; €1,800 . LTV / CAC &gt; 6 . Churn &lt; 2%/mo . GM &gt; 85%</code></p>
+<p><strong>Bottom-left KPI block</strong>:</p>
+<ul>
+<li>Label: <code>NORTH-STAR KPI</code> (mono 10 pt
+<code>#94A3B8</code>)</li>
+<li>Statement: <code>&gt;= 2 min saved per consultation.</code>
+(Fraunces 18 pt <code>#0F172A</code>)</li>
+<li>Subtext:
+<code>Measured in a 50-pediatrician chronometered pilot.</code> (Inter
+11 pt <code>#475569</code>)</li>
+</ul>
+<p><strong>Bottom-right ask block</strong>:</p>
+<ul>
+<li>Label: <code>PRE-SEED ASK</code> (mono 10 pt
+<code>#94A3B8</code>)</li>
+<li>Amount: <code>€400k</code> (Fraunces 24 pt
+<code>#4D9F7D</code>)</li>
+<li>Three bullets (Inter 11 pt <code>#0F172A</code>):
+<ul>
+<li><code>50-pediatrician chronometered pilot</code></li>
+<li><code>CE marking class I</code></li>
+<li><code>Two paying hospital contracts</code></li>
+</ul></li>
+</ul>
+<p><strong>TAM callout</strong> (right side, small, under the headline):
+<code>TAM France: €31M. Europe next on the HPO interoperability rail.</code>
+Inter 12 pt, color <code>#475569</code>.</p>
+<p><strong>Optional right-side thumbnail</strong> (anchors the fact that
+the product exists): a 320 px wide screenshot of <code>Pedia.html</code>
+screen-4 (physician dashboard top), faded to 60% opacity or overlaid
+behind the ask block so the numbers stay readable. Keeps "this is real,
+not a pitch fiction" in peripheral vision.</p>
+<p><strong>Bottom-right source tag</strong>: <code>[MIT]</code>,
+JetBrains Mono 10 pt <code>#94A3B8</code>.</p>
+<p><strong>Do not</strong>: include an ARR projection (no Y1/Y2/Y3
+curves). Do not include M3/M6/M12 milestones. Keep the slide about what
+we charge, why price &lt; ROI, and what we do with the money. No roadmap
+timeline.</p>
+<hr />
+<h2 id="slide-5---team--cascade-close--thank-you-245-to-300">Slide 5 -
+Team + cascade close + thank you (2:45 to 3:00)</h2>
+<p><strong>One-line brief</strong>: six faces in a clean grid.
+Human-scale close. The last thing the jury sees.</p>
+<p><strong>Layout</strong>:</p>
+<ul>
+<li>Pastel green page background <code>#F4F9F5</code>.</li>
+<li>Top headline, centered, Fraunces 500, 28 pt, color
+<code>#0F172A</code>:
+<code>Two physicians. Four engineers. The pairing is the moat.</code></li>
+<li>Six square portraits in a single row (or 3 x 2 grid if vertical
+space is tight), equal size, 16 px gap.</li>
+<li>Each portrait has a green accent strip at the bottom
+(<code>#6FB58A</code>, 4 px tall) with the name above the strip and role
+below.</li>
+<li>Cascade close at the bottom, centered, Fraunces 16 pt italic, color
+<code>#0F172A</code>, with the three bold-green terms:
+<code>Parents pay zero</code>, <code>Children gain years</code>, and
+<code>two euros a day</code>.</li>
+</ul>
+<p><strong>Portrait specs</strong>:</p>
+<ul>
+<li>Square crop, 600 x 600 minimum, head and shoulders, neutral
+background, consistent lighting.</li>
+<li>Filename suggestion: <code>team/fanette.jpg</code>,
+<code>team/elom.jpg</code>, <code>team/raoul.jpg</code>,
+<code>team/raphael.jpg</code>, <code>team/ayda.jpg</code>,
+<code>team/anouar.jpg</code>.</li>
+</ul>
+<p><strong>Name + role</strong> (below each portrait, centered):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name (Inter 600, 13 pt, <code>#0F172A</code>)</th>
+<th>Role (Inter 400, 11 pt, <code>#475569</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fanette</td>
+<td>dev</td>
+</tr>
+<tr class="even">
+<td>Elom</td>
+<td>dev</td>
+</tr>
+<tr class="odd">
+<td>Raoul</td>
+<td>dev + business</td>
+</tr>
+<tr class="even">
+<td>Raphaël</td>
+<td>dev + business</td>
+</tr>
+<tr class="odd">
+<td>Ayda</td>
+<td>MD</td>
+</tr>
+<tr class="even">
+<td>Anouar</td>
+<td>MD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cascade close</strong> (bottom of slide, centered, max width
+900 px, Fraunces 16 pt italic):</p>
+<p><code>A pediatrician pays two euros a day, recovers eleven hours a month. Parents pay zero. Children gain years of avoided diagnostic wandering.</code></p>
+<p>Bold-green these three phrases: <code>two euros a day</code>,
+<code>Parents pay zero</code>, <code>Children gain years</code>.</p>
+<p><strong>Final word</strong>, centered below the cascade, Fraunces
+500, 20 pt, color <code>#0F172A</code>: <code>Thank you.</code></p>
+<p><strong>Do not</strong>: write "Team" as a slide title. The faces are
+the title. Do not use Linkedin headshots with different backgrounds.
+Shoot all six in the hackathon space Saturday afternoon if needed, same
+wall, same light.</p>
+<hr />
+<h2 id="build-order-recommended">Build order (recommended)</h2>
+<ol type="1">
+<li>Slide 3 first: captures lock the product story in place.</li>
+<li>Slide 2 next: the hero comparison. If Slide 2 is weak, the pitch is
+weak.</li>
+<li>Slide 1: drop in the text, pick the font sizes.</li>
+<li>Slide 4: assemble from this spec. No free-hand rewriting.</li>
+<li>Slide 5 last: team photos after the Saturday shoot.</li>
+</ol>
+<h2 id="screenshot-catalog">Screenshot catalog</h2>
+<p>All screenshots captured from <code>Pedia.html</code> at 1920 x 1080
+display, then cropped as needed. Export PNG, sRGB. Save under
+<code>final-pitch/screenshots/</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Source screen</th>
+<th>Crop</th>
+<th>Used on</th>
+<th>Export size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S1-hero</code></td>
+<td>screen-1</td>
+<td>full hero + phone mock in corner</td>
+<td>optional slide 1 background at 15% opacity</td>
+<td>1920 x 1080</td>
+</tr>
+<tr class="even">
+<td><code>S2-parent-phone</code></td>
+<td>screen-2</td>
+<td>phone only, tight crop around the device frame</td>
+<td>slide 3 card 1</td>
+<td>720 x 1480</td>
+</tr>
+<tr class="odd">
+<td><code>S3-voice-capture</code></td>
+<td>screen-3</td>
+<td>phone only, mic pulse + waveform visible</td>
+<td>slide 3 card 2</td>
+<td>720 x 1480</td>
+</tr>
+<tr class="even">
+<td><code>S3-pipeline-panel</code></td>
+<td>screen-3</td>
+<td>left context panel (transcription, NER, HPO, anonymization)</td>
+<td>slide 3 card 2 alternate</td>
+<td>640 x 720</td>
+</tr>
+<tr class="odd">
+<td><code>S4-dashboard-top</code></td>
+<td>screen-4</td>
+<td>patient banner + narrative anamnesis block (left 7 columns)</td>
+<td>slide 2 right panel (Option A), slide 3 card 3, slide 4 background
+thumbnail</td>
+<td>1600 x 1200</td>
+</tr>
+<tr class="even">
+<td><code>S4-anamnesis-block</code></td>
+<td>screen-4</td>
+<td>narrative anamnesis block only, no patient banner</td>
+<td>slide 2 right panel (tighter crop)</td>
+<td>1200 x 1400</td>
+</tr>
+<tr class="odd">
+<td><code>S4-timeline-signals</code></td>
+<td>screen-4</td>
+<td>lower half: 4-month timeline + weak signals</td>
+<td>backup for slide 3 card 3</td>
+<td>1600 x 900</td>
+</tr>
+<tr class="even">
+<td><code>S4-pathways</code></td>
+<td>screen-4</td>
+<td>right column "pistes à explorer" block</td>
+<td>Q&amp;A backup visual</td>
+<td>800 x 1200</td>
+</tr>
+<tr class="odd">
+<td><code>S5-recap</code></td>
+<td>screen-5</td>
+<td>product recap strip</td>
+<td>not used in pitch, brand consistency reference</td>
+<td>1920 x 600</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capture method</strong>: open <code>Pedia.html</code> in
+Chrome at 1920 x 1080, use
+<code>Cmd/Ctrl + Shift + P -&gt; "Capture screenshot"</code> via
+DevTools. For tight element crops: right-click the element in DevTools,
+<code>Capture node screenshot</code>. Avoid browser zoom (always 100%).
+Avoid extensions that overlay badges.</p>
+<p><strong>Patient consistency</strong>: every screenshot shows
+<strong>Louis M., 2 yrs</strong>. If the team picks a different first
+name for the story, edit <code>Pedia.html</code> first, re-export all
+screenshots in one pass, then import into Canva.</p>
+<p><strong>File naming</strong>: <code>S{screen}-{what}.png</code>,
+lowercase, hyphenated. Example: <code>S4-dashboard-top.png</code>.</p>
+<h2 id="export-settings">Export settings</h2>
+<ul>
+<li>PNG export at 1920 x 1080, sRGB.</li>
+<li>Google Slides backup: import each PNG as a full-bleed slide
+background, overlay the source tags as editable text so timings can be
+adjusted last-minute.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

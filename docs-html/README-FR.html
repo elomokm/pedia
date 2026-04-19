@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - README (FR)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · README - orientation du projet</div>
+  <div class="lang">
+    <a class="current">FR</a> · <a href="README-EN.html">English</a> · <a href="index-FR.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - README (FR)</h1>
+</header>
+<h1 id="pedia">Pedia</h1>
+<p><strong>Carnet de santé pédiatrique augmenté.</strong> Pour que rien
+ne se perde entre deux consultations.</p>
+<p>Les parents capturent leurs observations au quotidien : voix, texte,
+photo, 30 secondes suffisent. Pedia structure ces observations en
+langage clinique via l'ontologie HPO. Avant chaque rendez-vous, le
+pédiatre reçoit une synthèse lisible en <strong>2 minutes</strong> :
+anamnèse narrative, courbes de tendance, signaux faibles, pistes non
+diagnostiques à explorer.</p>
+<h2 id="pourquoi">Pourquoi</h2>
+<ul>
+<li><strong>4 ans</strong> : délai diagnostique médian pour une maladie
+rare pédiatrique en France.</li>
+<li><strong>180 jours</strong> : signal clinique perdu entre deux
+consultations de suivi.</li>
+</ul>
+<p>Pedia ramène ces 4 ans à quelques mois, sans en demander plus au
+parent, sans rallonger la consultation.</p>
+<h2 id="équipe">Équipe</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>Fanette, Elom</td>
+<td>dev</td>
+</tr>
+<tr class="even">
+<td>Raoul, Raphaël</td>
+<td>dev + business</td>
+</tr>
+<tr class="odd">
+<td>Ayda, Anouar</td>
+<td>Médecin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lancer-la-démo">Lancer la démo</h2>
+<pre><code>open Pedia.html</code></pre>
+<p>Maquette HTML autonome (pas de build, pas de dépendance). 5 écrans :
+landing, vue parent, capture vocale, tableau de bord médecin,
+récapitulatif. Naviguer avec les flèches ou les contrôles en bas de
+page.</p>
+<h2 id="piste-hackathon">Piste hackathon</h2>
+<p><strong>Track 2 - AI in Pediatrics</strong>, Hackathon ANDCS × MIT
+2026 (17-19 avril, Epitech Paris, Kremlin-Bicêtre). Format : 3 min de
+pitch + 2 min de Q&amp;R, slides uniquement (démo = captures d'écran de
+<code>Pedia.html</code>).</p>
+<h2 id="arborescence">Arborescence</h2>
+<pre><code>Pedia.html              - maquette HTML de la démo (5 écrans)
+ANAMNESIS_REPORT.md     - squelette sémiologique de référence (UE 5 pédiatrie)
+PITCH.md                - script de pitch slide par slide
+PRD.md                  - exigences produit
+BUSINESS_PLAN.md        - business plan (one-pager seed, sources MIT)
+PRACTICE_QUESTIONS.md   - préparation Q&amp;R jury (2 min)
+RGPD.md                 - brief réglementaire interne
+CLAUDE.md               - consignes projet pour Claude Code
+archive/                - matériels de pitch antérieurs
+references/             - référence sémiologie pédiatrique UE 5
+final-pitch/            - livrables jour J
+practice-pitch-2/       - brouillons en cours</code></pre>
+<h2 id="ce-que-pedia-nest-pas">Ce que Pedia n'est pas</h2>
+<ul>
+<li>Ce n'est pas un outil de diagnostic : les suggestions sont non
+diagnostiques, la décision clinique reste au médecin.</li>
+<li>Ce n'est pas une téléconsultation : Pedia prépare la consultation,
+il ne la remplace pas.</li>
+<li>Ce n'est pas le carnet de santé officiel : complément, pas
+substitut.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

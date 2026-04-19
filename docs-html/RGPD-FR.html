@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - RGPD (FR)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · RGPD - brief réglementaire</div>
+  <div class="lang">
+    <a class="current">FR</a> · <a href="RGPD-EN.html">English</a> · <a href="index-FR.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - RGPD (FR)</h1>
+</header>
+<h1 id="rgpdmd---brief-interne--pedia">RGPD.md - brief interne ·
+Pedia</h1>
+<blockquote>
+<p><strong>Note pour les lecteurs MIT</strong> : <strong>RGPD</strong>
+est l'implémentation française du <strong>GDPR</strong> (Règlement UE
+2016/679). Les citations légales françaises sont préservées telles
+quelles. <strong>Usage</strong> : brief interne d'équipe, pas un
+document de pitch. <strong>Objectif</strong> : n'importe lequel des 6
+membres de l'équipe peut répondre à une question réglementaire sur scène
+en <strong>15 secondes</strong>. <strong>Audience cible</strong> : jury
+hackathon (niveau synthèse), pas conseil spécialisé.</p>
+</blockquote>
+<hr />
+<h2 id="-réponse-stock-de-15-secondes-à-mémoriser">🎯 Réponse stock de
+15 secondes (à mémoriser)</h2>
+<blockquote>
+<p><em>« SaaS dispositif médical classe I, hébergement HDS, marquage CE
+dans le scope, DPIA (AIPD) en cours, consentement parental explicite
+sous Art. 9-2-a RGPD, aucun transfert hors UE. »</em></p>
+</blockquote>
+<p>Si on est arrêté sur « classe I » ou « HDS », on développe avec les
+points 2, 4 et 5 ci-dessous.</p>
+<hr />
+<h2 id="1-classes-de-données">1. Classes de données</h2>
+<p>Pedia traite des <strong>données de santé personnelles concernant un
+mineur</strong> :</p>
+<ul>
+<li>voix (enregistrement parental),</li>
+<li>texte (note libre),</li>
+<li>photo (éruption, posture, geste),</li>
+<li>métadonnées temporelles et géographiques minimales.</li>
+</ul>
+<p>Légalement : <strong>catégorie particulière</strong> (Art. 9 RGPD) +
+<strong>mineur</strong> (protection renforcée, loi française Art. 7-1
+LIL 78-17).</p>
+<h2 id="2-qualification-logicielle">2. Qualification logicielle</h2>
+<ul>
+<li><strong>SaaS dispositif médical (DM)</strong> → <strong>classe
+I</strong> au lancement.</li>
+<li>Le passage en <strong>classe IIa</strong> se déclencherait
+uniquement si Pedia ajoutait une fonction active d'<strong>aide au
+diagnostic</strong> (ex. probabilité de pathologie). <strong>Pas le cas
+en v1</strong> : Pedia remonte des pistes non diagnostiques
+(orientations, bilans préalables) ; la décision clinique reste au
+médecin.</li>
+<li><strong>Marquage CE classe I</strong> dans le scope. Dossier
+technique + déclaration de conformité + responsable régulatoire nommé
+(Raphaël responsable, DPO externe en conseil).</li>
+</ul>
+<h2 id="3-bases-légales-du-traitement">3. Bases légales du
+traitement</h2>
+<ul>
+<li><strong>Principale</strong> : consentement explicite du titulaire de
+l'autorité parentale (Art. 9-2-a RGPD).</li>
+<li><strong>Secondaire</strong> : intérêt vital de la personne concernée
+(Art. 9-2-c RGPD, cas d'urgence signalés).</li>
+<li><strong>Âge</strong> : mineur &lt; 15 ans → consentement parental
+obligatoire (loi française). À partir de 15 ans, l'adolescent reprend le
+contrôle de son consentement.</li>
+</ul>
+<h2 id="4-hébergement">4. Hébergement</h2>
+<p><strong>HDS (Hébergeur de Données de Santé, hébergement santé
+certifié) obligatoire</strong> : ISO 27001 + référentiel HDS.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Candidat</th>
+<th>HDS certifié</th>
+<th>Localisation</th>
+<th>Préférence Pedia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>OVHcloud</strong></td>
+<td>oui</td>
+<td>FR</td>
+<td><strong>choix par défaut</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Scaleway</strong></td>
+<td>oui</td>
+<td>FR</td>
+<td>backup</td>
+</tr>
+<tr class="odd">
+<td><strong>Outscale</strong></td>
+<td>oui</td>
+<td>FR</td>
+<td>option</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exclus</strong> : AWS, GCP, Azure US. Même avec SCC
+post-Schrems II, l'exposition au CLOUD Act est inacceptable pour des
+données pédiatriques.</p>
+<h2 id="5-droits-des-personnes-concernées">5. Droits des personnes
+concernées</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Droit</th>
+<th>Délai</th>
+<th>Exercé par</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accès</td>
+<td>1 mois</td>
+<td>Parent (&lt; 15) / mineur (≥ 15)</td>
+</tr>
+<tr class="even">
+<td>Rectification</td>
+<td>1 mois</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Effacement (« droit à l'oubli »)</td>
+<td>1 mois</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Portabilité (HPO + export brut)</td>
+<td>1 mois</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Opposition</td>
+<td>1 mois</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Limitation</td>
+<td>1 mois</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Retrait du consentement</td>
+<td>Immédiat</td>
+<td>Sans préjudice de la légalité du traitement antérieur</td>
+</tr>
+</tbody>
+</table>
+<p>Interface dédiée dans l'app parent : « Mes données · exporter /
+supprimer ».</p>
+<h2 id="6-conservation">6. Conservation</h2>
+<ul>
+<li><strong>Actif</strong> : pendant toute la durée du suivi médical
+avec le pédiatre prescripteur.</li>
+<li><strong>Archivage intermédiaire</strong> : 20 ans
+<strong>post-majorité</strong> de l'enfant, aligné sur le dossier
+médical français (Art. R1112-7 CSP).</li>
+<li><strong>Suppression à la demande</strong> : droit à l'effacement
+exerçable à tout moment, sauf obligation légale d'archivage
+médical.</li>
+</ul>
+<h2 id="7-dpo--registre">7. DPO &amp; registre</h2>
+<ul>
+<li><strong>DPO externe</strong> la première année (≈ 6 k€/an, budgeté
+dans le seed).</li>
+<li><strong>Registre de traitement</strong> (Art. 30 RGPD) tenu dès le
+jour 1.</li>
+<li><strong>Contact</strong> : <code>dpo@pedia.health</code> (mailbox
+réservée).</li>
+</ul>
+<h2
+id="8-dpia-aipd---analyse-dimpact-relative-à-la-protection-des-données">8.
+DPIA (AIPD - Analyse d'Impact relative à la Protection des Données)</h2>
+<p><strong>Obligatoire</strong> en raison de trois facteurs cumulatifs
+:</p>
+<ol type="1">
+<li>Donnée de santé (Art. 9).</li>
+<li>Mineur (public vulnérable).</li>
+<li>Profilage algorithmique (NER + pattern matching + LLM).</li>
+</ol>
+<p><strong>Calendrier</strong> : DPIA lancée tôt, finalisée avant le
+déploiement en bêta ouverte.</p>
+<h2 id="9-sous-traitants-chaîne-complète-art-28-rgpd">9. Sous-traitants
+(chaîne complète, Art. 28 RGPD)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Service</th>
+<th>Provider prévu</th>
+<th>Localisation</th>
+<th>DPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Transcription vocale</td>
+<td>Whisper self-hosted / provider UE</td>
+<td>FR / DE</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Structuration LLM</td>
+<td>Provider HDS FR</td>
+<td>FR</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Hébergement</td>
+<td>OVHcloud HDS</td>
+<td>FR</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Monitoring / logs</td>
+<td>Provider UE (Grafana Cloud EU)</td>
+<td>DE</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Analytics produit</td>
+<td>PostHog self-hosted</td>
+<td>FR (sur OVH)</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Règle</strong> : pas de sous-traitance hors UE. Si
+techniquement nécessaire (ex. un modèle US), aucune donnée santé
+identifiable n'est envoyée, uniquement des embeddings anonymisés, et
+même ça nécessite une délibération.</p>
+<h2 id="10-sécurité-technique">10. Sécurité technique</h2>
+<ul>
+<li><strong>Chiffrement au repos</strong> : AES-256 (géré par
+l'hébergeur HDS).</li>
+<li><strong>TLS 1.3</strong> en transit (pas de version antérieure
+acceptée).</li>
+<li><strong>Pseudonymisation</strong> des identifiants patients en
+base.</li>
+<li><strong>MFA requis</strong> pour les comptes pros pédiatres.</li>
+<li><strong>Logs d'accès</strong> conservés 3 ans (exigence HDS).</li>
+<li><strong>Rotation des secrets</strong> : trimestrielle.</li>
+<li><strong>Sauvegardes</strong> chiffrées, testées mensuellement, RPO
+24 h / RTO 4 h.</li>
+</ul>
+<h2 id="11-que-répondre-si-le-jury-demande">11. Que répondre si le jury
+demande</h2>
+<h3 id="question-courte--réponse-15-s-voir-en-haut-du-doc">Question
+courte → réponse 15 s (voir en haut du doc)</h3>
+<h3 id="question-détaillée-30-secondes">Question détaillée, 30
+secondes</h3>
+<blockquote>
+<p><em>« Côté régulatoire, Pedia est un dispositif médical classe I. Pas
+d'aide au diagnostic, donc pas classe IIa : nos suggestions sont non
+diagnostiques. Marquage CE dans le scope. Hébergement HDS en France,
+OVHcloud. Consentement parental explicite Art. 9-2-a RGPD. DPIA en
+cours, obligatoire car on combine données de santé, mineurs et IA.
+Conservation alignée sur le dossier médical français : 20 ans
+post-majorité. Rien ne sort de l'UE. Un DPO externe nous accompagne dès
+l'année un. »</em></p>
+</blockquote>
+<h3
+id="question-piège---vous-êtes-trop-petits-pour-gérer-tout-ça--20-secondes">Question
+piège : « Vous êtes trop petits pour gérer tout ça », 20 secondes</h3>
+<blockquote>
+<p><em>« La classe I est le niveau réglementaire le plus léger :
+marquage CE auto-déclaré avec un dossier technique. Un DPO externe à 6
+k€/an couvre la conformité RGPD. La DPIA, le rôle de responsable
+régulatoire et le DPA avec l'hébergeur HDS sont standards, pas
+exotiques. Ce qui serait lourd, c'est la classe IIa : on n'y va pas tant
+qu'une étude clinique ne le justifie pas. »</em></p>
+</blockquote>
+<hr />
+<h2 id="checklist-avant-pitch-pilotée-par-raphaël">Checklist avant pitch
+(pilotée par Raphaël)</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />DPO externe identifié et contacté
+(shortlist de 3 cabinets).</label></li>
+<li><label><input type="checkbox" />Devis OVHcloud HDS
+reçu.</label></li>
+<li><label><input type="checkbox" />Mailbox
+<code>dpo@pedia.health</code> active.</label></li>
+<li><label><input type="checkbox" />Réponse stock 15 s mémorisée par au
+moins <strong>4 des 6</strong> membres de l'équipe.</label></li>
+<li><label><input type="checkbox" /><code>RGPD.md</code> relu par Ayda +
+Anouar (sanity-check sur la référence Art. R1112-7 CSP).</label></li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

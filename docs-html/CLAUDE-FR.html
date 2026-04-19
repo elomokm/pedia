@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - CLAUDE (FR)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · CLAUDE - consignes pour Claude Code</div>
+  <div class="lang">
+    <a class="current">FR</a> · <a href="CLAUDE-EN.html">English</a> · <a href="index-FR.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - CLAUDE (FR)</h1>
+</header>
+<h1 id="claudemd---consignes-pour-claude-code-dans-ce-repo">CLAUDE.md -
+consignes pour Claude Code dans ce repo</h1>
+<h2 id="quest-ce-que-pedia">Qu'est-ce que Pedia</h2>
+<p><strong>Carnet de santé pédiatrique augmenté.</strong> Les parents
+capturent des observations (voix / texte / photo, 30 s) ; une IA les
+structure via l'ontologie <strong>HPO</strong> ; le pédiatre lit une
+anamnèse pré-consultation en <strong>2 minutes</strong>.</p>
+<p>Objectif : ramener le délai diagnostique médian d'une maladie rare
+pédiatrique de <strong>4 ans</strong> à quelques mois.</p>
+<p><strong>À ne pas confondre</strong> : l'ancien <code>README.md</code>
+mentionnait « neodose », piste abandonnée. Le produit actuel est
+<strong>Pedia</strong> (anciennement MyOntologyNote).</p>
+<h2 id="contexte-hackathon">Contexte hackathon</h2>
+<ul>
+<li><strong>Hackathon ANDCS × MIT 2026</strong> (17-19 avril, Epitech
+Paris, Kremlin-Bicêtre), <strong>Track 2 - AI in Pediatrics</strong>. Le
+surnom interne « Cosmic Harp » est informel ; les chaînes officielles
+utilisent le nom complet.</li>
+<li><strong>Pitch</strong> : 3 min + 2 min Q&amp;R. Slides uniquement
+pendant le pitch (pas de démo live, pas de logiciel à lancer). La démo =
+captures d'écran de <code>Pedia.html</code>.</li>
+<li><strong>Objectif : gagner</strong> - chaque document doit être
+utilisable tel quel par l'équipe le jour J.</li>
+</ul>
+<h2 id="équipe">Équipe</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Rôle</th>
+<th>Prénoms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dev</td>
+<td>Fanette, Elom</td>
+</tr>
+<tr class="even">
+<td>Dev + business</td>
+<td>Raoul, Raphaël</td>
+</tr>
+<tr class="odd">
+<td>Médecin</td>
+<td>Ayda, Anouar</td>
+</tr>
+</tbody>
+</table>
+<p>Les profils médecin (Ayda, Anouar) sont la source de vérité
+sémiologique : toute affirmation clinique passe par eux avant le
+pitch.</p>
+<h2 id="carte-du-repo">Carte du repo</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Fichier / dossier</th>
+<th>Rôle</th>
+<th>Ne pas toucher sans raison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Pedia.html</code></td>
+<td>maquette HTML de la démo (5 écrans, 1523 lignes)</td>
+<td>oui : source des captures montrées au jury</td>
+</tr>
+<tr class="even">
+<td><code>ANAMNESIS_REPORT.md</code></td>
+<td>squelette sémiologique (UE 5 pédiatrie)</td>
+<td>oui : source de vérité des catégories</td>
+</tr>
+<tr class="odd">
+<td><code>PITCH.md</code></td>
+<td>script de pitch slide par slide</td>
+<td>souvent édité pendant les répétitions</td>
+</tr>
+<tr class="even">
+<td><code>PRD.md</code></td>
+<td>exigences produit</td>
+<td>rarement édité</td>
+</tr>
+<tr class="odd">
+<td><code>BUSINESS_PLAN.md</code></td>
+<td>business plan (format one-pager SF, sources <code>[MIT]</code>)</td>
+<td>souvent édité, mais <strong>ne pas laisser dériver les
+chiffres</strong> - <code>archive/business-plan-1min.md</code> fait
+foi</td>
+</tr>
+<tr class="even">
+<td><code>PRACTICE_QUESTIONS.md</code></td>
+<td>Q&amp;R jury</td>
+<td>souvent édité</td>
+</tr>
+<tr class="odd">
+<td><code>RGPD.md</code></td>
+<td>brief réglementaire interne</td>
+<td>oui : validé par les médecins</td>
+</tr>
+<tr class="even">
+<td><code>archive/business-plan-1min.md</code></td>
+<td>chiffres business historiques, <strong>source de
+vérité</strong></td>
+<td>oui</td>
+</tr>
+<tr class="odd">
+<td><code>references/UE 5 Référentiel-Sémiologie Adulte et Pédiatrie.pdf</code></td>
+<td>référence sémiologie pédiatrique</td>
+<td>oui</td>
+</tr>
+<tr class="even">
+<td><code>final-pitch/</code></td>
+<td>livrables jour J</td>
+<td>écrire ici quand demandé</td>
+</tr>
+<tr class="odd">
+<td><code>practice-pitch-2/</code></td>
+<td>brouillons en cours</td>
+<td>bac à sable</td>
+</tr>
+<tr class="even">
+<td><code>participant-handbook.zip</code></td>
+<td>document d'organisation du hackathon,
+<strong>gitignoré</strong></td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<h2 id="règles">Règles</h2>
+<ul>
+<li><strong>Langue des docs</strong> : <strong>anglais</strong>
+(décision utilisateur - l'équipe peut pitcher en anglais, le jury est
+bilingue, et ça garde le matériel source portable). Ne pas retraduire en
+français sans confirmation explicite.</li>
+<li><strong>Ton</strong> : concis, direct. Pas de marketing creux.
+Chiffres plutôt qu'adjectifs.</li>
+<li><strong>Chiffres business</strong> : toujours tirés de
+<code>archive/business-plan-1min.md</code>. Ne jamais re-dériver dans un
+autre fichier sans vérifier.</li>
+<li><strong>Prix &lt; ROI</strong> sur chaque palier client : contrainte
+produit forte, à rappeler dans tous les documents business.</li>
+<li><strong>Tags de source</strong> <code>[MIT]</code> ·
+<code>[HPO]</code> : tagués inline dans <code>PITCH.md</code> et
+<code>BUSINESS_PLAN.md</code>. Ne pas enlever les tags.
+<ul>
+<li><code>[MIT]</code> = MIT Sloan Healthcare Initiative + MIT Media Lab
+Connected Health + benchmark salarial.</li>
+<li><code>[HPO]</code> = Human Phenotype Ontology (Monarch Initiative,
+17 000 phénotypes).</li>
+</ul></li>
+<li><strong>Règle de fraîcheur des données</strong> : toute statistique
+citée doit être postérieure à 2020. Les citations pré-2020 (ex. DREES
+2007) ont été retirées : ne pas les réintroduire.</li>
+<li><strong>Ancrage du pitch</strong> : <code>PITCH.md</code> est
+<strong>ancré</strong> sur la cadence seed / demo-day - Kevin Hale
+(<em>How to pitch your startup</em>) + Michael Seibel (<em>Demo day
+pitch</em>) + Paul Graham (<em>How to convince investors</em>). Le guide
+<em>YC Series A pitch and deck</em> est consulté uniquement pour
+<strong>la structure business</strong> (slide 4 +
+<code>BUSINESS_PLAN.md</code>), <strong>jamais</strong> pour le ton du
+pitch : notre stade est pré-traction, notre format fait 3 minutes. Ne
+pas faire dériver la cadence vers un ton Series A.</li>
+<li><strong>Pas de démo à construire</strong> : on ne code pas de
+back-end, ni de front-end supplémentaire, ni de CI. Tout ce qui existe
+est dans <code>Pedia.html</code>. Captures d'écran uniquement pendant le
+pitch.</li>
+<li><strong>Jamais</strong> de diagnostic posé par l'IA dans les slides,
+le PRD ou le pitch. Toujours dire « pistes non diagnostiques » / «
+assistance à l'anamnèse ». La décision clinique reste au médecin.</li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li>Remote : <code>git@github.com:elomokm/pedia.git</code> (repo partagé
+de l'équipe).</li>
+<li>Ne <strong>jamais</strong> <code>git push</code> sans demander à
+l'utilisateur - les coéquipiers veulent revoir en local.</li>
+<li>Ne <strong>jamais</strong> forcer le push, modifier des commits
+existants, rebase <code>main</code>.</li>
+<li>Commits : courts, en anglais, type conventionnel
+(<code>chore:</code>, <code>docs:</code>, <code>fix:</code>).</li>
+</ul>
+<h2 id="si-on-demande-de-modifier-pediahtml">Si on demande de modifier
+<code>Pedia.html</code></h2>
+<ul>
+<li>Cas légitime : aligner le patient de démo (Louis M., 2 ans) sur le
+personnage de la story du pitch si le prénom change.</li>
+<li>Cas non légitime : refonte graphique, nouvel écran, logique
+interactive. Refuser et proposer une modification ciblée.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>
