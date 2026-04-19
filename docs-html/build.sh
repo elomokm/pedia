@@ -158,4 +158,20 @@ EOF
 make_index EN LABELS
 make_index FR LABELS_FR
 
+# PDF pass: render every html to pdf using headless Chrome.
+if command -v google-chrome >/dev/null 2>&1; then
+  mkdir -p "${OUT_DIR}/pdf"
+  for html in "${OUT_DIR}"/*.html; do
+    base=$(basename "$html" .html)
+    pdf="${OUT_DIR}/pdf/${base}.pdf"
+    google-chrome --headless --no-sandbox --disable-gpu \
+      --no-pdf-header-footer \
+      --print-to-pdf="$pdf" \
+      "file://$html" 2>/dev/null
+    echo "pdf: ${pdf}"
+  done
+else
+  echo "google-chrome not found, skipping PDF pass"
+fi
+
 echo "done."
