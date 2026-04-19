@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - PRD (EN)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · PRD - product requirements</div>
+  <div class="lang">
+    <a class="current">EN</a> · <a href="PRD-FR.html">Français</a> · <a href="index-EN.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - PRD (EN)</h1>
+</header>
+<h1 id="prd---pedia">PRD - Pedia</h1>
+<blockquote>
+<p><strong>Version</strong>: v0.1 hackathon · <strong>Authors</strong>:
+Fanette, Elom, Raoul, Raphaël, Ayda, Anouar · <strong>Updated</strong>:
+April 18, 2026</p>
+</blockquote>
+<h2 id="1-problem">1. Problem</h2>
+<ul>
+<li><strong>4 years</strong> - median diagnostic delay for a pediatric
+rare disease in France. <code>[MIT]</code></li>
+<li><strong>180 days</strong> - clinical signal lost between two
+follow-up visits (3 to 6 months apart in ambulatory pediatrics).</li>
+<li><strong>Parents</strong>: forget, can't find the right words,
+sometimes non-French-speaking, sometimes in a medical desert.</li>
+<li><strong>Pediatricians</strong>: re-anamnesis at every visit, weak
+signals invisible to the naked eye, no longitudinal traceability.</li>
+</ul>
+<h2 id="2-vision">2. Vision</h2>
+<p>Everything seen at home arrives structured at the pediatrician's
+desk, without asking more of the parent and without lengthening the
+consultation.</p>
+<h2 id="3-personas">3. Personas</h2>
+<h3 id="31-camille---parent-daily-user-free">3.1 Camille - parent (daily
+user, <strong>free</strong>)</h3>
+<ul>
+<li>32 yrs old, mother of Louis (2 yrs). Smartphone always at hand.</li>
+<li>Pain: "I forget half of it in the appointment", "I don't know if
+it's normal or not".</li>
+<li>Need: capture in 30 seconds, in the moment, with zero
+form-filling.</li>
+<li>Success: move from a scattered log (sticky notes, iPhone notes,
+photos) to a single thread.</li>
+</ul>
+<h3
+id="32-dr-claire-lemoine---independent-pediatrician-payer---49month">3.2
+Dr. Claire Lemoine - independent pediatrician (<strong>payer -
+€49/month</strong>)</h3>
+<ul>
+<li>44 yrs old, solo practice, 25 consultations/day. RPPS
+10003418927.</li>
+<li>Pain: short consultation to understand 3 months, anamnesis re-built
+from scratch, signals missed between visits.</li>
+<li>Need: walk into the consult with a trustworthy 2-minute
+summary.</li>
+<li>Success: recover 11 hours of clinical time per month (ROI ×21 on
+€49).</li>
+</ul>
+<h3 id="33-hospital-pediatric-service---chu--chg-payer---12kyear">3.3
+Hospital pediatric service - CHU / CHG (<strong>payer -
+€12k/year</strong>)</h3>
+<ul>
+<li>Head of department + nurse coordinator. Long-cohort follow-up (rare,
+chronic, neurodevelopmental).</li>
+<li>Pain: unnecessary reconvocations, under-billed T2A, poor
+coordination with CAMSP / neuropediatrician / ENT.</li>
+<li>Need: shared longitudinal record, structured export, weak-signal
+alerts.</li>
+<li>Success: +€33k/year recovered, 5-month payback.</li>
+</ul>
+<h2 id="4-core-user-stories">4. Core user stories</h2>
+<h3 id="41-parent">4.1 Parent</h3>
+<ul>
+<li><strong>P1</strong> - <em>As a parent, I want to capture a voice
+observation in 30 s, from the home screen, with no navigation.</em> →
+one dominant "Hold to speak" button.</li>
+<li><strong>P2</strong> - <em>As a parent, I want to see my
+chronological thread - voice, text, photo - so I can re-read myself
+before the appointment.</em></li>
+<li><strong>P3</strong> - <em>As a parent, I want to know the next
+appointment is coming and what I logged since the last one.</em></li>
+<li><strong>P4</strong> - <em>As a non-French-speaking parent, I want to
+speak in my native language.</em> (v1 target - multilingual
+pipeline).</li>
+</ul>
+<h3 id="42-pediatrician">4.2 Pediatrician</h3>
+<ul>
+<li><strong>M1</strong> - <em>As a pediatrician, I want to open the file
+and understand the child in 2 minutes before they walk into the
+room.</em></li>
+<li><strong>M2</strong> - <em>As a pediatrician, I want a
+<strong>narrative anamnesis</strong> reconstructed from parental
+observations, structured by the UE 5 semiology categories.</em></li>
+<li><strong>M3</strong> - <em>As a pediatrician, I want a 4-month
+timeline with recurring symptoms.</em></li>
+<li><strong>M4</strong> - <em>As a pediatrician, I want <strong>weak
+signals</strong> - temporal correlations, trends, recurring motifs
+detected across 47+ observations.</em></li>
+<li><strong>M5</strong> - <em>As a pediatrician, I want
+<strong>non-diagnostic pathways to explore</strong> (referrals,
+prerequisite exams) without Pedia posting a diagnosis.</em></li>
+<li><strong>M6</strong> - <em>As a pediatrician, I want to export the
+summary as PDF and share with CAMSP / neuropediatrician / ENT.</em></li>
+</ul>
+<h3 id="43-hospital-service">4.3 Hospital service</h3>
+<ul>
+<li><strong>H1</strong> - <em>As a department manager, I want to deploy
+Pedia on a cohort (e.g. neurodevelopmental) with access audit and
+parental consents.</em></li>
+<li><strong>H2</strong> - <em>As a department head, I want to reduce
+unnecessary reconvocations via weak signals and the pre-consult
+summary.</em></li>
+</ul>
+<h2 id="5-mapping-pediahtml-screens--user-stories">5. Mapping:
+<code>Pedia.html</code> screens → user stories</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Screen</th>
+<th>Name</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>screen-1</code></td>
+<td>Landing / hero</td>
+<td>positioning</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>screen-2</code></td>
+<td>Parent journal (mobile)</td>
+<td>P1, P2, P3</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>screen-3</code></td>
+<td>Voice capture + HPO pipeline</td>
+<td>P1, AI transparency</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>screen-4</code></td>
+<td>Physician dashboard</td>
+<td>M1, M2, M3, M4, M5, M6, H1</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><code>screen-5</code></td>
+<td>Product recap</td>
+<td>vision</td>
+</tr>
+</tbody>
+</table>
+<p>Demo patient: <strong>Louis M.</strong>, 2 years, born 2024-04-12 -
+chief complaint: "recurrent bedtime crises, language delay." 47
+observations over 4 months, 5 detected signals, 2-minute physician read
+estimated.</p>
+<h2 id="6-semiology-coverage---matrix-against-anamnesis_reportmd">6.
+Semiology coverage - matrix against
+<code>ANAMNESIS_REPORT.md</code></h2>
+<p>Pedia must cover <strong>all</strong> categories of UE 5 pediatric
+semiology below, visible in the "Narrative summary · parental anamnesis"
+block of the physician dashboard (<code>screen-4</code>).</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Parent capture source</th>
+<th>Present in dashboard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chief complaint</td>
+<td>top-ranked recurrent observation</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Personal history</td>
+<td>onboarding + dated observations</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Family history</td>
+<td>onboarding</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Medications</td>
+<td>observations + dosing reminders</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Allergies</td>
+<td>onboarding + temporal correlations</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Nutrition</td>
+<td>observations + meal photos</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Growth (weight / height)</td>
+<td>parental weighing + chart photos</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Lifestyle</td>
+<td>daily observations</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Psychomotor development</td>
+<td>declared milestones + vocabulary</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Vaccinations</td>
+<td>imported / declared record</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Symptom - timing</td>
+<td>auto-timestamping</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Symptom - pain (location, intensity)</td>
+<td>voice capture</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Triggers / relievers</td>
+<td>weak-signal correlations</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Tolerance (behavior, nutrition, sleep)</td>
+<td>longitudinal observations</td>
+<td>✅</td>
+</tr>
+<tr class="odd">
+<td>Associated signs</td>
+<td>clinical NER on voice capture</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Circle corroboration</td>
+<td>multi-author observations</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-success-metrics">7. Success metrics</h2>
+<h3 id="71-product-60-days-post-pilot-launch">7.1 Product (60 days
+post-pilot launch)</h3>
+<ul>
+<li>≥ 70% of active pediatricians prescribe Pedia to parents.</li>
+<li>≥ 3 observations / patient / week on average.</li>
+<li>Pre-consult report open rate &gt; 85%.</li>
+</ul>
+<h3 id="72-clinical-6-month-pilot">7.2 Clinical (6-month pilot)</h3>
+<ul>
+<li>Measured physician time saved ≥ 2 min / consultation (safety
+threshold for ROI × 5).</li>
+<li>≥ 1 early referral (CAMSP / specialist) triggered on a weak signal
+per 50-patient cohort.</li>
+<li>Pediatrician NPS &gt; 45.</li>
+</ul>
+<h3 id="73-business">7.3 Business</h3>
+<ul>
+<li>CAC &lt; €300, LTV / CAC &gt; 6.</li>
+<li>Churn &lt; 2% / month.</li>
+<li>500 pediatricians signed after the first post-pilot push (no ARR
+projection at hackathon stage).</li>
+</ul>
+<h2 id="8-technical-pipeline-summary---full-detail-out-of-scope-here">8.
+Technical pipeline (summary - full detail out of scope here)</h2>
+<ol type="1">
+<li><strong>Capture</strong> - voice (hold to speak, 30 s max), text,
+photo. Mobile PWA client + iterable native app.</li>
+<li><strong>Transcription</strong> - Whisper FR (target median latency
+420 ms).</li>
+<li><strong>Clinical NER</strong> - <code>pedia-ner-fr</code> v0.8+
+model extracts entities.</li>
+<li><strong>HPO structuring</strong> - mapping to Human Phenotype
+Ontology (17,000 standardized phenotypes).</li>
+<li><strong>Anonymization + encryption</strong> at rest, HDS-certified
+hosting.</li>
+<li><strong>Pre-consult summary</strong> - specialized LLM generates
+narrative anamnesis + detects weak signals via pattern matching across ≥
+30 observations.</li>
+<li><strong>Export</strong> - PDF + sharing to CAMSP / specialists.</li>
+</ol>
+<h2 id="9-non-goals">9. Non-goals</h2>
+<ul>
+<li>No automated diagnosis. All suggestions are
+<strong>non-diagnostic</strong> and labelled as such.</li>
+<li>No telemedicine, no appointment booking, no billing.</li>
+<li>No replacement for the official French child health record - a
+complement, not a substitute.</li>
+<li>No direct parent-facing health advice outside medical prescription
+(to avoid classifying as MDR class IIa at launch).</li>
+<li>No research cohort management at v1 - targeted at routine clinical
+use.</li>
+</ul>
+<h2 id="10-external-dependencies">10. External dependencies</h2>
+<ul>
+<li><strong>HPO</strong> ontology (Human Phenotype Ontology, open
+license).</li>
+<li><strong>Whisper</strong> for transcription (or an EU-equivalent if
+Schrems II blocks).</li>
+<li><strong>HDS-certified</strong> hosting (OVHcloud / Scaleway /
+Outscale).</li>
+<li><strong>AFPA</strong> partnership (Association Française de
+Pédiatrie Ambulatoire) - independent-pediatrician distribution.</li>
+<li>Access to the <strong>Dyspra Network</strong> / rare-disease hubs -
+clinical validation.</li>
+</ul>
+<h2 id="11-product-risks">11. Product risks</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Risk</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time saved &lt; 2 min in practice</td>
+<td>Chronometered study across 50 pediatricians in the seed-funded
+pilot</td>
+</tr>
+<tr class="even">
+<td>Parents don't capture enough</td>
+<td>Smart push reminders + onboarding via physician prescription</td>
+</tr>
+<tr class="odd">
+<td>Weak-signal false positives erode trust</td>
+<td>Calibrate thresholds, display correlation traceability (r
+values)</td>
+</tr>
+<tr class="even">
+<td>Pediatrician perceives the tool as a threat</td>
+<td>Frame as "physician's tool", never "parent-to-physician
+conduit"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-where-we-are--what-comes-next">12. Where we are · what comes
+next</h2>
+<p>States and triggers, no speculative dates at hackathon stage.</p>
+<ul>
+<li><strong>Today</strong>: HTML mockup (<code>Pedia.html</code>) ·
+semiology skeleton validated by our two MDs.</li>
+<li><strong>If seed-funded - first push</strong>: closed beta with 10
+pilot practices.</li>
+<li><strong>Scale step</strong>: 50-pediatrician chronometered pilot -
+the one number that decides the company is whether time saved per
+consultation is <strong>≥ 2 min</strong>.</li>
+<li><strong>Regulatory scope</strong>: MDR class I, CE mark in scope ·
+DPIA (AIPD) mandatory before open beta.</li>
+<li><strong>Product scope</strong>: multilingual voice pipeline in scope
+· HPO interoperability in scope from day one.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

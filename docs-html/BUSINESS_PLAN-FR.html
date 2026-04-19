@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - BUSINESS_PLAN (FR)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · BUSINESS_PLAN - one-pager seed</div>
+  <div class="lang">
+    <a class="current">FR</a> · <a href="BUSINESS_PLAN-EN.html">English</a> · <a href="index-FR.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - BUSINESS_PLAN (FR)</h1>
+</header>
+<h1 id="business_planmd---pedia">BUSINESS_PLAN.md - Pedia</h1>
+<blockquote>
+<p><strong>Format</strong> : one-pager seed-stage, calé pour une lecture
+VC SF de 90 s (références : YC seed one-pager, a16z seed memo, Sequoia
+seed brief). Pas un deck Series A : on n'a pas la traction. Le guide
+<em>YC Series A pitch and deck</em> est consulté uniquement pour la
+<strong>structure</strong>, pas pour le ton. <strong>Budgets &amp;
+marché</strong> : <code>[MIT]</code> inline sur chaque chiffre sensible.
+<strong>Règle produit</strong> : <strong>prix &lt; ROI client</strong>
+sur chaque palier. Non négociable.</p>
+</blockquote>
+<hr />
+<h2 id="1-pitch-en-une-ligne">1. Pitch en une ligne</h2>
+<p><strong>Pedia transforme 180 jours perdus entre deux consultations
+pédiatriques en un rapport clinique de 2 minutes.</strong></p>
+<p>Les parents capturent (voix / texte / photo, 30 s). L'ontologie HPO
+structure. Le pédiatre lit une anamnèse pré-consultation en 2
+minutes.</p>
+<h2 id="2-problème">2. Problème</h2>
+<p>En pédiatrie ambulatoire française :</p>
+<ul>
+<li><strong>4 ans</strong> : délai diagnostique médian pour une maladie
+rare pédiatrique. <code>[MIT]</code></li>
+<li><strong>180 jours</strong> : signal clinique non observé entre deux
+consultations de suivi (3-6 mois d'écart, cadence typique).</li>
+<li>Les parents oublient, ne trouvent pas les mots cliniques, parfois ne
+parlent pas français.</li>
+<li>Les pédiatres refont l'anamnèse à chaque visite ; les signaux
+faibles sont invisibles à l'œil nu ; la traçabilité longitudinale est
+nulle.</li>
+</ul>
+<h2 id="3-solution--wedge-produit">3. Solution &amp; wedge produit</h2>
+<p><strong>Pedia</strong> est un carnet de santé pédiatrique augmenté,
+<strong>prescrit par le pédiatre</strong> au parent.</p>
+<ul>
+<li><strong>Côté parent (gratuit, pour toujours)</strong> : un bouton, «
+Hold to speak », 30 s max. Voix, texte, photo, horodatés.</li>
+<li><strong>Pipeline</strong> : transcription Whisper → NER clinique
+(<code>pedia-ner-fr</code>) → structuration vers <strong>HPO</strong>
+(17 000 phénotypes standardisés) → anonymisation → hébergement HDS.</li>
+<li><strong>Côté médecin</strong> : synthèse pré-consultation : anamnèse
+narrative par catégorie UE 5, chronologie 4 mois, signaux faibles
+(corrélations temporelles + tendances), pistes non diagnostiques à
+explorer.</li>
+</ul>
+<p><strong>Wedge</strong> : être l'outil que le médecin <strong>prescrit
+au parent</strong>, pas celui que le parent choisit seul. Cela donne (a)
+une distribution quasi gratuite (prescription = canal), (b) un
+engagement de meilleure qualité (prescription = « utilisez-le »), (c) un
+positionnement « outil du médecin », jamais « canal parent-vers-médecin
+» : la clé de l'adoption pédiatrique.</p>
+<h2 id="4-why-now">4. Why now</h2>
+<ul>
+<li><strong>LLM de qualité clinique</strong> : seuil franchi en
+2024-2025, extraction d'entités + mapping ontologique robustes en
+français.</li>
+<li><strong>HPO</strong> : standard européen d'interopérabilité dans les
+filières maladies rares pédiatriques (réseaux ERN).</li>
+<li><strong>Littératie numérique santé parentale</strong> : en hausse
+post-COVID ; la capture vocale est normalisée (messages vocaux, Siri,
+WhatsApp voice).</li>
+<li><strong>Pression ONDAM 2025</strong> sur la pédiatrie ambulatoire +
+T2A hospitalière sous-facturée → fenêtre d'achat.</li>
+</ul>
+<h2 id="5-marché---tam--sam-mit">5. Marché - TAM / SAM
+<code>[MIT]</code></h2>
+<table>
+<thead>
+<tr class="header">
+<th>Segment</th>
+<th>Volume</th>
+<th>Prix moyen</th>
+<th>TAM / an</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pédiatres libéraux (FR)</td>
+<td>10 000</td>
+<td>588 €/an (49 €/mois)</td>
+<td><strong>5,9 M€</strong></td>
+</tr>
+<tr class="even">
+<td>Généralistes voyant des enfants (FR)</td>
+<td>35 000</td>
+<td>588 €/an</td>
+<td><strong>20,6 M€</strong></td>
+</tr>
+<tr class="odd">
+<td>Services pédiatriques hospitaliers (FR)</td>
+<td>450</td>
+<td>12 000 €/an</td>
+<td><strong>5,4 M€</strong></td>
+</tr>
+<tr class="even">
+<td><strong>TAM France</strong></td>
+<td></td>
+<td></td>
+<td><strong>≈ 31 M€</strong> <code>[MIT]</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>SAM prioritaire</strong> (pédiatres libéraux + services
+hospitaliers à haut volume) : <strong>9 M€/an</strong>.</li>
+<li><strong>Expansion UE</strong> : prochaine étape sur le rail
+d'interopérabilité HPO.</li>
+</ul>
+<h2
+id="6-business-model--tarification---prix--roi-sur-chaque-palier-mit">6.
+Business model &amp; tarification - <strong>prix &lt; ROI sur chaque
+palier</strong> <code>[MIT]</code></h2>
+<h3 id="61-parent---gratuit-pour-toujours">6.1 Parent - <strong>gratuit,
+pour toujours</strong></h3>
+<p>Un seul côté du marché paie. Maximise l'adoption parentale et protège
+Pedia de l'image « outil qui facture les familles ».</p>
+<h3 id="62-pédiatre-libéral---49---mois--praticien">6.2 Pédiatre libéral
+- <strong>49 € / mois / praticien</strong></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Calcul</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hypothèse de gain de temps</td>
+<td>4 min / consultation × 25 consult / jour × 20 jours / mois ≈
+<strong>11 h / mois</strong></td>
+</tr>
+<tr class="even">
+<td>Valorisation du temps clinique
+<code>[MIT wage benchmark]</code></td>
+<td>≈ 96 € / h (libéral)</td>
+</tr>
+<tr class="odd">
+<td>Gain mensuel équivalent</td>
+<td><strong>≈ 1 058 € / mois</strong></td>
+</tr>
+<tr class="even">
+<td>Prix Pedia</td>
+<td>49 € / mois</td>
+</tr>
+<tr class="odd">
+<td><strong>ROI</strong></td>
+<td><strong>×21</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Seuil de rentabilité</strong></td>
+<td>≈ <strong>1 min 30 s</strong> gagnées sur l'ensemble du mois</td>
+</tr>
+</tbody>
+</table>
+<p>Le <strong>seuil psychologique &lt; 50 €</strong> permet au pédiatre
+de décider seul sans passer par la comptable du cabinet.</p>
+<h3 id="63-service-hospitalier---12-000---an--service">6.3 Service
+hospitalier - <strong>12 000 € / an / service</strong></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Calcul</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reconvocations évitées</td>
+<td>économies réelles + capacité libérée</td>
+</tr>
+<tr class="even">
+<td>Capacité T2A récupérée</td>
+<td>économies réelles</td>
+</tr>
+<tr class="odd">
+<td>Prix Pedia</td>
+<td>12 k€ / an</td>
+</tr>
+<tr class="even">
+<td><strong>Payback</strong></td>
+<td><strong>&lt; 6 mois</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-upsell-optionnel-plus-tard">6.4 Upsell (optionnel, plus
+tard)</h3>
+<p>Palier <strong>Premium 79 €/mois</strong> pour les pédiatres libéraux
+: conseils vaccinaux automatisés basés HAS, alertes de santé publique,
+export DPI.</p>
+<h2 id="7-cibles-dunit-economics">7. Cibles d'unit economics</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Métrique</th>
+<th>Cible</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CAC pédiatre libéral</td>
+<td><strong>&lt; 300 €</strong> (AFPA + congrès + bouche-à-oreille
+prescripteur)</td>
+</tr>
+<tr class="even">
+<td>LTV pédiatre libéral</td>
+<td><strong>&gt; 1 800 €</strong> (3 ans × 588 €/an × rétention
+nette)</td>
+</tr>
+<tr class="odd">
+<td><strong>LTV / CAC</strong></td>
+<td><strong>&gt; 6</strong></td>
+</tr>
+<tr class="even">
+<td>Churn mensuel</td>
+<td><strong>&lt; 2 %</strong></td>
+</tr>
+<tr class="odd">
+<td>Marge brute</td>
+<td><strong>&gt; 85 %</strong> (SaaS 100 % UE)</td>
+</tr>
+<tr class="even">
+<td>Payback CAC</td>
+<td><strong>&lt; 6 mois</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-go-to-market--ce-quon-fait-si-seed-funded">8. Go-to-market :
+ce qu'on fait si seed-funded</h2>
+<p>Pas de spéculation mois par mois. Deux phases :</p>
+<h3 id="premier-push-avec-financement-seed">Premier push (avec
+financement seed)</h3>
+<ul>
+<li>Partenariat de distribution <strong>AFPA</strong> (Association
+Française de Pédiatrie Ambulatoire).</li>
+<li><strong>Congrès pédiatriques</strong> (JFRP, Printemps de la
+Pédiatrie) : stand + ateliers chronométrés.</li>
+<li><strong>Bouche-à-oreille prescripteur</strong> : chaque pédiatre
+satisfait prescrit à 30-50 familles.</li>
+</ul>
+<h3 id="ensuite-si-le-pilote-valide">Ensuite, si le pilote valide</h3>
+<ul>
+<li>Pilote <strong>2 CHU</strong> (Necker, Lyon Sud : déjà listés comme
+supporters sur la landing).</li>
+<li>FMC (formation médicale continue) intégrant Pedia dans la formation
+à l'anamnèse.</li>
+<li><strong>CNAM</strong> : remboursement partiel via un code CCAM dédié
+« synthèse pré-consultation pédiatrique ».</li>
+<li><strong>ARS</strong> : dispositifs régionaux maladies rares /
+dépistage neurodéveloppemental.</li>
+</ul>
+<h3 id="expansion-ue">Expansion UE</h3>
+<p>L'interopérabilité HPO ouvre DE / ES / IT / BE / NL une fois la
+France validée. Partenaire de distribution local par pays.</p>
+<h2 id="9-où-on-en-est--prochaine-étape-concrète">9. Où on en est ·
+prochaine étape concrète</h2>
+<ul>
+<li><strong>Aujourd'hui</strong> : prototype HTML
+(<code>Pedia.html</code>) + squelette sémiologique validé par nos deux
+médecins.</li>
+<li><strong>Première étape concrète avec financement seed</strong> :
+bêta fermée avec 10 cabinets pilotes.</li>
+<li><strong>L'étape qui décide de la société</strong> : pilote
+chronométré 50 pédiatres répondant à une question : <strong>le temps
+gagné par consultation est-il ≥ 2 min ?</strong> Si oui, le ROI ×21
+tient et le GTM passe à l'échelle.</li>
+<li><strong>Marquage CE classe I</strong> dans le scope ; DPIA (AIPD)
+obligatoire avant la bêta ouverte.</li>
+</ul>
+<p>Pas de projection d'ARR au stade hackathon. On aura de l'ARR quand on
+aura des pilotes payants.</p>
+<h2 id="10-concurrence--moat">10. Concurrence &amp; moat</h2>
+<h3 id="101-paysage">10.1 Paysage</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Acteur</th>
+<th>Ce qu'ils font</th>
+<th>Pourquoi ce n'est pas nous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Doctolib</strong></td>
+<td>Prise de rendez-vous + téléconsult</td>
+<td>Pas de capture longitudinale parent-enfant</td>
+</tr>
+<tr class="even">
+<td><strong>Qare / Livi</strong></td>
+<td>Téléconsult urgent</td>
+<td>Pas de suivi, pas spécifique à la pédiatrie</td>
+</tr>
+<tr class="odd">
+<td><strong>DMP</strong> (Dossier Médical Partagé)</td>
+<td>Agrégation institutionnelle</td>
+<td>Pas d'observation parentale, pas d'IA</td>
+</tr>
+<tr class="even">
+<td><strong>MyChart / Epic MyChart EU</strong></td>
+<td>Portail patient</td>
+<td>Pas de capture libre, pas d'HPO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="102-moat-12-18-mois-pour-copier">10.2 Moat (12-18 mois pour
+copier)</h3>
+<ol type="1">
+<li><strong>Ontologie HPO pédiatrique française</strong> : mapping
+éprouvé depuis des observations parentales non structurées.</li>
+<li><strong>Pipeline voix multilingue</strong> : FR en v0, 5 langues UE
+en v1.</li>
+<li><strong>Distribution prescrite par le médecin</strong> : difficile à
+répliquer sans partenariats cliniques.</li>
+<li><strong>Étude clinique publiée</strong> : argument régulatoire et
+barrière à l'entrée (planifiée post-pilote).</li>
+</ol>
+<h2 id="11-régulatoire">11. Régulatoire</h2>
+<ul>
+<li><strong>Statut</strong> : SaaS → <strong>dispositif médical classe
+I</strong> au lancement. Classe IIa envisagée uniquement si ajout d'une
+aide au diagnostic active (hors scope v1).</li>
+<li><strong>Marquage CE</strong> : dans le scope.</li>
+<li><strong>RGPD</strong> : consentement parental explicite (Art.
+9-2-a). Mineur &lt; 15 ans.</li>
+<li><strong>HDS</strong> : hébergement certifié obligatoire (OVHcloud
+HDS ou Scaleway HDS).</li>
+<li><strong>DPIA (AIPD)</strong> : obligatoire (donnée santé + mineur +
+profilage IA) avant la bêta ouverte.</li>
+<li><strong>Brief complet</strong> : voir <code>RGPD.md</code>.</li>
+</ul>
+<h2 id="12-équipe">12. Équipe</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Prénom</th>
+<th>Rôle</th>
+<th>Pourquoi critique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fanette</strong></td>
+<td>dev</td>
+<td>Produit + UX côté parent</td>
+</tr>
+<tr class="even">
+<td><strong>Elom</strong></td>
+<td>dev</td>
+<td>Pipeline voix → HPO</td>
+</tr>
+<tr class="odd">
+<td><strong>Raoul</strong></td>
+<td>dev + business</td>
+<td>GTM pédiatre libéral + ops</td>
+</tr>
+<tr class="even">
+<td><strong>Raphaël</strong></td>
+<td>dev + business</td>
+<td>Hôpital + régulatoire</td>
+</tr>
+<tr class="odd">
+<td><strong>Ayda</strong></td>
+<td>MD</td>
+<td>Validation sémiologique + réseau clinique</td>
+</tr>
+<tr class="even">
+<td><strong>Anouar</strong></td>
+<td>MD</td>
+<td>Anamnèse + filières maladies rares</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deux médecins dans l'équipe</strong> : crédibilité clinique
+qu'aucun concurrent 100 % tech ne peut répliquer à notre stade.</p>
+<h2 id="13-usage-des-fonds--demande-pre-seed">13. Usage des fonds /
+demande (pre-seed)</h2>
+<p><strong>Tour pre-seed : 400 k€</strong>, trois livrables.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Poste</th>
+<th>Allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tech (pipeline HPO, mobile, infra HDS)</td>
+<td>180 k€</td>
+</tr>
+<tr class="even">
+<td>Pilote chronométré 50 pédiatres (comp + data)</td>
+<td>80 k€</td>
+</tr>
+<tr class="odd">
+<td>Marquage CE (dossier technique + organisme notifié)</td>
+<td>60 k€</td>
+</tr>
+<tr class="even">
+<td>Conformité (DPO externe, DPIA, audit HDS)</td>
+<td>40 k€</td>
+</tr>
+<tr class="odd">
+<td>GTM premier push (AFPA, congrès, onboarding)</td>
+<td>40 k€</td>
+</tr>
+</tbody>
+</table>
+<p><strong>État en sortie de tour</strong> : pilote validé, 2 hôpitaux
+dans le pipeline, CE marqué, prêts pour un Seed 1,5-2 M€.</p>
+<h2 id="14-risques--mitigations">14. Risques &amp; mitigations</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Risque</th>
+<th>Probabilité</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gain de temps mesuré &lt; 2 min</td>
+<td>Moyen</td>
+<td>Élevé (ROI)</td>
+<td>Pilote chronométré · seuil de sécurité à 1 min → ROI toujours
+×5</td>
+</tr>
+<tr class="even">
+<td>Cycle de vente hôpital long</td>
+<td>Élevé</td>
+<td>Moyen</td>
+<td>Démarrer les conversations hôpital en parallèle, ne pas dépendre du
+canal tôt</td>
+</tr>
+<tr class="odd">
+<td>Doctolib / Qare clonent la feature</td>
+<td>Moyen</td>
+<td>Moyen</td>
+<td>Moat HPO + multilingue = 12-18 mois · publier l'étude clinique
+vite</td>
+</tr>
+<tr class="even">
+<td>Marquage CE refusé / retardé</td>
+<td>Faible</td>
+<td>Élevé</td>
+<td>Classe I est le niveau minimum · dossier technique préparé par
+expert régulatoire</td>
+</tr>
+<tr class="odd">
+<td>Sur-signalement parental → anxiété</td>
+<td>Moyen</td>
+<td>Moyen</td>
+<td>Pas d'alertes côté parent · signaux visibles côté médecin
+uniquement</td>
+</tr>
+<tr class="even">
+<td>Rejet pédiatre (« encore un logiciel »)</td>
+<td>Moyen</td>
+<td>Élevé</td>
+<td>Positionnement « outil du médecin » · UX 2 min · prescrit par le
+pédiatre lui-même</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-sources">15. Sources</h2>
+<h3 id="contenu-mit--hpo">Contenu <code>[MIT]</code> +
+<code>[HPO]</code></h3>
+<ul>
+<li><strong>MIT Sloan Healthcare Initiative</strong> : rapports sur le
+coût de prise en charge pédiatrique et le délai diagnostique (cohorte
+comparable France).</li>
+<li><strong>MIT Media Lab Connected Health</strong> : capture numérique
+parentale et suivi pédiatrique longitudinal.</li>
+<li><strong>MIT wage benchmark</strong> : valorisation du temps des
+professionnels de santé, ajustée France.</li>
+<li><strong>HPO / Monarch Initiative</strong> : 17 000 phénotypes
+standardisés · <a
+href="https://hpo.jax.org">https://hpo.jax.org</a></li>
+<li>Compléments : Orphanet (maladies rares FR), HAS (recommandations
+TND), annuaire Santé CNAM (compte pédiatres + généralistes FR).</li>
+</ul>
+<h3 id="références-de-forme-pitch--business-doc-seed-stage">Références
+de forme (pitch / business doc seed-stage)</h3>
+<ul>
+<li>Kevin Hale - <em>How to pitch your startup</em> · YC · <a
+href="https://www.ycombinator.com/library/6q-how-to-pitch-your-company">https://www.ycombinator.com/library/6q-how-to-pitch-your-company</a></li>
+<li>Michael Seibel - <em>How to build the perfect demo day pitch</em> ·
+YC · <a
+href="https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch">https://www.ycombinator.com/library/6s-how-to-build-the-perfect-demo-day-pitch</a></li>
+<li>Paul Graham - <em>How to convince investors</em> · <a
+href="http://paulgraham.com/convince.html">http://paulgraham.com/convince.html</a></li>
+<li><em>How to build a great Series A pitch and deck</em> · YC · <a
+href="https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck">https://www.ycombinator.com/library/8d-how-to-build-a-great-series-a-pitch-and-deck</a>
+: <strong>consulté pour la structure du one-pager uniquement, pas pour
+la cadence du pitch.</strong></li>
+</ul>
+<hr />
+<p><em>Dernière mise à jour : 2026-04-18, avant le pitch final du
+Hackathon ANDCS × MIT 2026, Track 2 AI in Pediatrics.</em></p>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

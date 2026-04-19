@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - CLAUDE (EN)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · CLAUDE - guidance for Claude Code</div>
+  <div class="lang">
+    <a class="current">EN</a> · <a href="CLAUDE-FR.html">Français</a> · <a href="index-EN.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - CLAUDE (EN)</h1>
+</header>
+<h1 id="claudemd---guidance-for-claude-code-in-this-repo">CLAUDE.md -
+guidance for Claude Code in this repo</h1>
+<h2 id="what-pedia-is">What Pedia is</h2>
+<p><strong>Augmented pediatric health record.</strong> Parents capture
+observations (voice / text / photo, 30 s); an AI structures them through
+the <strong>HPO</strong> ontology; the pediatrician reads a pre-consult
+anamnesis in <strong>2 minutes</strong>.</p>
+<p>Goal: compress the <strong>4-year</strong> median diagnostic delay of
+a pediatric rare disease down to a few months.</p>
+<p><strong>Do not confuse</strong>: the earlier <code>README.md</code>
+mentioned "neodose" - that's an abandoned direction. The current product
+is <strong>Pedia</strong> (formerly MyOntologyNote).</p>
+<h2 id="hackathon-context">Hackathon context</h2>
+<ul>
+<li><strong>ANDCS × MIT Hackathon 2026</strong> (17–19 April, Epitech
+Paris, Kremlin-Bicêtre), <strong>Track 2 - AI in Pediatrics</strong>.
+Internal nickname "Cosmic Harp" is informal; official strings use the
+full event + track name.</li>
+<li><strong>Pitch</strong>: 3 min + 2 min Q&amp;A. Slides only during
+the pitch (no live demo, no software to launch). Demo = screenshots of
+<code>Pedia.html</code>.</li>
+<li><strong>Goal is to win</strong> - every document must be usable
+as-is by the team on the day.</li>
+</ul>
+<h2 id="team">Team</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Names</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dev</td>
+<td>Fanette, Elom</td>
+</tr>
+<tr class="even">
+<td>Dev + business</td>
+<td>Raoul, Raphaël</td>
+</tr>
+<tr class="odd">
+<td>MD</td>
+<td>Ayda, Anouar</td>
+</tr>
+</tbody>
+</table>
+<p>The MD profiles (Ayda, Anouar) are the semiology source of truth -
+every clinical claim must go through them before the pitch.</p>
+<h2 id="repo-map">Repo map</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File / folder</th>
+<th>Role</th>
+<th>Don't touch without reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Pedia.html</code></td>
+<td>HTML mockup of the demo (5 screens, 1523 lines)</td>
+<td>yes - this is the source of the screenshots shown to the jury</td>
+</tr>
+<tr class="even">
+<td><code>ANAMNESIS_REPORT.md</code></td>
+<td>semiology skeleton (UE 5 pediatrics)</td>
+<td>yes - source of truth for categories</td>
+</tr>
+<tr class="odd">
+<td><code>PITCH.md</code></td>
+<td>slide-by-slide pitch script</td>
+<td>edited often during rehearsals</td>
+</tr>
+<tr class="even">
+<td><code>PRD.md</code></td>
+<td>product requirements</td>
+<td>edited rarely</td>
+</tr>
+<tr class="odd">
+<td><code>BUSINESS_PLAN.md</code></td>
+<td>business plan (SF one-pager format, <code>[MIT]</code> sources)</td>
+<td>edited often, but <strong>don't let the numbers drift</strong> -
+<code>archive/business-plan-1min.md</code> is the source of truth</td>
+</tr>
+<tr class="even">
+<td><code>PRACTICE_QUESTIONS.md</code></td>
+<td>jury Q&amp;A</td>
+<td>edited often</td>
+</tr>
+<tr class="odd">
+<td><code>RGPD.md</code></td>
+<td>internal regulatory brief (RGPD = French GDPR)</td>
+<td>yes - validated by the MDs</td>
+</tr>
+<tr class="even">
+<td><code>archive/business-plan-1min.md</code></td>
+<td>historical business figures, <strong>source of truth</strong></td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td><code>references/UE 5 Référentiel-Sémiologie Adulte et Pédiatrie.pdf</code></td>
+<td>pediatric semiology reference</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td><code>final-pitch/</code></td>
+<td>day-of deliverables</td>
+<td>write here when asked</td>
+</tr>
+<tr class="odd">
+<td><code>practice-pitch-2/</code></td>
+<td>work-in-progress drafts</td>
+<td>playground</td>
+</tr>
+<tr class="even">
+<td><code>participant-handbook.zip</code></td>
+<td>hackathon organization doc, <strong>gitignored</strong></td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rules">Rules</h2>
+<ul>
+<li><strong>Doc language</strong>: <strong>English</strong> (user
+decision - the team may pitch in English, the jury is bilingual, and it
+keeps the source material portable). Do not retranslate to French
+without explicit confirmation.</li>
+<li><strong>Tone</strong>: concise, direct. No empty marketing. Numbers
+&gt; adjectives.</li>
+<li><strong>Business numbers</strong>: always pull from
+<code>archive/business-plan-1min.md</code>. Never re-derive in another
+file without verifying.</li>
+<li><strong>Price &lt; ROI</strong> on every client tier - strong
+product constraint, must be restated in every business doc.</li>
+<li><strong>Source tags</strong> <code>[MIT]</code> · <code>[HPO]</code>
+- tagged inline in <code>PITCH.md</code> and
+<code>BUSINESS_PLAN.md</code>. Do not remove the tags.
+<ul>
+<li><code>[MIT]</code> = MIT Sloan Healthcare Initiative + MIT Media Lab
+Connected Health + wage benchmark.</li>
+<li><code>[HPO]</code> = Human Phenotype Ontology (Monarch Initiative,
+17,000 phenotypes).</li>
+</ul></li>
+<li><strong>Data recency rule</strong>: every cited statistic must be
+post-2020. Pre-2020 citations (e.g. DREES 2007) were retired - do not
+reintroduce.</li>
+<li><strong>Pitch anchors</strong>: <code>PITCH.md</code> is
+<strong>anchored</strong> on seed / demo-day cadence - Kevin Hale
+(<em>How to pitch your startup</em>) + Michael Seibel (<em>Demo day
+pitch</em>) + Paul Graham (<em>How to convince investors</em>). The
+<em>YC Series A pitch and deck</em> guide is consulted for
+<strong>business structure</strong> only (slide 4 +
+<code>BUSINESS_PLAN.md</code>), <strong>never</strong> for the pitch
+tone - our stage is pre-traction, our format is 3 minutes. Do not
+migrate the cadence toward a Series A tone.</li>
+<li><strong>No demo to build</strong>: we don't code a backend,
+additional frontend, or CI. Everything that exists is in
+<code>Pedia.html</code>. Screenshots only during the pitch.</li>
+<li><strong>Never</strong> let the AI post a diagnosis in the slides,
+PRD, or pitch. Always say "non-diagnostic pathways" / "anamnesis
+assistance". The clinical decision stays with the physician.</li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li>Remote: <code>git@github.com:elomokm/pedia.git</code> (shared team
+repo).</li>
+<li><strong>Never</strong> <code>git push</code> without asking the user
+- teammates want to review locally first.</li>
+<li><strong>Never</strong> force-push, amend existing commits, rebase
+<code>main</code>.</li>
+<li>Commits: short, English, conventional type (<code>chore:</code>,
+<code>docs:</code>, <code>fix:</code>).</li>
+</ul>
+<h2 id="if-asked-to-modify-pediahtml">If asked to modify
+<code>Pedia.html</code></h2>
+<ul>
+<li>Legitimate case: align the demo patient (Louis M., 2 years) with the
+pitch story character if the first name changes.</li>
+<li>Illegitimate case: graphic overhaul, new screen, interactive logic.
+Refuse and propose a targeted change.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>

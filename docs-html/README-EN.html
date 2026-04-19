@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pedia - README (EN)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand">Pedia</span> · README - project orientation</div>
+  <div class="lang">
+    <a class="current">EN</a> · <a href="README-FR.html">Français</a> · <a href="index-EN.html">index</a>
+  </div>
+</header>
+<header id="title-block-header">
+<h1 class="title">Pedia - README (EN)</h1>
+</header>
+<h1 id="pedia">Pedia</h1>
+<p><strong>Augmented pediatric health record.</strong> So nothing is
+ever lost between two consultations.</p>
+<p>Parents capture day-to-day observations - voice, text, photo, 30
+seconds is enough. Pedia structures those observations into clinical
+language through the HPO ontology. Before each appointment, the
+pediatrician receives an actionable pre-consult report readable in
+<strong>2 minutes</strong>: narrative anamnesis, trend curves, weak
+signals, non-diagnostic pathways to explore.</p>
+<h2 id="why">Why</h2>
+<ul>
+<li><strong>4 years</strong> - median diagnostic delay for a pediatric
+rare disease in France.</li>
+<li><strong>180 days</strong> - clinical signal lost between two
+follow-up visits.</li>
+</ul>
+<p>Pedia compresses those 4 years into a few months - without asking
+more of the parent, without lengthening the consultation.</p>
+<h2 id="team">Team</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>Fanette, Elom</td>
+<td>dev</td>
+</tr>
+<tr class="even">
+<td>Raoul, Raphaël</td>
+<td>dev + business</td>
+</tr>
+<tr class="odd">
+<td>Ayda, Anouar</td>
+<td>MD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="run-the-demo">Run the demo</h2>
+<pre><code>open Pedia.html</code></pre>
+<p>Standalone HTML mockup (no build, no dependency). 5 screens -
+landing, parent view, voice capture, physician dashboard, recap.
+Navigate with arrow keys or the footer controls.</p>
+<h2 id="hackathon-track">Hackathon track</h2>
+<p><strong>Track 2 - AI in Pediatrics</strong>, ANDCS × MIT Hackathon
+2026 (17–19 April, Epitech Paris, Kremlin-Bicêtre). Pitch format: 3 min
++ 2 min Q&amp;A, slides only (demo = screenshots of
+<code>Pedia.html</code>).</p>
+<h2 id="repo-layout">Repo layout</h2>
+<pre><code>Pedia.html              - HTML mockup of the demo (5 screens)
+ANAMNESIS_REPORT.md     - reference semiology skeleton (UE 5 pediatrics)
+PITCH.md                - slide-by-slide pitch script
+PRD.md                  - product requirements
+BUSINESS_PLAN.md        - business plan (seed one-pager, MIT-sourced)
+PRACTICE_QUESTIONS.md   - jury Q&amp;A prep (2 min)
+RGPD.md                 - internal regulatory brief (French GDPR = RGPD)
+CLAUDE.md               - project guidance for Claude Code
+archive/                - prior pitch materials
+references/             - UE 5 pediatric semiology reference
+final-pitch/            - day-of deliverables
+practice-pitch-2/       - work-in-progress drafts</code></pre>
+<h2 id="what-pedia-is-not">What Pedia is not</h2>
+<ul>
+<li>Not a diagnostic tool - suggestions are non-diagnostic; the clinical
+decision stays with the physician.</li>
+<li>Not a telehealth consultation - Pedia prepares the appointment, it
+does not replace it.</li>
+<li>Not the official child health record - a complement, not a
+substitute.</li>
+</ul>
+<footer>Pedia · Hackathon ANDCS × MIT 2026 · Track 2 - AI in Pediatrics · rendered 2026-04-19</footer>
+</body>
+</html>
